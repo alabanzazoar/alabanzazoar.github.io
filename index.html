@@ -18,6 +18,14 @@
         <input type="text" id="query" placeholder="Buscar canto" autocomplete="off">
         <button type="submit">Buscar</button>
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="pie">MINISTERIOS ZOAR 2025</p>
     <script>
         const elementos = [
             "ALGO ESTÁ CAYENDO AQUÍ",
@@ -47,15 +55,14 @@
                 htmlContent += '</ul>';
 
                 Swal.fire({
-                    title: 'Resultados de búsqueda',
+                    title: 'Resultados',
                     html: htmlContent,
                     showCloseButton: true
                 });
             } else {
                 Swal.fire({
                     title: 'No se encontraron resultados',
-                    text: 'Intenta con otra búsqueda.',
-                    icon: 'warning'
+                    text: 'Intenta con otra búsqueda.'
                 });
             }
         });
