@@ -1,0 +1,201 @@
+.titulo1{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   text-align: left;
+}
+
+.titulo2{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 20px;
+   text-align: center;
+}
+
+.titulo3{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   white-space: pre;
+   font-size: 15px;
+   text-align: center;
+}
+
+.titulo4 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: left;
+}
+
+.titulo5 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: center;
+}
+
+.color-azul{
+   color: rgb(4, 130, 180);
+}
+.color-rojo{
+   font-size: 15px;
+   color: red;
+}
+.boton1{
+   text-align: right;
+   position: relative;
+   left: 910px;
+}
+.boton2{
+   position: relative;
+   left: 915px;
+}
+.boton3{
+   position: relative;
+   left: 920px;
+}
+.boton4{
+   position: relative;
+   left: 925px;
+}
+.tono{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: right;
+}
+.nota{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   text-align: left;
+   font-weight: bold;
+}
+.nota1{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: -50px;
+}
+.nota2{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: 10px;
+}
+
+.pie{
+   text-align: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.buscarCanto{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+}
+
+.buscadorForm {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+#nota6 {
+   position: relative;
+   left: -65px;
+}
+
+#nota7 {
+   position: relative;
+   left: -60px;
+}
+
+#nota8 {
+   position: relative;
+   left: -50px;
+}
+
+#nota9 {
+   position: relative;
+   left: -50px;
+
+}#nota10 {
+   position: relative;
+   left: -10px;
+}
+
+#nota10 {
+   position: relative;
+   left: -10px;
+}
+
+#nota11 {
+   position: relative;
+   left: -55px;
+}
+
+#nota12 {
+   position: relative;
+   left: -45px;
+}
+
+#nota13 {
+   position: relative;
+   left: -40px;
+}
+
+#nota14 {
+   position: relative;
+   left: -40px;
+}
+
+#nota15 {
+   position: relative;
+   left: -10px;
+}
+
+
+#nota22 {
+   position: relative;
+   left: 65px;
+}
+
+#nota23 {
+   position: relative;
+   left: -30px;
+}
+
+#nota24 {
+   position: relative;
+   left: 60px;
+}
+
+#nota25 {
+   position: relative;
+   left: 80px;
+}
+
+#nota26 {
+   position: relative;
+   left: 30px;
+}
+
+#nota27 {
+   position: relative;
+   left: -52px;
+}
+
+#nota28 {
+   position: relative;
+   left: -48px;
+}
+
+#nota29 {
+   position: relative;
+   left: -44px;
+}
+
+#nota30 {
+   position: relative;
+   left: -40px;
+}
+
+body {
+   background-color: white;
+}
+
+
