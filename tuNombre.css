@@ -39,38 +39,25 @@
    color: red;
 }
 
-#boton {
+button {
    background-color: #003366; /* Azul oscuro */
    color: white;
    border: none;
-   padding: 10px 20px;
+   padding: 10px 15px;
    text-align: left;
    text-decoration: none;
    display: inline-block;
-   font-size: 14px;
+   font-size: 10px;
    margin: 4px 2px;
    cursor: pointer;
-   border-radius: 5px;
+   border-radius: 3px;
    transition: background-color 0.3s ease;
 }
 
-.boton1{
-   text-align: right;
-   position: relative;
-   left: 910px;
+button:hover {
+   background-color: #00509e; /* Azul más claro al pasar el ratón */
 }
-.boton2{
-   position: relative;
-   left: 915px;
-}
-.boton3{
-   position: relative;
-   left: 920px;
-}
-.boton4{
-   position: relative;
-   left: 925px;
-}
+
 .tono{
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-size: 15px;
