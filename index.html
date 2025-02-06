@@ -51,6 +51,8 @@
                     resultadosSelect.appendChild(option);
                 });
 
+                resultadosSelect.focus(); // Forzar el enfoque en el <select>
+
                 resultadosSelect.addEventListener('change', function() {
                     const selectedOption = resultadosSelect.options[resultadosSelect.selectedIndex];
                     window.location.href = selectedOption.value;
