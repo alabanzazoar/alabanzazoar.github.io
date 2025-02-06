@@ -66,3 +66,13 @@ button:hover {
    text-align: center;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.pie-container {
+   display: flex;
+   align-items: center;
+}
+.pie-container img {
+   width: 50px; /* Ajusta el tamaño según tus necesidades */
+   height: auto; /* Mantiene la proporción de la imagen */
+   margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
