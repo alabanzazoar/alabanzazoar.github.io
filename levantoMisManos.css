@@ -75,11 +75,6 @@ button:hover {
    position: relative;
    left: -50px;
 }
-.nota2{
-   color: rgb(4, 130, 180);
-   position: relative;
-   left: 10px;
-}
 
 .pie{
    text-align: center;
@@ -118,4 +113,123 @@ body {
        width: 100%;
        font-size: 16px;
    }
+}
+
+#nota39 {
+   position: relative;
+   left: -25px;
+}
+
+#nota40 {
+   position: relative;
+   left: 25px;
+}
+
+#nota41 {
+   position: relative;
+   left: 50px;
+}
+
+#nota42 {
+   position: relative;
+   left: 85px;
+}
+
+#nota43 {
+   position: relative;
+   left: 100px;
+}
+
+#signo1 {
+   position: relative;
+   left: 101px;
+}
+
+#nota44 {
+   position: relative;
+   left: 102px;
+}
+
+#nota45 {
+   position: relative;
+   left: 108px;
+}
+
+#nota46 {
+   position: relative;
+   left: 50px;
+}
+
+#nota47 {
+   position: relative;
+   left: 45px;
+}
+
+#signo2 {
+   position: relative;
+   left: 48px;
+}
+
+#nota48 {
+   position: relative;
+   left: 49px;
+}
+
+#nota49 {
+   position: relative;
+   left: 90px;
+}
+
+#nota50 {
+   position: relative;
+   left: 95px;
+}
+
+#signo3 {
+   position: relative;
+   left: 96px;
+}
+
+#nota54 {
+   position: relative;
+   left: -10px;
+
+}#nota55 {
+   position: relative;
+   left: 95px;
+}
+
+#nota57 {
+   position: relative;
+   left: 60px;
+}
+
+#signo4 {
+   position: relative;
+   left: 61px;
+}
+
+#nota58 {
+   position: relative;
+   left: 62px;
+}
+
+#nota59 {
+   position: relative;
+   left: 65px;
+}
+
+#nota60 {
+   position: relative;
+   left: 85px;
+}
+
+#signo5 {
+   position: relative;
+   left: 86px;
+}
+
+#nota65 {
+   position: relative;
+   left: 70px;
 }
