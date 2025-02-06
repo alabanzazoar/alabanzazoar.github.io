@@ -38,6 +38,22 @@
    font-size: 15px;
    color: red;
 }
+
+.button {
+   background-color: #003366; /* Azul oscuro */
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 14px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+
 .boton1{
    text-align: right;
    position: relative;
