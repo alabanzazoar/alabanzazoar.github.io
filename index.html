@@ -10,7 +10,7 @@
     <br>
     <h1 class="buscarCanto">Buscar Canto</h1>
     <form id="buscadorForm">
-        <input type="text" id="query" placeholder="Buscar...">
+        <input type="text" id="query" placeholder="Buscar..." autocomplete="off">
         <button type="submit">Buscar</button>
     </form>
     <br>
@@ -50,8 +50,6 @@
                     option.textContent = resultado;
                     resultadosSelect.appendChild(option);
                 });
-
-                resultadosSelect.focus(); // Forzar el enfoque en el <select>
 
                 resultadosSelect.addEventListener('change', function() {
                     const selectedOption = resultadosSelect.options[resultadosSelect.selectedIndex];
