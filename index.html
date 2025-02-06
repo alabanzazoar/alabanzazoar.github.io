@@ -4,6 +4,7 @@
     <title>Alabanza Zoar</title>
     <link rel="stylesheet" href="misEstilos3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <br>
@@ -35,30 +36,29 @@
         let contador = 0;
 
         document.getElementById('query').addEventListener('input', function() {
-            const query = document.getElementById('query').value.toLowerCase();
-            const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
+        const query = document.getElementById('query').value.toLowerCase();
+        const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
 
-            const resultadosSelect = document.getElementById('resultados');
-            resultadosSelect.innerHTML = ''; // Limpia los resultados anteriores
+        if (resultados.length > 0) {
+            let htmlContent = '<ul>';
+            resultados.forEach((resultado, index) => {
+                htmlContent += `<li><a href="${listaCanciones[elementos.indexOf(resultado)]}">${resultado}</a></li>`;
+            });
+            htmlContent += '</ul>';
 
-            if (resultados.length > 0) {
-                resultados.forEach((resultado, index) => {
-                    const option = document.createElement('option');
-                    option.value = listaCanciones[elementos.indexOf(resultado)];
-                    option.textContent = resultado;
-                    resultadosSelect.appendChild(option);
-                });
-
-                resultadosSelect.addEventListener('change', function() {
-                    const selectedOption = resultadosSelect.options[resultadosSelect.selectedIndex];
-                    window.location.href = selectedOption.value;
-                });
-            } else {
-                const option = document.createElement('option');
-                option.textContent = "No se encontraron resultados.";
-                resultadosSelect.appendChild(option);
-            }
-        });
+            Swal.fire({
+                title: 'Resultados de búsqueda',
+                html: htmlContent,
+                showCloseButton: true
+            });
+        } else {
+            Swal.fire({
+                title: 'No se encontraron resultados',
+                text: 'Intenta con otra búsqueda.',
+                icon: 'warning'
+            });
+        }
+    });
 
     </script>
 </body>
