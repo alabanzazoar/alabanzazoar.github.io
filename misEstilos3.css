@@ -54,3 +54,10 @@ button:hover {
    background-color: #ffffff; /* Fondo blanco */
    color: #003366; /* Texto azul oscuro */
 }
+
+@media (max-width: 600px) {
+   #query {
+       width: 100%;
+       font-size: 16px;
+   }
+}
