@@ -32,33 +32,32 @@
             'TU_NOMBRE.html'
         ];
 
-        let cantosSeleccionados = [];
-        let contador = 0;
+        document.getElementById('buscadorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe
 
-        document.getElementById('query').addEventListener('input', function() {
-        const query = document.getElementById('query').value.toLowerCase();
-        const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
+            const query = document.getElementById('query').value.toLowerCase();
+            const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
 
-        if (resultados.length > 0) {
-            let htmlContent = '<ul>';
-            resultados.forEach((resultado, index) => {
-                htmlContent += `<li><a href="${listaCanciones[elementos.indexOf(resultado)]}">${resultado}</a></li>`;
-            });
-            htmlContent += '</ul>';
+            if (resultados.length > 0) {
+                let htmlContent = '<ul>';
+                resultados.forEach((resultado, index) => {
+                    htmlContent += `<li><a href="${listaCanciones[elementos.indexOf(resultado)]}">${resultado}</a></li>`;
+                });
+                htmlContent += '</ul>';
 
-            Swal.fire({
-                title: 'Resultados',
-                html: htmlContent,
-                showCloseButton: true
-            });
-        } else {
-            Swal.fire({
-                title: 'No se encontraron resultados',
-                text: 'Intenta con otra búsqueda.',
-                icon: 'warning'
-            });
-        }
-    });
+                Swal.fire({
+                    title: 'Resultados de búsqueda',
+                    html: htmlContent,
+                    showCloseButton: true
+                });
+            } else {
+                Swal.fire({
+                    title: 'No se encontraron resultados',
+                    text: 'Intenta con otra búsqueda.',
+                    icon: 'warning'
+                });
+            }
+        });
 
     </script>
 </body>
