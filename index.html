@@ -8,9 +8,9 @@
 <body>
     <br>
     <br>
-    <h1 class="buscarCanto">Buscar Canto</h1>
+    <h1 class="buscarCanto">Alabanza Zoar</h1>
     <form id="buscadorForm">
-        <input type="text" id="query" placeholder="Buscar..." autocomplete="off">
+        <input type="text" id="query" placeholder="Buscar canto" autocomplete="off">
         <button type="submit">Buscar</button>
     </form>
     <br>
@@ -34,9 +34,7 @@
         let cantosSeleccionados = [];
         let contador = 0;
 
-        document.getElementById('buscadorForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe
-
+        document.getElementById('query').addEventListener('input', function() {
             const query = document.getElementById('query').value.toLowerCase();
             const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
 
