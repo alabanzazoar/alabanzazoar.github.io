@@ -39,7 +39,7 @@
    color: red;
 }
 
-.boton {
+#boton {
    background-color: #003366; /* Azul oscuro */
    color: white;
    border: none;
