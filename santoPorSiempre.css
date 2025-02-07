@@ -364,6 +364,71 @@ button:hover {
    right: -185px;
 }
 
+#nota43 {
+   position: relative;
+   right: 300px;
+}
+
+#nota44 {
+   position: relative;
+   right: 200px;
+}
+
+#nota45 {
+   position: relative;
+   right: 175px;
+}
+
+#nota46 {
+   position: relative;
+   right: -285px;
+}
+
+#nota47 {
+   position: relative;
+   right: -310px;
+}
+
+#texto17 {
+   position: relative;
+   right: 175px;
+}
+
+#texto18 {
+   position: relative;
+   right: -185px;
+}
+
+#nota47 {
+   position: relative;
+   right: -310px;
+}
+
+#texto19 {
+   position: relative;
+   right: 195px;
+}
+
+#texto20 {
+   position: relative;
+   right: -205px;
+}
+
+#texto21 {
+   position: relative;
+   right: 235px;
+}
+
+#tit5 {
+   position: relative;
+   right: -210px;
+}
+
+#texto22 {
+   position: relative;
+   right: 200px;
+}
+
 body {
    background-color: white;
 }
