@@ -399,9 +399,19 @@ button:hover {
    right: -185px;
 }
 
-#nota47 {
+#nota48 {
    position: relative;
-   right: -310px;
+   right: 180px;
+}
+
+#nota49 {
+   position: relative;
+   right: -205px;
+}
+
+#nota50 {
+   position: relative;
+   right: -282px;
 }
 
 #texto19 {
@@ -414,6 +424,11 @@ button:hover {
    right: -205px;
 }
 
+#nota51 {
+   position: relative;
+   right: 315px;
+}
+
 #texto21 {
    position: relative;
    right: 235px;
@@ -424,9 +439,164 @@ button:hover {
    right: -210px;
 }
 
-#texto22 {
+#nota52 {
+   position: relative;
+   right: 280px;
+}
+
+#nota53 {
    position: relative;
    right: 200px;
+}
+
+#nota54 {
+   position: relative;
+   right: 175px;
+}
+
+#texto22 {
+   position: relative;
+   right: 230px;
+}
+
+#texto23 {
+   position: relative;
+   right: -195px;
+}
+
+#nota55 {
+   position: relative;
+   right: -250px;
+}
+
+#nota56 {
+   position: relative;
+   right: -260px;
+}
+
+#tit6 {
+   position: relative;
+   right: 230px;
+}
+
+#texto24 {
+   position: relative;
+   right: -257px;
+}
+
+#nota57 {
+   position: relative;
+   right: -290px;
+}
+
+#nota58 {
+   position: relative;
+   right: -300px;
+}
+
+#nota59 {
+   position: relative;
+   right: 210px;
+}
+
+#nota60 {
+   position: relative;
+   right: 205px;
+}
+
+#nota61 {
+   position: relative;
+   right: 200px;
+}
+
+#nota62 {
+   position: relative;
+   right: -245px;
+}
+
+#nota63 {
+   position: relative;
+   right: -260px;
+}
+
+#texto25 {
+   position: relative;
+   right: 235px;
+}
+
+#texto26 {
+   position: relative;
+   right: -195px;
+}
+
+#nota64 {
+   position: relative;
+   right: 200px;
+}
+
+#nota65 {
+   position: relative;
+   right: 175px;
+}
+
+#signo2 {
+   position: relative;
+   right: 176px;
+}
+
+#nota66 {
+   position: relative;
+   right: 177px;
+}
+
+#nota67 {
+   position: relative;
+   right: -190px;
+}
+
+#nota68 {
+   position: relative;
+   right: -260px;
+}
+
+#texto27 {
+   position: relative;
+   right: 190px;
+}
+
+#texto28 {
+   position: relative;
+   right: -180px;
+}
+
+#nota69 {
+   position: relative;
+   right: 240px;
+}
+
+#nota70 {
+   position: relative;
+   right: 220px;
+}
+
+#nota71 {
+   position: relative;
+   right: 325px;
+}
+
+#nota72 {
+   position: relative;
+   right: 240px;
+}
+
+#texto29 {
+   position: relative;
+   right: 265px;
+}
+
+#texto30 {
+   position: relative;
+   right: 265px;
 }
 
 body {
