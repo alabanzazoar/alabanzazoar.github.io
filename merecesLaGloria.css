@@ -119,6 +119,87 @@ button:hover {
    right: 50px;
 }
 
+#nota4 {
+   position: relative;
+   right: -60px;
+}
+
+#nota5 {
+   position: relative;
+   right: 20px;
+}
+
+#nota6 {
+   position: relative;
+   right: -40px;
+}
+
+#nota7 {
+   position: relative;
+   right: 40px;
+}
+
+#nota8 {
+   position: relative;
+   right: 25px;
+}
+
+#nota9 {
+   position: relative;
+   right: -45px;
+}
+
+#nota10 {
+   position: relative;
+   right: -65px;
+}
+
+#nota11 {
+   position: relative;
+   right: -35px;
+}
+
+#nota12 {
+   position: relative;
+   right: -65px;
+}
+
+#nota14 {
+   position: relative;
+   right: -30px;
+}
+
+#nota15 {
+   position: relative;
+   right: -45px;
+}
+
+#nota16 {
+   position: relative;
+   right: -55px;
+}
+
+#nota17 {
+   position: relative;
+   right: 30px;
+}
+
+#nota18 {
+   position: relative;
+   right: 10px;
+}
+
+#nota19 {
+   position: relative;
+   right: -15px;
+}
+
+#nota20 {
+   position: relative;
+   right: -30px;
+}
+
+
 body {
    background-color: white;
 }
