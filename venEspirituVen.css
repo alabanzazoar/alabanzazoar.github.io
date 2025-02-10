@@ -109,31 +109,207 @@ button:hover {
    margin-bottom: 20px;
 }
 
+#nota6 {
+   position: relative;
+   right: 5px;
+}
+
+#nota7 {
+   position: relative;
+   right: -23px;
+}
+
+#signo1 {
+   position: relative;
+   right: -24px;
+}
+
+#nota8 {
+   position: relative;
+   right: -25px;
+}
+
+#nota9 {
+   position: relative;
+   right: -40px;
+}
+
+#nota10 {
+   position: relative;
+   right: 15px;
+}
+
+#signo2 {
+   position: relative;
+   right: 14px;
+}
+
+#nota11 {
+   position: relative;
+   right: 13px;
+}
+
+#nota12 {
+   position: relative;
+   right: -50px;
+}
+
+#nota13 {
+   position: relative;
+   right: 40px;
+}
+
+#nota14 {
+   position: relative;
+   right: -45px;
+}
+
+#nota15 {
+   position: relative;
+   right: 20px;
+}
+
+#nota16 {
+   position: relative;
+   right: -75px;
+}
+
+#signo3 {
+   position: relative;
+   right: -76px;
+}
+
+#nota17 {
+   position: relative;
+   right: -77px;
+}
+
 #nota18 {
    position: relative;
-   left: 35px;
+   right: 50px;
+}
+
+#nota19 {
+   position: relative;
+   right: -35px;
+}
+
+#signo4 {
+   position: relative;
+   right: -36px;
+}
+
+#nota20 {
+   position: relative;
+   right: -37px;
+}
+
+#nota21 {
+   position: relative;
+   right: -90px;
+}
+
+#nota22 {
+   position: relative;
+   right: 15px;
 }
 
 #nota23 {
    position: relative;
-   left: 45px;
+   right: -40px;
+}
+
+#signo5 {
+   position: relative;
+   right: -41px;
+}
+
+#nota24 {
+   position: relative;
+   right: -42px;
+}
+
+#nota25 {
+   position: relative;
+   right: 20px;
+}
+
+#nota26 {
+   position: relative;
+   right: -70px;
+}
+
+#signo6 {
+   position: relative;
+   right: -71px;
+}
+
+#nota27 {
+   position: relative;
+   right: -72px;
 }
 
 #nota28 {
    position: relative;
-   left: 15px;
+   right: 45px;
+}
+
+#nota29 {
+   position: relative;
+   right: -30px;
+}
+
+#signo7 {
+   position: relative;
+   right: -31px;
+}
+
+#nota30 {
+   position: relative;
+   right: -32px;
+}
+
+#nota31 {
+   position: relative;
+   right: -85px;
+}
+
+#nota32 {
+   position: relative;
+   right: 15px;
 }
 
 #nota33 {
    position: relative;
-   left: -10px;
+   right: -55px;
+}
+
+#nota34 {
+   position: relative;
+   right: -70px;
+}
+
+#nota35 {
+   position: relative;
+   right: 40px;
 }
 
 #nota36 {
    position: relative;
-   left: -25px;
+   right: -60px;
 }
 
+#verso{
+   font-weight: bold;
+}
+
+#coro{
+   font-weight: bold;
+}
+
+#puente{
+   font-weight: bold;
+}
 
 body {
    background-color: white;
