@@ -1,0 +1,611 @@
+.titulo1{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   text-align: left;
+}
+
+.titulo2{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 20px;
+   text-align: center;
+}
+
+.titulo3{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   white-space: pre;
+   font-size: 15px;
+   text-align: center;
+}
+
+.titulo4 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: left;
+}
+
+.titulo5 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: center;
+}
+
+.color-azul{
+   color: rgb(4, 130, 180);
+}
+.color-rojo{
+   font-size: 15px;
+   color: red;
+}
+
+button {
+   background-color: #003366; /* Azul oscuro */
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 10px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 3px;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #00509e; /* Azul más claro al pasar el ratón */
+}
+
+.tono{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: right;
+}
+.nota{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 12px;
+   text-align: left;
+   font-weight: bold;
+}
+.nota1{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: -50px;
+}
+.nota2{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: 10px;
+}
+
+.pie{
+   text-align: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pie-container {
+   display: flex;
+   justify-content: center; /* Centra el contenido horizontalmente */
+   align-items: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.pie-container img {
+   width: 50px; /* Ajusta el tamaño según tus necesidades */
+   height: auto; /* Mantiene la proporción de la imagen */
+   margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.buscarCanto{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+}
+
+.buscadorForm {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+#texto1 {
+   position: relative;
+   right: 120px;
+}
+
+#nota9 {
+   position: relative;
+   right: 290px;
+}
+
+#texto2 {
+   position: relative;
+   left: 200px;
+}
+
+#nota10 {
+   position: relative;
+   right: -147px;
+}
+
+#nota11 {
+   position: relative;
+   right: -300px;
+}
+
+#nota12 {
+   position: relative;
+   right: -355px;
+}
+
+#texto3 {
+   position: relative;
+   right: 145px;
+}
+
+#nota13 {
+   position: relative;
+   right: 255px;
+}
+
+#nota14 {
+   position: relative;
+   right: 170px;
+}
+
+#texto4 {
+   position: relative;
+   right: -190px;
+}
+
+#nota15 {
+   position: relative;
+   right: -172px;
+}
+
+#nota16 {
+   position: relative;
+   right: -250px;
+}
+
+#nota17 {
+   position: relative;
+   right: -335px;
+}
+
+#texto5 {
+   position: relative;
+   right: 190px;
+}
+
+#nota18 {
+   position: relative;
+   right: 310px;
+}
+
+#nota19 {
+   position: relative;
+   right: 235px;
+}
+
+#nota20 {
+   position: relative;
+   right: 150px;
+}
+
+#nota21 {
+   position: relative;
+   right: -175px;
+}
+
+#texto6 {
+   position: relative;
+   right: -155px;
+}
+
+#nota22 {
+   position: relative;
+   right: 300px;
+}
+
+#nota23 {
+   position: relative;
+   right: -220px;
+}
+
+#nota24 {
+   position: relative;
+   right: -350px;
+}
+
+#texto7 {
+   position: relative;
+   right: 160px;
+}
+
+#nota25 {
+   position: relative;
+   right: 275px;
+}
+
+#nota26 {
+   position: relative;
+   right: 160px;
+}
+
+#nota27 {
+   position: relative;
+   right: -190px;
+}
+
+#nota28 {
+   position: relative;
+   right: -250px;
+}
+
+#nota29 {
+   position: relative;
+   right: -350px;
+}
+
+#texto8 {
+   position: relative;
+   right: -180px;
+}
+
+#nota30 {
+   position: relative;
+   right: 280px;
+}
+
+#nota31 {
+   position: relative;
+   right: 220px;
+}
+
+#nota32 {
+   position: relative;
+   right: 110px;
+}
+
+#nota33 {
+   position: relative;
+   right: -185px;
+}
+
+#nota34 {
+   position: relative;
+   right: -245px;
+}
+
+#nota35 {
+   position: relative;
+   right: -310px;
+}
+
+#texto9 {
+   position: relative;
+   right: 150px;
+}
+
+#texto10 {
+   position: relative;
+   right: -190px;
+}
+
+#texto11 {
+   position: relative;
+   right: 150px;
+}
+
+#texto12 {
+   position: relative;
+   right: -150px;
+}
+
+#nota36 {
+   position: relative;
+   right: 300px;
+}
+
+#nota37 {
+   position: relative;
+   right: -325px;
+}
+
+#nota38 {
+   position: relative;
+   right: -355px;
+}
+
+#texto13 {
+   position: relative;
+   right: 160px;
+}
+
+#texto14 {
+   position: relative;
+   right: -195px;
+}
+
+#nota39 {
+   position: relative;
+   right: 280px;
+}
+
+#nota40 {
+   position: relative;
+   right: -322px;
+}
+
+#nota41 {
+   position: relative;
+   right: -360px;
+}
+
+#signo1 {
+   position: relative;
+   right: -361px;
+}
+
+#nota42 {
+   position: relative;
+   right: -362px;
+}
+
+#texto15 {
+   position: relative;
+   right: 180px;
+}
+
+#texto16 {
+   position: relative;
+   right: -185px;
+}
+
+#nota43 {
+   position: relative;
+   right: 300px;
+}
+
+#nota44 {
+   position: relative;
+   right: 200px;
+}
+
+#nota45 {
+   position: relative;
+   right: 175px;
+}
+
+#nota46 {
+   position: relative;
+   right: -285px;
+}
+
+#nota47 {
+   position: relative;
+   right: -310px;
+}
+
+#texto17 {
+   position: relative;
+   right: 175px;
+}
+
+#texto18 {
+   position: relative;
+   right: -185px;
+}
+
+#nota48 {
+   position: relative;
+   right: 180px;
+}
+
+#nota49 {
+   position: relative;
+   right: -205px;
+}
+
+#nota50 {
+   position: relative;
+   right: -282px;
+}
+
+#texto19 {
+   position: relative;
+   right: 195px;
+}
+
+#texto20 {
+   position: relative;
+   right: -205px;
+}
+
+#nota51 {
+   position: relative;
+   right: 315px;
+}
+
+#texto21 {
+   position: relative;
+   right: 235px;
+}
+
+#tit5 {
+   position: relative;
+   right: -210px;
+}
+
+#nota52 {
+   position: relative;
+   right: 280px;
+}
+
+#nota53 {
+   position: relative;
+   right: 200px;
+}
+
+#nota54 {
+   position: relative;
+   right: 175px;
+}
+
+#texto22 {
+   position: relative;
+   right: 230px;
+}
+
+#texto23 {
+   position: relative;
+   right: -195px;
+}
+
+#nota55 {
+   position: relative;
+   right: -250px;
+}
+
+#nota56 {
+   position: relative;
+   right: -260px;
+}
+
+#tit6 {
+   position: relative;
+   right: 230px;
+}
+
+#texto24 {
+   position: relative;
+   right: -257px;
+}
+
+#nota57 {
+   position: relative;
+   right: -290px;
+}
+
+#nota58 {
+   position: relative;
+   right: -300px;
+}
+
+#nota59 {
+   position: relative;
+   right: 210px;
+}
+
+#nota60 {
+   position: relative;
+   right: 205px;
+}
+
+#nota61 {
+   position: relative;
+   right: 200px;
+}
+
+#nota62 {
+   position: relative;
+   right: -245px;
+}
+
+#nota63 {
+   position: relative;
+   right: -260px;
+}
+
+#texto25 {
+   position: relative;
+   right: 235px;
+}
+
+#texto26 {
+   position: relative;
+   right: -195px;
+}
+
+#nota64 {
+   position: relative;
+   right: 200px;
+}
+
+#nota65 {
+   position: relative;
+   right: 175px;
+}
+
+#signo2 {
+   position: relative;
+   right: 176px;
+}
+
+#nota66 {
+   position: relative;
+   right: 177px;
+}
+
+#nota67 {
+   position: relative;
+   right: -190px;
+}
+
+#nota68 {
+   position: relative;
+   right: -260px;
+}
+
+#texto27 {
+   position: relative;
+   right: 190px;
+}
+
+#texto28 {
+   position: relative;
+   right: -180px;
+}
+
+#nota69 {
+   position: relative;
+   right: 240px;
+}
+
+#nota70 {
+   position: relative;
+   right: 220px;
+}
+
+#nota71 {
+   position: relative;
+   right: 325px;
+}
+
+#nota72 {
+   position: relative;
+   right: 240px;
+}
+
+#texto29 {
+   position: relative;
+   right: 265px;
+}
+
+#texto30 {
+   position: relative;
+   right: 265px;
+}
+
+body {
+   background-color: white;
+}
+
+@media (max-width: 600px) {
+   #query {
+       width: 100%;
+       font-size: 16px;
+   }
+}
