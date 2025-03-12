@@ -109,31 +109,235 @@ button:hover {
    margin-bottom: 20px;
 }
 
-#nota18 {
+#nota29 {
    position: relative;
-   left: 35px;
+   left: -90px;
 }
 
-#nota23 {
+#nota30 {
    position: relative;
-   left: 45px;
+   left: -30px;
 }
 
-#nota28 {
+#nota31 {
    position: relative;
-   left: 15px;
+   left: 20px;
+}
+
+#nota32 {
+   position: relative;
+   left: 70px;
 }
 
 #nota33 {
    position: relative;
-   left: -10px;
+   left: -100px;
+}
+
+#nota34 {
+   position: relative;
+   left: -60px;
+}
+
+#nota35 {
+   position: relative;
+   left: -20px;
 }
 
 #nota36 {
    position: relative;
-   left: -25px;
+   left: 50px;
 }
 
+#nota36 {
+   position: relative;
+   left: 50px;
+}
+
+#nota37 {
+   position: relative;
+   left: -80px;
+}
+
+#nota38 {
+   position: relative;
+   left: -30px;
+}
+
+#nota39 {
+   position: relative;
+   left: 30px;
+}
+
+#nota40 {
+   position: relative;
+   left: 80px;
+}
+
+#nota41 {
+   position: relative;
+   left: -20px;
+}
+
+#nota42 {
+   position: relative;
+   left: 15px;
+}
+
+#nota43 {
+   position: relative;
+   left: 20px;
+}
+
+#nota44 {
+   position: relative;
+   left: 35px;
+}
+
+#nota45 {
+   position: relative;
+   left: -125px;
+}
+
+#nota47 {
+   position: relative;
+   left: 50px;
+}
+
+#nota48 {
+   position: relative;
+   left: 100px;
+}
+
+#nota49 {
+   position: relative;
+   left: -125px;
+}
+
+#nota51 {
+   position: relative;
+   left: 115px;
+}
+
+#nota52 {
+   position: relative;
+   left: -120px;
+}
+
+#nota53 {
+   position: relative;
+   left: -60px;
+}
+
+#nota54 {
+   position: relative;
+   left: 10px;
+}
+
+#nota55 {
+   position: relative;
+   left: 50px;
+}
+
+#nota56 {
+   position: relative;
+   left: -70px;
+}
+
+#nota57 {
+   position: relative;
+   left: -35px;
+}
+
+#nota58 {
+   position: relative;
+   left: 50px;
+}
+
+#nota59 {
+   position: relative;
+   left: 100px;
+}
+
+#nota60 {
+   position: relative;
+   left: -90px;
+}
+
+#nota61 {
+   position: relative;
+   left: -30px;
+}
+
+#nota62 {
+   position: relative;
+   left: 30px;
+}
+
+#nota63 {
+   position: relative;
+   left: 65px;
+}
+
+#nota64 {
+   position: relative;
+   left: -20px;
+}
+
+#nota66 {
+   position: relative;
+   left: 20px;
+}
+
+#nota67 {
+   position: relative;
+   left: 35px;
+}
+
+#nota68 {
+   position: relative;
+   left: -100px;
+}
+
+#nota69 {
+   position: relative;
+   left: -35px;
+}
+
+#nota70 {
+   position: relative;
+   left: 25px;
+}
+
+#nota71 {
+   position: relative;
+   left: 95px;
+}
+
+#nota72 {
+   position: relative;
+   left: 135px;
+}
+
+#nota73 {
+   position: relative;
+   left: -15px;
+}
+
+#nota74 {
+   position: relative;
+   left: 35px;
+}
+
+#nota75 {
+   position: relative;
+   left: -35px;
+}
+
+#nota76 {
+   position: relative;
+   left: -40px;
+}
 
 body {
    background-color: white;
