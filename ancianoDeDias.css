@@ -109,31 +109,70 @@ button:hover {
    margin-bottom: 20px;
 }
 
+#nota8 {
+   position: relative;
+   left: -60px;
+}
+
+#nota9 {
+   position: relative;
+   left: -15px;
+}
+
+#signo1 {
+   position: relative;
+   left: -15px;
+}
+
+#nota10 {
+   position: relative;
+   left: -15px;
+}
+
+#nota11 {
+   position: relative;
+   left: 5px;
+}
+
+#nota12 {
+   position: relative;
+   left: 50px;
+}
+
+#signo2 {
+   position: relative;
+   left: 50px;
+}
+
+#nota13 {
+   position: relative;
+   left: 50px;
+}
+
+#nota14 {
+   position: relative;
+   left: 75px;
+}
+
 #nota18 {
    position: relative;
-   left: 35px;
+   left: 75px;
 }
 
-#nota23 {
+#nota19 {
    position: relative;
-   left: 45px;
+   left: 80px;
 }
 
-#nota28 {
+#signo5 {
    position: relative;
-   left: 15px;
+   left: 80px;
 }
 
-#nota33 {
+#nota20 {
    position: relative;
-   left: -10px;
+   left: 80px;
 }
-
-#nota36 {
-   position: relative;
-   left: -25px;
-}
-
 
 body {
    background-color: white;
