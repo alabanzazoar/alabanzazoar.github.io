@@ -139,7 +139,7 @@ Sea la gloria, sea la honra y el poder...
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'Al_QUE_ESTA_EN_EL_TRONO_' + notaCancion + '.pdf',
+                filename:     'Al_QUE_ESTA_SENTADO_EN_EL_TRONO_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -171,7 +171,7 @@ Sea la gloria, sea la honra y el poder...
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'Al_QUE_ESTA_EN_EL_TRONO_' + notaCancion + '.png';
+                link.download = 'Al_QUE_ESTA_SENTADO_EN_EL_TRONO_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
