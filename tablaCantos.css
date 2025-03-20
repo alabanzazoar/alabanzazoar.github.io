@@ -9,12 +9,16 @@ body {
    height: 100vh;
 }
 
+.tabla-container {
+   width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+   overflow-x: auto; /* Habilita el scroll horizontal */
+   margin: 20px auto;
+}
+
 .tabla-cantos {
    width: 100%; /* Asegura que la tabla ocupe todo el ancho */
-   margin: 20px auto;
    border-collapse: collapse;
-   overflow-x: auto; /* Habilita el scroll horizontal */
-   display: block; /* Permite el scroll horizontal */
+   min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
 }
 
 .buscarCanto {
@@ -76,10 +80,15 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+   .tabla-container {
+      width: 100%; /* Asegura que el contenedor ocupe todo el ancho en móviles */
+      overflow-x: auto; /* Habilita el scroll horizontal */
+   }
+
    .tabla-cantos {
       width: 100%; /* Asegura que la tabla ocupe todo el ancho en móviles */
       display: block; /* Permite el scroll horizontal */
-      overflow-x: auto; /* Habilita el scroll horizontal */
+      min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
    }
 
    .tabla-cantos th, .tabla-cantos td {
