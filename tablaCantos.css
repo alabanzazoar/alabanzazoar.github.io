@@ -10,7 +10,7 @@ body {
 }
 
 .tabla-cantos {
-   width: 80%;
+   width: 100%; /* Asegura que la tabla ocupe todo el ancho */
    margin: 20px auto;
    border-collapse: collapse;
    overflow-x: auto; /* Habilita el scroll horizontal */
