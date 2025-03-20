@@ -76,3 +76,20 @@ button:hover {
    height: auto; /* Mantiene la proporción de la imagen */
    margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
+
+.tabla-link {
+   position: absolute;
+   top: 20px;
+   right: 30px;
+   background-color: #003366; /* Fondo azul oscuro */
+   color: #ffffff; /* Texto blanco */
+   padding: 7px 15px;
+   text-decoration: none;
+   border-radius: 5px;
+   font-size: 16px;
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.tabla-link:hover {
+   background-color: #002244; /* Fondo azul más oscuro al pasar el ratón */
+}
