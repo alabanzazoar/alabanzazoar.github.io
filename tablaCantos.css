@@ -14,6 +14,7 @@ body {
    margin: 20px auto;
    border-collapse: collapse;
    overflow-x: auto; /* Habilita el scroll horizontal */
+   display: block; /* Permite el scroll horizontal */
 }
 
 .buscarCanto {
@@ -27,6 +28,7 @@ body {
    border: 1px solid #003366; /* Borde azul oscuro */
    padding: 10px;
    text-align: center;
+   white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
 }
 
 .tabla-cantos th {
