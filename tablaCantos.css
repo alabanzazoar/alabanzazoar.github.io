@@ -13,6 +13,7 @@ body {
    width: 80%;
    margin: 20px auto;
    border-collapse: collapse;
+   overflow-x: auto; /* Habilita el scroll horizontal */
 }
 
 .buscarCanto {
@@ -65,9 +66,27 @@ button {
    border-radius: 3px;
    transition: background-color 0.3s ease;
    position: relative;
-   right: 10px; /* Mueve el botón 10 píxeles hacia la izquierda */
+   left: 10px; /* Mueve el botón 10 píxeles hacia la izquierda */
 }
 
 button:hover {
    background-color: #00509e; /* Azul más claro al pasar el ratón */
+}
+
+@media (max-width: 600px) {
+   .tabla-cantos {
+      width: 100%; /* Asegura que la tabla ocupe todo el ancho en móviles */
+      display: block; /* Permite el scroll horizontal */
+      overflow-x: auto; /* Habilita el scroll horizontal */
+   }
+
+   .tabla-cantos th, .tabla-cantos td {
+      padding: 8px; /* Reduce el padding en móviles */
+      font-size: 12px; /* Reduce el tamaño de fuente en móviles */
+   }
+
+   button {
+      font-size: 12px; /* Reduce el tamaño del texto del botón en móviles */
+      padding: 8px 12px; /* Reduce el tamaño del botón en móviles */
+   }
 }
