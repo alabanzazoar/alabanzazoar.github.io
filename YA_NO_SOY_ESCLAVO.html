@@ -1,18 +1,17 @@
 <!DOCTYPE html>
     <head>
-        <title>SANTO POR SIEMPRE</title>
-        <link rel="stylesheet" href="santoPorSiempre.css">
+        <title>YA NO SOY ESCLAVO</title>
+        <link rel="stylesheet" href="yaNoSoyEsclavo.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="logo.jpg" type="image/x-icon">
     </head>
     <body>
         <p class="titulo1"></p>
         <p class="tono">Tonalidad:
-        <button class="boton" onclick="subirTono()"> +1 </button>
+        <button onclick="subirTono()"> +1 </button>
         <button onclick="subirMedioTono()"> +½ </button>
         <button onclick="bajarMedioTono()"> -½ </button>
         <button onclick="bajarTono()"> -1 </button>
@@ -24,52 +23,42 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">SANTO POR SIEMPRE</h1>
-        <p class="titulo3">IBI
-Nota "<span id="nota1">F</span>"
-Bits: 70 BPM</p>
-        <p class="titulo4">                    INTRO: <spn class="color-azul"> <span id="nota2">F</span> <span id="nota2">A#</span> <span id="nota3">C</span> <span id="nota4">F</span>/<span id="nota5">A</span> <span id="nota6">Am</span> <span id="nota7">Dm</span> <span id="nota8">C</span>
-        </spn></p>
-<p class="titulo5"><span id="tit1">VERSO 1</span>                                                                                                  <span id="tit2">VERSO 2</span><br>
-<span class="color-azul"><span id="nota9">F</span> <span id="nota10">F</span> <span id="nota11">A#</span> <span id="nota12">F</span></span>
-<span id="texto1">Mil generaciones</span>  <span id="texto2">Si te ha perdonado y tienes salvación</span>
-<span class="color-azul"><span id="nota13">A#</span> <span id="nota14">F</span> <span id="nota15">Dm</span> <span id="nota16">C</span> <span id="nota17">A#</span></span>
-<span id="texto3">Se postran a adórale</span> <snap id="texto4">Cántale al Cordero que venció</snap>
-<span class="color-azul"><span id="nota18">Dm</span> <span id="nota19">C</span> <span id="nota20">A#</span> <span id="nota21">F</span></span>
-<span id="texto5">Le cantan al cordero que venció</span> <span id="texto6">Si te ha libertado,</span>
-<span class="color-azul"><span id="nota22">F</span> <span id="nota23">A#</span><span id="nota24">F</span></span>
-<span id="texto7">Los que nos precedieron</span> <span id="texto8">Su nombre ha puesto en ti</span>
-<span class="color-azul"><span id="nota25">A#</span> <span id="nota26">F</span> <span id="nota27">Dm</span> <span id="nota28">C</span> <span id="nota29">A#</span></span>
-<span id="texto9">Y los que en Él creerán</span> <span id="texto10">Cántale al cordero que Venció</span>
-<span class="color-azul"><span id="nota30">Dm</span> <span id="nota31">C</span> <span id="nota32">A#</span> <span id="nota33">Dm</span> <span id="nota34">C</span> <span id="nota35">Gm</span></span>
-<span id="texto11">Le cantarán a aquel que ya venció</span> <span id="texto12">Canataremos siempre amén</span>
+        <h1 class="titulo2">YA NO SOY ESCLAVO</h1>
+        <p class="titulo3">Julio Melgar
+Nota "<span id="nota1">A</span>"
+Bits: 75 BPM</p>
+<p class="titulo5">VERSO 1<br>
+<span class="color-azul"><span id="nota2">D</span> <span id="nota3">D</span></span>
+Me envuelves hoy con una canción
+<span class="color-azul"><span id="nota4">G</span> <span id="nota5">A</span> <span id="nota6">D</span></span>
+Melodía     de Tu amor
+<span class="color-azul"><span id="nota7">D</span> <span id="nota8">D</span></span>
+Cantas libertad en mi adversidad
+<span class="color-azul"><span id="nota9">G</span> <span id="nota10">A</span> <span id="nota11">D</span></span>
+Hasta que huya el temor.
 </p>
-<p class="titulo5"><span id="tit3">PRECORO</span>                                                                                                      <span id="tit4">CORO 2</span><br>
-<span class="color-azul"><span id="nota36">A#</span> <span id="nota73">Dm</span> <span id="nota37">A#</span> <span id="nota38">C</span></span>
-<span id="texto13">Tu nombre es más alto</span> <span id="texto14">Canta el pueblo al Rey Santo</span>
-<span class="color-azul"><span id="nota39">C</span> <span id="nota40">F</span><span id="signo1">/</span><span id="nota41">A</span><span id="nota42">Am</span><span id="nota74">Dm</span></span>
-<span id="texto15">Tu nombre es más grande</span> <span id="texto16">Soberano es Él, San to</span>
-<span class="color-azul"><span id="nota43">Dm</span> <span id="nota44">C</span> <span id="nota45">A#</span> <span id="nota46">Gm</span> <span id="nota47">C</span></span>
-<span id="texto17">Tu nombre, sobre todo es</span> <span id="texto18">Y por siempre es, Santo</span>
-<span class="color-azul"><span id="nota75">A#</span> <span id="nota48">Dm</span> <span id="nota50">F</span></span>
-<span id="texto19">Sea tronos, dominios</span> <span id="texto20">Santo por siempre.</span>
-<span class="color-azul"><span id="nota51">C</span></span>
-<span id="texto21">Poderes, potestades</span> <span id="tit5" >PUENTE</span>
-<span class="color-azul"><span id="nota52">Dm</span> <span id="nota53">C</span> <span id="nota54">Gm</span> <span id="nota55">A#</span> <span id="nota56">C</span></span>
-<span id="texto22">Tu nombre sobre todo es</span> <span id="texto23">Saaanto,</span>
-<span class="color-azul"><span id="nota57">Am</span> <span id="nota58">Dm</span></span>
-<span id="tit6">CORO 1</span> <span id="texto24">Saaanto,</span>
-<span class="color-azul"><span id="nota59">A#</span> <span id="nota60">Dm</span> <span id="nota61">C</span> <span id="nota62">A#</span> <span id="nota63">C</span></span>
-<span id="texto25">Claman ángeles sa - anto</span> <span id="texto26">Saaanto,</span>
-<span class="color-azul"><span id="nota64">F</span><span id="signo2">/</span><span id="nota65">A</span> <span id="nota66">Dm</span> <span id="nota68">F</span></span>
-<span id="texto27">Claman la Creación S a n t o </span> <span id="texto28">Santo por siempre.</span>
-<span class="color-azul"><span id="nota69">Gm</span> <span id="nota70">C</span></span>
-<span id="texto29">Exaltado Dios Santo</span>
-<span class="color-azul"> <span id="nota72">F</span></span>
-<span id="texto30">Santo por siempre.</span>
-<br>
-<br>
-<p class="nota">Nota: El intro lo hace el teclado acompañado de la guitarra.</p>
+<p class="titulo5">CORO<br>
+<span class="color-azul"><span id="nota12">G</span> <span id="nota13">A</span> <span id="nota14">D</span></span>
+Ya no soy un esclavo del temor
+<span class="color-azul"><span id="nota15">Bm</span> <span id="nota16">A</span> <span id="nota17">D</span></span>
+Yo soy hijo de Dios.
+<span class="color-azul"><span id="nota18">G</span> <span id="nota19">A</span> <span id="nota20">D</span></span>
+Ya no soy un esclavo del temor
+<span class="color-azul"><span id="nota21">Bm</span> <span id="nota22">A</span> <span id="nota23">D</span></span>
+Yo soy hijo de Dios.
+
+<span class="titulo5">Instrumental: </span><span class="color-azul"><span id="nota24">Bm</span> <span id="nota25">A</span> <span id="nota26">D</span> <span id="nota27">G</span>    x2</span>
+</p>
+<p class="titulo5">VERSO 2<br>
+<span class="color-azul"><span id="nota24">D</span> <span id="nota25">F#</span></span>
+Desde el vientre fui escogido en Ti
+<span class="color-azul"><span id="nota26">G</span> <span id="nota27">A</span> <span id="nota28">D</span></span>
+Me llamó el amor
+<span class="color-azul"><span id="nota29">D</span> <span id="nota30">F#</span></span>
+De nuevo nací, recibido en Ti
+<span class="color-azul"><span id="nota31">G</span> <span id="nota32">A</span> <span id="nota33">D</span></span>
+Tu sangre en mi fluyó.
+</p>
         <br>
         <br>
         <div class="pie-container">
@@ -122,40 +111,10 @@ Bits: 70 BPM</p>
             document.getElementById('nota40'),
             document.getElementById('nota41'),
             document.getElementById('nota42'),
-            document.getElementById('nota43'),
-            document.getElementById('nota44'),
-            document.getElementById('nota45'),
-            document.getElementById('nota46'),
-            document.getElementById('nota47'),
-            document.getElementById('nota48'),
-            document.getElementById('nota49'),
-            document.getElementById('nota50'),
-            document.getElementById('nota55'),
-            document.getElementById('nota56'),
-            document.getElementById('nota57'),
-            document.getElementById('nota58'),
-            document.getElementById('nota59'),
-            document.getElementById('nota60'),
-            document.getElementById('nota61'),
-            document.getElementById('nota62'),
-            document.getElementById('nota63'),
-            document.getElementById('nota64'),
-            document.getElementById('nota65'),
-            document.getElementById('nota66'),
-            document.getElementById('nota67'),
-            document.getElementById('nota68'),
-            document.getElementById('nota69'),
-            document.getElementById('nota70'),
-            document.getElementById('nota71'),
-            document.getElementById('nota72'),
-            document.getElementById('nota73'),
-            document.getElementById('nota74'),
-            document.getElementById('nota75'),
-            document.getElementById('nota76')
+            document.getElementById('nota43')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
-        let notaCancion = document.getElementById('nota1').textContent
 
         //Función encargada de subir un semitono a la nota actual
         function subirMedioTono() {
@@ -207,11 +166,12 @@ Bits: 70 BPM</p>
         function generarPDF(){
             // Selecciona el contenido que deseas incluir en el PDF
             const element = document.querySelector('.letra'); // Cambia 'body' por el selector del contenido que deseas incluir
+            let notaCancion = document.getElementById('nota1').textContent;
 
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'TU_NOMBRE_MSM_' + notaCancion + '.pdf',
+                filename:     'GLORIFICATE_MSM_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -222,6 +182,7 @@ Bits: 70 BPM</p>
 
         function generarImagen() {
             const element = document.querySelector('.letra');
+            let notaCancion = document.getElementById('nota1').textContent;
             if (!element) {
                 console.error('Elemento .letra no encontrado');
                 return;
@@ -242,7 +203,7 @@ Bits: 70 BPM</p>
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'TU_NOMBRE_MSM.png';
+                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
