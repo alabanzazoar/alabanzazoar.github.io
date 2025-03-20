@@ -1,3 +1,14 @@
+body {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #f0f4f8; /* Fondo gris claro */
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+}
+
 .tabla-cantos {
    width: 80%;
    margin: 20px auto;
@@ -9,13 +20,12 @@
    color: #003366; /* Azul oscuro */
    font-size: 30px;
    margin-top: 20px;
-   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .tabla-cantos th, .tabla-cantos td {
    border: 1px solid #003366; /* Borde azul oscuro */
    padding: 10px;
-   text-align: left;
+   text-align: center;
 }
 
 .tabla-cantos th {
@@ -32,26 +42,30 @@
    text-decoration: underline;
 }
 
-.tono{
+.tono {
    font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-size: 15px;
    font-weight: bold;
-   text-align: right;
+   text-align: right; /* Alinea el texto a la derecha */
+   width: 100%; /* Ocupa todo el ancho */
+   padding-right: 20px; /* Añade un poco de espacio a la derecha */
 }
 
 button {
    background-color: #003366; /* Azul oscuro */
    color: white;
    border: none;
-   padding: 10px 15px;
-   text-align: left;
+   padding: 10px 15px; /* Tamaño del botón */
+   text-align: right;
    text-decoration: none;
    display: inline-block;
-   font-size: 10px;
+   font-size: 14px; /* Tamaño del texto */
    margin: 4px 2px;
    cursor: pointer;
    border-radius: 3px;
    transition: background-color 0.3s ease;
+   position: relative;
+   right: 10px; /* Mueve el botón 10 píxeles hacia la izquierda */
 }
 
 button:hover {

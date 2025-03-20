@@ -1,73 +1,179 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alabanzas Zoar</title>
-    <link rel="stylesheet" href="tablaCantos.css">
+    <title>Alabanza Zoar</title>
+    <link rel="stylesheet" href="misEstilos3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="logo.jpg" type="image/x-icon">
 </head>
 <body>
-    <p class="tono">
-    <button onclick="regresar()"> Regresar </button>
-    </p>
-    <h1 class="buscarCanto">Alabanzas Zoar 2025</h1>
-    <div class="tabla-container">
-        <table class="tabla-cantos">
-            <thead>
-                <tr>
-                    <th>Alabanza de celebración</th>
-                    <th>Cantante</th>
-                    <th>Hna. Mary</th>
-                    <th>Siomy</th>
-                    <th>Hna. Patty</th>
-                    <th>Hna. Nineth</th>
-                    <th>Hna. Cony</th>
-                    <th>Michelle</th>
-                    <th>Yeni</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="ALGO_ESTA_CAYENDO_AQUI.html">ALGO ESTÁ CAYENDO AQUÍ</a></td>
-                    <td>Cantante 1</td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><a href="LEVANTO_MIS_MANOS.html">LEVANTO MIS MANOS</a></td>
-                    <td>Cantante 2</td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><a href="TU_NOMBRE.html">TU NOMBRE MIEL SAN MARCOS</a></td>
-                    <td>Cantante 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                    <td>X</td>
-                </tr>
-                <!-- Añade más filas según sea necesario -->
-            </tbody>
-        </table>
+    <br>
+    <a href="TABLA_CANTOS.html" class="tabla-link">Listado de cantos</a>
+    <br>
+    <h1 class="buscarCanto">Alabanza Zoar</h1>
+    <form id="buscadorForm">
+        <input type="text" id="query" placeholder="Buscar canto" autocomplete="off">
+        <button type="submit">Buscar</button>
+    </form>
+    <br><br><br><br>
+    <p class="pie">"Este es el día que hizo el Señor; nos gozaremos y alegraremos en él." Salmo 118:24</p>
+     <br>
+    <div class="pie-container">
+        <img src="logo2.jpg" alt="Logo">
+        <p class="pie">MINISTERIOS ZOAR 2025</p>
     </div>
     <script>
-        function regresar(){
-            window.location.href = 'index.html';
-        }
+        const elementos = [
+            "ALGO ESTÁ CAYENDO AQUÍ",
+            'ALGO ESTA CAYENDO AQUI',
+            'LEVANTO MIS MANOS',
+            'TU NOMBRE MIEL SAN MARCOS',
+            'SANTO POR SIEMPRE',
+            'GLORIFICATE',
+            'QUE SE LLENE TU CASA',
+            'ABRE MIS OJOS OH CRISTO',
+            'ERES TODOPODEROSO',
+            'MERECES LA GLORIA',
+            'ME GOZARE',
+            'MI PLENITUD',
+            'SOY SANO',
+            'TE DOY GLORIA',
+            'VEN ESPIRITU VEN',
+            'VEN ESPÍRITU VEN',
+            'YO TE BUSCO',
+            'EL ES REY',
+            'DIOS INCOMPARABLE',
+            'NO HAY LUGAR MAS ALTO',
+            'NO HAY LUGAR MÁS ALTO',
+            'QUIERO LLENAR TU TRONO DE ALABANZA',
+            'VENIMOS ANTE TI SEÑOR',
+            'TU FIDELIDAD',
+            'AMAMOS TU PRESENCIA',
+            'HAY LIBERTAD',
+            'TU ERES DIGNO DE GLORIA',
+            'DIGNO',
+            'TUS CUERDAS DE AMOR',
+            'VEN ES HORA DE ADORARLE',
+            'HOSSANA',
+            'A EL ALTO Y SUBLIME',
+            'LEVANTATE SEÑOR',
+            'LEVÁNTATE SEÑOR',
+            'PRECIOSA SANGRE',
+            'ANCIANO DE DIAS',
+            'ANCIANO DE DÍAS',
+            'CUÁNTO DARÍA',
+            'CUANTO DARIA',
+            'AL QUE ESTA SENTADO EN EL TRONO',
+            'AL QUE ESTÁ SENTADO EN EL TRONO',
+            'El ESPIRITU DE DIOS ESTÁ AQUI',
+            'El ESPÍRITU DE DIOS ESTÁ AQUÍ',
+            'COMO EN EL CIELO',
+            'CRISTO ESTÁ AQUÍ',
+            'CRISTO ESTA AQUI',
+            'EL SANTO DE ISRAEL',
+            'ESPÍRITU DE DIOS LLENA MI VIDA',
+            'ESPIRITU DE DIOS LLENA MI VIDA',
+            'EXALTATE SEÑOR',
+            'GRACIA SUBLIME',
+            'GRANDE Y FUERTE',
+            'HERMOSO ERES',
+            'LOS MUROS CAERAN',
+            'MI GOZO',
+            'MI PLENITUD',
+            'PADRE DE MISERICORDIAS',
+            'RENUEVAME',
+            'VEN ESPÍRITU SANTO',
+            'VEN_ESPIRITU_SANTO'
+        ];
+
+        let listaCanciones = [
+            "ALGO_ESTA_CAYENDO_AQUI.html",
+            "ALGO_ESTA_CAYENDO_AQUI.html",
+            "LEVANTO_MIS_MANOS.html",
+            'TU_NOMBRE.html',
+            'SANTO_POR_SIEMPRE.html',
+            'GLORIFICATE.html',
+            'QUE_SE_LLENE_TU_CASA.html',
+            'ABRE_MIS_OJOS_OH_CRISTO.html',
+            'ERES_TODOPODEROSO.html',
+            'MERECES_LA_GLORIA.html',
+            'ME_GOZARE.html',
+            'MI_PLENITUD.html',
+            'SOY_SANO.html',
+            'TE_DOY_GLORIA.html',
+            'VEN_ESPIRITU_VEN.html',
+            'VEN_ESPIRITU_VEN.html',
+            'YO_TE_BUSCO.html',
+            'EL_ES_REY.html',
+            'DIOS_INCOMPARABLE.html',
+            'NO_HAY_LUGAR_MAS_ALTO.html',
+            'NO_HAY_LUGAR_MAS_ALTO.html',
+            'QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html',
+            'VENIMOS_ANTE_TI_SEÑOR.html',
+            'TU_FIDELIDAD.html',
+            'AMAMOS_TU_PRESENCIA.html',
+            'HAY_LIBERTAD.html',
+            'TU_ERES_DIGNO_DE_GLORIA.html',
+            'DIGNO.html',
+            'TUS_CUERDAS_DE_AMOR.html',
+            'VEN_ES_HORA_DE_ADORARLE.html',
+            'HOSSANA.html',
+            'A_EL_ALTO_Y_SUBLIME.html',
+            'LEVANTATE_SEÑOR.html',
+            'LEVANTATE_SEÑOR.html',
+            'PRECIOSA_SANGRE.html',
+            'ANCIANO_DE_DIAS.html',
+            'ANCIANO_DE_DIAS.html',
+            'CUANTO_DARIA.html',
+            'CUANTO_DARIA.html',
+            'AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html',
+            'AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html',
+            'EL_ESPIRITU_DIOS_ESTA_AQUI.html',
+            'EL_ESPIRITU_DIOS_ESTA_AQUI.html',
+            'COMO_EN_EL_CIELO.html',
+            'CRISTO_ESTA_AQUI.html',
+            'CRISTO_ESTA_AQUI.html',
+            'EL_SANTO_DE_ISRAEL.html',
+            'ESPIRITU_DE_DIOS_LLENA_MI_VIDA.html',
+            'ESPIRITU_DE_DIOS_LLENA_MI_VIDA.html',
+            'EXALTATE SEÑOR.html',
+            'GRACIA_SUBLIME.html',
+            'GRANDE_Y_FUERTE.html',
+            'HERMOSO_ERES.html',
+            'LOS_MUROS_CAERAN.html',
+            'MI_GOZO.html',
+            'MI_PLENITUD.html',
+            'PADRE_DE_MISERICORDIAS.html',
+            'RENUEVAME.html',
+            'VEN_ESPIRITU_SANTO.html'
+        ];
+
+        document.getElementById('buscadorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+
+            const query = document.getElementById('query').value.toLowerCase();
+            const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
+
+            if (resultados.length > 0) {
+                let htmlContent = '<ul>';
+                resultados.forEach((resultado, index) => {
+                    htmlContent += `<li><a href="${listaCanciones[elementos.indexOf(resultado)]}">${resultado}</a></li>`;
+                });
+                htmlContent += '</ul>';
+
+                Swal.fire({
+                    title: 'Resultados',
+                    html: htmlContent,
+                    showCloseButton: true
+                });
+            } else {
+                Swal.fire({
+                    title: 'No se encontraron resultados',
+                    text: 'Intenta con otra búsqueda.'
+                });
+            }
+        });
     </script>
 </body>
 </html>
