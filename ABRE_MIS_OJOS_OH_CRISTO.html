@@ -9,6 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <script>
+            // Guarda la página de origen en localStorage
+            localStorage.setItem('paginaOrigen', window.location.pathname);
+        </script>
         <p class="titulo1"></p>
         <p class="tono">Tonalidad:
         <button onclick="subirTono()"> +1 </button>
@@ -221,9 +225,9 @@ Yo quiero verte //
         }
 
 
-        function regresar(){
+        function regresar() {
             window.location.href = 'index.html';
-        }
+    }
     </script>
     </body>
 </html>

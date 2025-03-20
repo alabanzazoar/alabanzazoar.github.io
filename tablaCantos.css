@@ -10,13 +10,14 @@ body {
 }
 
 .tabla-container {
-   width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
-   overflow-x: auto; /* Habilita el scroll horizontal */
+   width: 80%; /* Reduce el ancho del contenedor */
+   max-width: 1200px; /* Establece un ancho máximo */
    margin: 20px auto;
+   overflow-x: auto; /* Habilita el scroll horizontal */
 }
 
 .tabla-cantos {
-   width: 100%; /* Asegura que la tabla ocupe todo el ancho */
+   width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */
    border-collapse: collapse;
    min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
 }
@@ -72,7 +73,7 @@ button {
    border-radius: 3px;
    transition: background-color 0.3s ease;
    position: relative;
-   left: 10px; /* Mueve el botón 10 píxeles hacia la izquierda */
+   left: -10px; /* Mueve el botón 10 píxeles hacia la izquierda */
 }
 
 button:hover {
@@ -100,4 +101,24 @@ button:hover {
       font-size: 12px; /* Reduce el tamaño del texto del botón en móviles */
       padding: 8px 12px; /* Reduce el tamaño del botón en móviles */
    }
+}
+
+/* Ajusta el ancho de las columnas */
+.tabla-cantos th:nth-child(n+3), .tabla-cantos td:nth-child(n+3) {
+   width: 1%; /* Ajusta el ancho de las columnas a su contenido */
+}
+
+.pie{
+   text-align: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pie-container {
+   display: flex;
+   align-items: center;
+}
+.pie-container img {
+   width: 50px; /* Ajusta el tamaño según tus necesidades */
+   height: auto; /* Mantiene la proporción de la imagen */
+   margin-right: 10px; /* Espacio entre la imagen y el texto */
 }

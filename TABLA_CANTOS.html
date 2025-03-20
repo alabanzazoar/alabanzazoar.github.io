@@ -7,6 +7,10 @@
     <link rel="icon" href="logo.jpg" type="image/x-icon">
 </head>
 <body>
+    <script>
+        // Guarda la página de origen en localStorage
+        localStorage.setItem('paginaOrigen', window.location.pathname);
+    </script>
     <p class="tono">
     <button onclick="regresar()"> Regresar </button>
     </p>
@@ -50,7 +54,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><a href="TU_NOMBRE.html">Buenos es Alabarte Oh Dios</a></td>
+                    <td><a href="BUENO_ES_ALABARTE.html">Buenos es Alabarte Oh Dios</a></td>
                     <td>Danilo Montero</td>
                     <td></td>
                     <td></td>
@@ -117,6 +121,11 @@
                 <!-- Añade más filas según sea necesario -->
             </tbody>
         </table>
+    </div>
+    <br>
+    <div class="pie-container">
+        <img src="logo2.jpg" alt="Logo">
+        <p class="pie">MINISTERIOS ZOAR 2025</p>
     </div>
     <script>
         function regresar(){
