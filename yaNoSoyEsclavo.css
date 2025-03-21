@@ -109,105 +109,61 @@ button:hover {
    margin-bottom: 20px;
 }
 
-#nota2 {
+#texto1 {
    position: relative;
-   left: -60px;
+   left: -70px;
 }
 
-#nota3 {
+#texto2 {
    position: relative;
-   left: 65px;
+   left: 155px;
 }
 
-#nota4 {
+#texto3 {
    position: relative;
-   left: -25px;
+   left: -110px;
 }
 
-#nota5 {
+#texto4 {
    position: relative;
-   left: 10px;
+   left: 115px;
 }
 
-#nota6 {
+#texto5 {
    position: relative;
-   left: 65px;
+   left: -65px;
 }
 
-#nota7 {
+#texto6 {
    position: relative;
-   left: -60px;
+   left: 145px;
 }
 
-#nota8 {
+#texto7 {
    position: relative;
-   left: 60px;
+   left: -100px;
 }
 
-#nota9 {
+#texto8 {
    position: relative;
-   left: -40px;
+   left: 215px;
 }
 
-#nota11 {
+#texto9 {
    position: relative;
-   left: 40px;
+   left: -155px;
 }
 
-#nota12 {
+#texto11 {
    position: relative;
-   left: -45px;
+   left: -155px;
 }
 
-#nota12 {
+#texto13 {
    position: relative;
-   left: -45px;
+   left: -155px;
 }
 
-#nota13 {
-   position: relative;
-   left: 10px;
-}
-
-#nota14 {
-   position: relative;
-   left: 70px;
-}
-
-#nota15 {
-   position: relative;
-   left: -25px;
-}
-
-#nota17 {
-   position: relative;
-   left: 25px;
-}
-
-#nota18{
-   position: relative;
-   left: -45px;
-}
-
-#nota19 {
-   position: relative;
-   left: 10px;
-}
-
-#nota20 {
-   position: relative;
-   left: 70px;
-}
-
-#nota21 {
-   position: relative;
-   left: -25px;
-}
-
-#nota23 {
-   position: relative;
-   left: 25px;
-}
 
 body {
    background-color: white;
