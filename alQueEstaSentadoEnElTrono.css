@@ -146,7 +146,7 @@ button:hover {
 
 #nota12 {
    position: relative;
-   left: -157px;
+   left: -145px;
 }
 
 #nota13 {
@@ -194,6 +194,15 @@ button:hover {
    left: 10px;
 }
 
+#nota22 {
+   position: relative;
+   left: 100px;
+}
+
+#nota23 {
+   position: relative;
+   left: 145px;
+}
 
 
 body {
