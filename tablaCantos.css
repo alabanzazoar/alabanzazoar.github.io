@@ -7,19 +7,18 @@ body {
    margin: 0;
    padding: 0;
    height: 100vh;
+   overflow: hidden; /* Elimina el scroll vertical y horizontal */
 }
 
 .tabla-container {
    width: 80%; /* Reduce el ancho del contenedor */
    max-width: 1200px; /* Establece un ancho máximo */
    margin: 20px auto;
-   overflow-x: auto; /* Habilita el scroll horizontal */
 }
 
 .tabla-cantos {
    width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */
    border-collapse: collapse;
-   min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
 }
 
 .buscarCanto {
@@ -34,7 +33,6 @@ body {
    padding: 10px;
    text-align: center;
    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
-   width: 33.33%; /* Asegura que todas las columnas tengan el mismo ancho */
 }
 
 .tabla-cantos th {
@@ -90,30 +88,6 @@ select {
    color: #003366;
    width: 100%;
    box-sizing: border-box;
-}
-
-@media (max-width: 600px) {
-   .tabla-container {
-       width: 100%; /* Asegura que el contenedor ocupe todo el ancho en móviles */
-       overflow-x: auto; /* Habilita el scroll horizontal */
-   }
-
-   .tabla-cantos {
-       width: 100%; /* Asegura que la tabla ocupe todo el ancho en móviles */
-       display: block; /* Permite el scroll horizontal */
-       min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
-   }
-
-   .tabla-cantos th, .tabla-cantos td {
-       padding: 8px; /* Reduce el padding en móviles */
-       font-size: 12px; /* Reduce el tamaño de fuente en móviles */
-       width: auto; /* Ajusta el ancho automáticamente en móviles */
-   }
-
-   button {
-       font-size: 12px; /* Reduce el tamaño del texto del botón en móviles */
-       padding: 8px 12px; /* Reduce el tamaño del botón en móviles */
-   }
 }
 
 .pie {
