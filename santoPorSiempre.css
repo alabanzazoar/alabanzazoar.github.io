@@ -111,37 +111,37 @@ button:hover {
 
 #texto1 {
    position: relative;
-   right: 120px;
+   right: 50px;
 }
 
 #nota9 {
    position: relative;
-   right: 290px;
+   right: 220px;
 }
 
 #texto2 {
    position: relative;
-   left: 200px;
+   left: 100px;
 }
 
 #nota10 {
    position: relative;
-   right: -147px;
+   right: -50px;
 }
 
 #nota11 {
    position: relative;
-   right: -300px;
+   right: -195px;
 }
 
 #nota12 {
    position: relative;
-   right: -355px;
+   right: -250px;
 }
 
 #texto3 {
    position: relative;
-   right: 145px;
+   right: 80px;
 }
 
 #nota13 {
@@ -156,7 +156,7 @@ button:hover {
 
 #texto4 {
    position: relative;
-   right: -190px;
+   right: -85px;
 }
 
 #nota15 {
@@ -611,11 +611,15 @@ button:hover {
 
 body {
    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x: auto;
 }
 
 @media (max-width: 600px) {
    #query {
        width: 100%;
-       font-size: 16px;
+       font-size: 8px;
    }
 }

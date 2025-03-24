@@ -211,7 +211,7 @@ Bits: 70 BPM</p>
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'TU_NOMBRE_MSM_' + notaCancion + '.pdf',
+                filename:     'SANTO_POR_SIEMPRE_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -242,7 +242,7 @@ Bits: 70 BPM</p>
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'TU_NOMBRE_MSM.png';
+                link.download = 'SANTO_POR_SIEMPRE.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
