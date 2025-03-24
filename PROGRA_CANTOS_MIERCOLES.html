@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alabanzas Zoar</title>
+    <title>Programación de Cantos Miércoles</title>
     <link rel="stylesheet" href="tablaCantos.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo.jpg" type="image/x-icon">
 </head>
 <body>
     <script>
-        // Guarda la página de origen en localStorage
-        localStorage.setItem('paginaOrigen', window.location.pathname);
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var directora = getQueryParam('directora');
+            if (directora) {
+                document.getElementById('directora').textContent = 'Directora: ' + directora;
+            }
+        });
     </script>
     <p class="tono">
     <button onclick="regresar()"> Regresar </button>
     </p>
-    <h1 class="buscarCanto">Directoras Zoar 2025</h1>
+    <h1 class="buscarCanto">Programación Cantos Miércoles</h1>
 
     <div class="tabla-container">
         <table class="tabla-cantos">
             <tr>
-                <th>Directora</th>
-                <th>Día</th>
+                <th>Cantos Adoración</th>
+                <th>Nota Confirmada</th>
             </tr>
             <tr>
                 <td>
-                    <select id="directora">
-                        <option value="Yeni">Yeni</option>
+                    <select>
+                        <option value="A_el_alto_y_sublime">A el alto y sublime</option>
                         <option value="Siomy">Siomy</option>
                         <option value="Nineth">Nineth</option>
                         <option value="Mary">Mary</option>
@@ -35,15 +44,12 @@
                     </select>
                 </td>
                 <td>
-                    <select id="dia">
                         <option value="Miércoles">Miércoles</option>
-                        <option value="Domingo">Domingo</option>
-                    </select>
                 </td>
             </tr>
         </table>
     </div>
-    <button onclick="cantos()">Buscar</button>
+    <button class="buscar-button">Buscar</button>
     <br>
     <br>
     <br>
@@ -53,16 +59,7 @@
     </div>
     <script>
         function regresar(){
-            window.location.href = 'index.html';
-        }
-        function cantos(){
-            var directora = document.getElementById('directora').value;
-            var dia = document.getElementById('dia').value;
-            if (dia === 'Miércoles') {
-                window.location.href = 'PROGRA_CANTOS_MIERCOLES.html?directora=' + encodeURIComponent(directora);
-            } else if (dia === 'Domingo') {
-                window.location.href = 'PROGRA_CANTOS_DOMINGO.html?directora=' + encodeURIComponent(directora);
-            }
+            window.location.href = 'TABLA_CANTOS.html';
         }
     </script>
 </body>

@@ -14,7 +14,7 @@
     <p class="tono">
     <button onclick="regresar()"> Regresar </button>
     </p>
-    <h1 class="buscarCanto">Directoras Zoar 2025</h1>
+    <h1 class="buscarCanto">Programación Cantos Domingo</h1>
 
     <div class="tabla-container">
         <table class="tabla-cantos">
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>
-                    <select id="directora">
+                    <select>
                         <option value="Yeni">Yeni</option>
                         <option value="Siomy">Siomy</option>
                         <option value="Nineth">Nineth</option>
@@ -35,7 +35,7 @@
                     </select>
                 </td>
                 <td>
-                    <select id="dia">
+                    <select>
                         <option value="Miércoles">Miércoles</option>
                         <option value="Domingo">Domingo</option>
                     </select>
@@ -43,7 +43,7 @@
             </tr>
         </table>
     </div>
-    <button onclick="cantos()">Buscar</button>
+    <button class="buscar-button">Buscar</button>
     <br>
     <br>
     <br>
@@ -53,16 +53,7 @@
     </div>
     <script>
         function regresar(){
-            window.location.href = 'index.html';
-        }
-        function cantos(){
-            var directora = document.getElementById('directora').value;
-            var dia = document.getElementById('dia').value;
-            if (dia === 'Miércoles') {
-                window.location.href = 'PROGRA_CANTOS_MIERCOLES.html?directora=' + encodeURIComponent(directora);
-            } else if (dia === 'Domingo') {
-                window.location.href = 'PROGRA_CANTOS_DOMINGO.html?directora=' + encodeURIComponent(directora);
-            }
+            window.location.href = 'TABLA_CANTOS.html';
         }
     </script>
 </body>
