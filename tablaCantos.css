@@ -34,6 +34,7 @@ body {
    padding: 10px;
    text-align: center;
    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+   width: 33.33%; /* Asegura que todas las columnas tengan el mismo ancho */
 }
 
 .tabla-cantos th {
@@ -80,35 +81,42 @@ button:hover {
    background-color: #00509e; /* Azul más claro al pasar el ratón */
 }
 
+select {
+   padding: 5px;
+   font-size: 14px;
+   border: 1px solid #003366;
+   border-radius: 3px;
+   background-color: #ffffff;
+   color: #003366;
+   width: 100%;
+   box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
    .tabla-container {
-      width: 100%; /* Asegura que el contenedor ocupe todo el ancho en móviles */
-      overflow-x: auto; /* Habilita el scroll horizontal */
+       width: 100%; /* Asegura que el contenedor ocupe todo el ancho en móviles */
+       overflow-x: auto; /* Habilita el scroll horizontal */
    }
 
    .tabla-cantos {
-      width: 100%; /* Asegura que la tabla ocupe todo el ancho en móviles */
-      display: block; /* Permite el scroll horizontal */
-      min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
+       width: 100%; /* Asegura que la tabla ocupe todo el ancho en móviles */
+       display: block; /* Permite el scroll horizontal */
+       min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo */
    }
 
    .tabla-cantos th, .tabla-cantos td {
-      padding: 8px; /* Reduce el padding en móviles */
-      font-size: 12px; /* Reduce el tamaño de fuente en móviles */
+       padding: 8px; /* Reduce el padding en móviles */
+       font-size: 12px; /* Reduce el tamaño de fuente en móviles */
+       width: auto; /* Ajusta el ancho automáticamente en móviles */
    }
 
    button {
-      font-size: 12px; /* Reduce el tamaño del texto del botón en móviles */
-      padding: 8px 12px; /* Reduce el tamaño del botón en móviles */
+       font-size: 12px; /* Reduce el tamaño del texto del botón en móviles */
+       padding: 8px 12px; /* Reduce el tamaño del botón en móviles */
    }
 }
 
-/* Ajusta el ancho de las columnas */
-.tabla-cantos th:nth-child(n+3), .tabla-cantos td:nth-child(n+3) {
-   width: 1%; /* Ajusta el ancho de las columnas a su contenido */
-}
-
-.pie{
+.pie {
    text-align: center;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -117,6 +125,7 @@ button:hover {
    display: flex;
    align-items: center;
 }
+
 .pie-container img {
    width: 50px; /* Ajusta el tamaño según tus necesidades */
    height: auto; /* Mantiene la proporción de la imagen */
