@@ -1,49 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Alabanzas Zoar</title>
+    <meta charset="UTF-8">
+    <title>Programación de Cantos Domingo</title>
     <link rel="stylesheet" href="tablaCantos.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.13/html-to-image.min.js"></script>
 </head>
 <body>
     <script>
-        // Guarda la página de origen en localStorage
-        localStorage.setItem('paginaOrigen', window.location.pathname);
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function regresar() {
+            window.location.href = 'TABLA_CANTOS.html';
+        }
+
+        function actualizarNota(selectElement, notaElement) {
+            var notas = {
+                'canto0': ' ',
+                'canto1': 'C',
+                'canto2': 'C',
+                'canto3': 'Em',
+                'canto4': 'Em',
+                'canto5': 'F',
+                'canto6': 'F',
+                'canto7': 'G',
+                'canto8': 'C',
+                'canto9': 'A',
+                'canto10': 'A',
+                'canto11': 'B',
+                'canto12': 'A',
+                'canto13': 'D'
+    };
+
+    var selectedValue = selectElement.value;
+    var nota = notas[selectedValue] || ' ';
+    notaElement.innerHTML = `<option value="${selectedValue}">${nota}</option>`;
+        }
+
+        function generarImagen() {
+            var node = document.querySelector('.tabla-celebracion');
+            node.style.backgroundColor = '#ffffff'; // Asegúrate de que el fondo sea blanco
+            
+            htmlToImage.toPng(document.querySelector('.tabla-celebracion'))
+                .then(function (dataUrl) {
+                    var link = document.createElement('a');
+                    link.download = 'lista_de_cantos.png';
+                    link.href = dataUrl;
+                    link.click();
+                })
+                .catch(function (error) {
+                    console.error('Error al generar la imagen:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var directora = getQueryParam('directora');
+            if (directora === 'Mary') {
+                var tablaAdoracion = document.querySelector('.tabla-adoracion');
+                var filasAdoracion = [
+                    {
+                        canto: '<select><option value="A_el_alto_y_sublime">A el alto y sublime</option></select>',
+                        nota: '<option value="Nota">A</option>'
+                    },
+                    {
+                        canto: '<select><option value="A_el_alto_y_sublime">A el alto y sublime</option></select>',
+                        nota: '<option value="Nota">A</option>'
+                    }
+                ];
+
+                filasAdoracion.forEach(function(fila) {
+                    var nuevaFila = tablaAdoracion.insertRow();
+                    var celdaCanto = nuevaFila.insertCell();
+                    var celdaNota = nuevaFila.insertCell();
+                    celdaCanto.innerHTML = fila.canto;
+                    celdaNota.innerHTML = fila.nota;
+                });
+
+                var tablaCelebracion = document.querySelector('.tabla-celebracion');
+                var filasCelebracion = [
+                    {
+                        canto: '<select onchange="actualizarNota(this, this.parentElement.nextElementSibling)">\
+                                    <option value="canto0">Ninguno</option>\
+                                    <option value="canto1">De gloria en gloria / Marco Barrientos</option>\
+                                    <option value="canto2">Música del cielo / Miel San Marcos</option>\
+                                    <option value="canto13">Espíritu Santo bienvenido / Miel San Marcos</option>\
+                                    <option value="canto3">Hosanna / Marco Barrientos</option>\
+                                    <option value="canto4">La única razón / Danilo Montero</option>\
+                                    <option value="canto5">Te doy gloria / Marco Barrientos</option>\
+                                    <option value="canto6">Soy sano / Ericson  Molano</option>\
+                                    <option value="canto7">Ven, es hora de adorarle / Marco Barrientos</option>\
+                                    <option value="canto8">Como en el cielo / Miel San Marcos</option>\
+                                    <option value="canto9">Que se llene tu casa / Ingrid Rosario</option>\
+                                    <option value="canto10">Abre mis ojos / Danilo Montero</option>\
+                                    <option value="canto11">Gracia sublime / Espíritu y verdad</option>\
+                                    <option value="canto12">Eres digno de gloria / ICZ Worship</option>\
+                                </select>',
+                        nota: '<option value="Nota1">C</option>'
+                    }
+                ];
+
+                filasCelebracion.forEach(function(fila) {
+                    var nuevaFila = tablaCelebracion.insertRow();
+                    var celdaCanto = nuevaFila.insertCell();
+                    var celdaNota = nuevaFila.insertCell();
+                    celdaCanto.innerHTML = fila.canto;
+                    celdaNota.innerHTML = fila.nota;
+                });
+            }
+        });
     </script>
     <p class="tono">
-    <button onclick="regresar()"> Regresar </button>
+        <button onclick="regresar()"> Regresar </button>
     </p>
     <h1 class="buscarCanto">Programación Cantos Domingo</h1>
 
     <div class="tabla-container">
-        <table class="tabla-cantos">
+        <table class="tabla-cantos tabla-adoracion">
             <tr>
-                <th>Directora</th>
-                <th>Día</th>
-            </tr>
-            <tr>
-                <td>
-                    <select>
-                        <option value="Yeni">Yeni</option>
-                        <option value="Siomy">Siomy</option>
-                        <option value="Nineth">Nineth</option>
-                        <option value="Mary">Mary</option>
-                        <option value="Michelle">Michelle</option>
-                        <option value="Cony">Cony</option>
-                        <option value="Patty">Patty</option>
-                    </select>
-                </td>
-                <td>
-                    <select>
-                        <option value="Miércoles">Miércoles</option>
-                        <option value="Domingo">Domingo</option>
-                    </select>
-                </td>
+                <th>Cantos Adoración</th>
+                <th>Nota Confirmada</th>
             </tr>
         </table>
     </div>
-    <button class="buscar-button">Buscar</button>
+
+    <div class="tabla-container">
+        <table class="tabla-cantos tabla-celebracion">
+            <tr>
+                <th>Cantos de Celebración</th>
+                <th>Nota Confirmada</th>
+            </tr>
+        </table>
+    </div>
+
+    <button onclick="descargarCifrados()">Descargar Cifrados</button>
+    <button onclick="generarImagen()">Generar lista de cantos</button>
     <br>
     <br>
     <br>
@@ -51,10 +146,6 @@
         <img src="logo2.jpg" alt="Logo">
         <p class="pie">MINISTERIOS ZOAR 2025</p>
     </div>
-    <script>
-        function regresar(){
-            window.location.href = 'TABLA_CANTOS.html';
-        }
-    </script>
+    <p id="conexion-status"></p>
 </body>
 </html>

@@ -7,7 +7,7 @@ body {
    margin: 0;
    padding: 0;
    height: 100vh;
-   overflow: hidden; /* Elimina el scroll vertical y horizontal */
+   overflow-y: auto; /* Permite el scroll vertical */
 }
 
 .tabla-container {
@@ -33,6 +33,7 @@ body {
    padding: 10px;
    text-align: center;
    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+   width: 50%; /* Define un ancho fijo para las columnas */
 }
 
 .tabla-cantos th {

@@ -17,30 +17,31 @@
         function regresar() {
             window.location.href = 'TABLA_CANTOS.html';
         }
-        
-    </script>
-    <script>
-        function getQueryParam(param) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
 
         document.addEventListener('DOMContentLoaded', function() {
             var directora = getQueryParam('directora');
-            if (directora) {
-                document.getElementById('directora').textContent = 'Directora: ' + directora;
-            }
+            if (directora === 'Yeni') {
+                var tabla = document.querySelector('.tabla-cantos');
+                var filas = [
+                    {
+                        canto: '<select><option value="A_el_alto_y_sublime">A el alto y sublime</option></select>',
+                        nota: '<option value="Nota">A</option>'
+                    },
+                    {
+                        canto: '<select><option value="A_el_alto_y_sublime">A el alto y sublime</option></select>',
+                        nota: '<option value="Nota">A</option>'
+                    }
+                ];
 
-            // Enviar solicitud AJAX para verificar la conexión
-            fetch('procesar.php')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('conexion-status').textContent = 'Conexión a la base de datos: ' + data.status;
-                })
-                .catch(error => {
-                    document.getElementById('conexion-status').textContent = 'Error al verificar la conexión';
+                filas.forEach(function(fila) {
+                    var nuevaFila = tabla.insertRow();
+                    var celdaCanto = nuevaFila.insertCell();
+                    var celdaNota = nuevaFila.insertCell();
+                    celdaCanto.innerHTML = fila.canto;
+                    celdaNota.innerHTML = fila.nota;
                 });
-        });           
+            }
+        });
     </script>
     <p class="tono">
         <button onclick="regresar()"> Regresar </button>
@@ -52,16 +53,6 @@
             <tr>
                 <th>Cantos Adoración</th>
                 <th>Nota Confirmada</th>
-            </tr>
-            <tr>
-                <td>
-                    <select>
-                        <option value="A_el_alto_y_sublime">A el alto y sublime</option>
-                    </select>
-                </td>
-                <td>
-                    <option value="Nota">A</option>
-                </td>
             </tr>
         </table>
     </div>
