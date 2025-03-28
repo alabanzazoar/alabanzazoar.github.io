@@ -169,6 +169,16 @@ button:hover {
    left: 15px;
 }
 
+#nota26 {
+   position: relative;
+   left: 15px;
+}
+
+#signo1 {
+   position: relative;
+   left: 15px;
+}
+
 #nota14 {
    position: relative;
    left: 155px;
@@ -223,6 +233,8 @@ button:hover {
    position: relative;
    left: 40px;
 }
+
+
 
 body {
    background-color: white;
