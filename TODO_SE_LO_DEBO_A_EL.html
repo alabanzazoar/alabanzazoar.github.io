@@ -181,7 +181,7 @@ Y es que todo se lo debo a él.
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'GLORIFICATE_MSM_' + notaCancion + '.pdf',
+                filename:     'TODO_SE_LO_DEBO_A_EL_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -213,7 +213,7 @@ Y es que todo se lo debo a él.
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
+                link.download = 'TODO_SE_LO_DEBO_A_EL_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {

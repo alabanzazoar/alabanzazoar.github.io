@@ -20,20 +20,34 @@
         }
 
         function generarImagen() {
-            var node = document.querySelector('.tabla-celebracion');
-            node.style.backgroundColor = '#ffffff'; // Asegúrate de que el fondo sea blanco
+            var celebracionNode = document.querySelector('.tabla-celebracion');
+            var adoracionNode = document.querySelector('.tabla-adoracion');
             
-            htmlToImage.toPng(document.querySelector('.tabla-celebracion'))
+            // Asegúrate de que los fondos sean blancos
+            celebracionNode.style.backgroundColor = '#ffffff';
+            adoracionNode.style.backgroundColor = '#ffffff';
+            
+            // Crear un contenedor temporal para ambas tablas
+            var tempContainer = document.createElement('div');
+            tempContainer.appendChild(celebracionNode.cloneNode(true));
+            tempContainer.appendChild(adoracionNode.cloneNode(true));
+            document.body.appendChild(tempContainer);
+            
+            htmlToImage.toPng(tempContainer)
                 .then(function (dataUrl) {
                     var link = document.createElement('a');
                     link.download = 'lista_de_cantos.png';
                     link.href = dataUrl;
                     link.click();
+                    
+                    // Eliminar el contenedor temporal
+                    document.body.removeChild(tempContainer);
                 })
                 .catch(function (error) {
                     console.error('Error al generar la imagen:', error);
                 });
         }
+
 
         const baseId = 'appdq30kG3hMuzDqc';
         const tableName = 'Cantos';
@@ -54,9 +68,10 @@
             var config = directorasConfig[directora];
 
             if (config) {
-                const filterFormula = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Celebración')`;
+                const filterFormulaCelebracion = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Celebración')`;
+                const filterFormulaAdoracion = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Adoración')`;
 
-                fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormula)}`, {
+                fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormulaCelebracion)}&fields[]=Name`, {
                     headers: {
                         'Authorization': `Bearer ${personalAccessToken}`
                     }
@@ -69,13 +84,8 @@
                 .catch(error => {
                     console.error('Error:', error);
                 });
-            } else {
-                console.error('Directora no encontrada');
-            }
-            if (config) {
-                const filterFormula = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Adoración')`;
 
-                fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormula)}`, {
+                fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormulaAdoracion)}&fields[]=Name`, {
                     headers: {
                         'Authorization': `Bearer ${personalAccessToken}`
                     }
@@ -91,8 +101,7 @@
             } else {
                 console.error('Directora no encontrada');
             }
-         });
-
+        });
 
         function llenarTabla(records, tablaClass) {
             var tabla = document.querySelector(`.${tablaClass}`);
@@ -120,7 +129,7 @@
         function actualizarNota(selectElement, celdaNota) {
             var selectedCanto = selectElement.value;
 
-            fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(`{Name} = '${selectedCanto}'`)}`, {
+            fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(`{Name} = '${selectedCanto}'`)}&fields[]=Name&fields[]=Nota`, {
                 headers: {
                     'Authorization': `Bearer ${personalAccessToken}`
                 }
