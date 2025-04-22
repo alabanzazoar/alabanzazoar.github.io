@@ -40,13 +40,13 @@
         const personalAccessToken = 'patmCGSfm34EhyQtf.9972142779ca58bac082393141e5d9d32ef7bee74b4216d46e4b5d35e0f7b96f';
 
         const directorasConfig = {
-            'Mary': { directoraId: 4, tipo: 'Celebración' },
-            'Ana': { directoraId: 5, tipo: 'Adoración' },
-            'Laura': { directoraId: 6, tipo: 'Celebración' },
-            'Sofia': { directoraId: 7, tipo: 'Adoración' },
-            'Elena': { directoraId: 8, tipo: 'Celebración' },
-            'Carmen': { directoraId: 9, tipo: 'Adoración' },
-            'Isabel': { directoraId: 10, tipo: 'Celebración' }
+            'Mary': { directoraId: 4},
+            'Yeni': { directoraId: 1, tipo: 'Celebración' },
+            'Yeni': { directoraId: 1, tipo: 'Adoración' },
+            'Nineth': { directoraId: 3, tipo: 'Celebración' },
+            'Michelle': { directoraId: 5, tipo: 'Celebración' },
+            'Cony': { directoraId: 6, tipo: 'Celebración' },
+            'Patty': { directoraId: 7, tipo: 'Celebración' }
         };
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -54,7 +54,7 @@
             var config = directorasConfig[directora];
 
             if (config) {
-                const filterFormula = `AND({Directora} = ${config.directoraId}, {Tipo} = '${config.tipo}')`;
+                const filterFormula = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Celebración')`;
 
                 fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormula)}`, {
                     headers: {
@@ -64,7 +64,7 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log('Records:', data.records);
-                    llenarTabla(data.records);
+                    llenarTabla(data.records, 'tabla-celebracion');
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -72,13 +72,33 @@
             } else {
                 console.error('Directora no encontrada');
             }
-        });
+            if (config) {
+                const filterFormula = `AND({Directora} = ${config.directoraId}, {Tipo} = 'Adoración')`;
 
-        function llenarTabla(records) {
-            var tablaCelebracion = document.querySelector('.tabla-celebracion');
+                fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormula)}`, {
+                    headers: {
+                        'Authorization': `Bearer ${personalAccessToken}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Records:', data.records);
+                    llenarTabla(data.records, 'tabla-adoracion');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            } else {
+                console.error('Directora no encontrada');
+            }
+         });
+
+
+        function llenarTabla(records, tablaClass) {
+            var tabla = document.querySelector(`.${tablaClass}`);
 
             for (let i = 0; i < 4; i++) { // Repite la inserción de filas 4 veces
-                var nuevaFila = tablaCelebracion.insertRow();
+                var nuevaFila = tabla.insertRow();
                 var celdaCanto = nuevaFila.insertCell();
                 var celdaNota = nuevaFila.insertCell();
 
