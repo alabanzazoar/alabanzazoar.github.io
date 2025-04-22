@@ -183,7 +183,7 @@ Te amo,    más que a mi ser.
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'TU_NOMBRE_MSM_' + notaCancion + '.pdf',
+                filename:     'YO_TE_BUSCO_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -214,7 +214,7 @@ Te amo,    más que a mi ser.
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'TU_NOMBRE_MSM.png';
+                link.download = 'YO_TE_BUSCO.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
