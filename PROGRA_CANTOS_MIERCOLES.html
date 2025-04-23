@@ -65,6 +65,7 @@
                 .then(data => {
                     console.log('Records:', data.records);
                     llenarTabla(data.records);
+                    window.records = data.records; // Guardar los registros globalmente
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -99,7 +100,7 @@
                 });
 
                 celdaCanto.appendChild(selectCanto);
-                celdaNota.innerHTML = '<option value="Nota1"> </option>';
+                celdaNota.innerHTML = ' ';
             }
         }
 
@@ -126,49 +127,98 @@
             });
         }
 
+        function agregarCanto() {
+            var tablaCelebracion = document.querySelector('.tabla-celebracion');
+            var nuevaFila = tablaCelebracion.insertRow();
+            var celdaCanto = nuevaFila.insertCell();
+            var celdaNota = nuevaFila.insertCell();
+
+            var selectCanto = document.createElement('select');
+            selectCanto.setAttribute('onchange', 'actualizarNota(this, this.parentElement.nextElementSibling)');
+
+            // Agregar opción en blanco
+            var blankOption = document.createElement('option');
+            blankOption.value = '';
+            blankOption.text = '';
+            selectCanto.appendChild(blankOption);
+
+            if (window.records && window.records.length > 0) {
+                window.records.forEach(function(record) {
+                    var option = document.createElement('option');
+                    option.value = record.fields.Name || 'undefined';
+                    option.text = record.fields.Name || 'undefined';
+                    selectCanto.appendChild(option);
+                });
+            } else {
+                console.error('No se encontraron registros.');
+            }
+
+            celdaCanto.appendChild(selectCanto);
+            celdaNota.innerHTML = ' ';
+        }
         function descargarCifrados() {
             var celebracionSelects = document.querySelectorAll('.tabla-celebracion select');
             var cantosSeleccionados = [];
 
             celebracionSelects.forEach(function(select) {
                 var notaCelda = select.parentElement.nextElementSibling;
-                cantosSeleccionados.push({ name: select.value, nota: notaCelda.textContent.trim() });
+                cantosSeleccionados.push({ name: select.options[select.selectedIndex].text, nota: notaCelda.textContent.trim() });
             });
 
-            var cifrados = [];
+            var directora = getQueryParam('directora');
+            var config = directorasConfig[directora];
 
-            Promise.all(cantosSeleccionados.map(function(canto) {
-                return fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(`AND({Name} = '${canto.name}', {Nota} = '${canto.nota}')`)}&fields[]=Cifrado`, {
-                    headers: {
-                        'Authorization': `Bearer ${personalAccessToken}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.records.length > 0) {
-                        var cifradoUrl = data.records[0].fields.Cifrado[0].url;
-                        cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: ${cifradoUrl}`);
+            if (config) {
+                Promise.all(cantosSeleccionados.map(function(canto) {
+                    var record = window.records.find(r => r.fields.Name === canto.name);
+
+                    if (record && record.fields.NumCanto) {
+                        var numCanto = record.fields.NumCanto;
+                        var filterFormula = `AND({NumCanto} = '${numCanto}', FIND('${config.directoraId}', {Directora}))`;
+                        console.log(`Filter Formula: ${filterFormula}`); // Mensaje de depuración
+
+                        return fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(filterFormula)}&fields[]=Cifrado`, {
+                            headers: {
+                                'Authorization': `Bearer ${personalAccessToken}`
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(`Data for ${numCanto}:`, data); // Mensaje de depuración
+
+                            if (data.records.length > 0 && data.records[0].fields.Cifrado && data.records[0].fields.Cifrado.length > 0) {
+                                var cifradoUrl = data.records[0].fields.Cifrado[0].url;
+                                fetch(cifradoUrl)
+                                    .then(response => response.blob())
+                                    .then(blob => {
+                                        var link = document.createElement('a');
+                                        link.href = URL.createObjectURL(blob);
+                                        link.download = `${canto.name}_Cifrado.pdf`; // Puedes ajustar la extensión según el tipo de archivo
+                                        link.click();
+                                    })
+                                    .catch(error => {
+                                        console.error('Error al descargar el archivo:', error);
+                                    });
+                            } else {
+                                console.error(`Cifrado no encontrado para el canto: ${canto.name}`);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
                     } else {
-                        cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: No encontrado`);
+                        console.error(`NumCanto no encontrado para el canto: ${canto.name}`);
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: Error al obtener el cifrado`);
-                });
-            }))
-            .then(function() {
-                var contenido = cifrados.join('\n');
-                var blob = new Blob([contenido], { type: 'text/plain' });
-                var link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'cifrados.txt';
-                link.click();
-            });
+                }));
+            } else {
+                console.error('Directora no encontrada');
+            }
         }
+
     </script>
     
     <p class="tono">
+        <button onclick="agregarCanto()">Agregar Fila</button>
         <button onclick="regresar()"> Regresar </button>
     </p>
     <h1 class="buscarCanto">Programación Cantos Miércoles</h1>
@@ -181,7 +231,6 @@
             </tr>
         </table>
     </div>
-
     <button onclick="descargarCifrados()">Descargar Cifrados</button>
     <button onclick="generarImagen()">Generar lista de cantos</button>
     <br>
