@@ -159,28 +159,35 @@
 
         async function combinarPDFs(pdfUrls) {
             const apiKey = 'alabanza729@gmail.com_hvs09a9eqX4D6GubNW0e2HFyKG3F9fY8BFccXL9pzBNWlFwyQ5dV1YiQQVGFgzDw';
-            console.error(`Urls que se encuentra: ${pdfUrls}`);
-            const response = await fetch('https://api.pdf.co/v1/pdf/merge', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': apiKey
-                },
-                body: JSON.stringify({
-                    urls: pdfUrls
-                })
-            });
+            console.error(`Urls que se encuentran: ${pdfUrls}`);
 
-            const result = await response.json();
-            if (response.ok) {
-                const link = document.createElement('a');
-                link.href = result.url;
-                link.download = 'PDF_Combinado.pdf';
-                link.click();
-            } else {
-                console.error('Error al combinar los PDFs:', result.message);
+            try {
+                const response = await fetch('https://api.pdf.co/v1/pdf/merge', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey
+                    },
+                    body: JSON.stringify({
+                        urls: pdfUrls
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    const link = document.createElement('a');
+                    link.href = result.url;
+                    link.download = 'PDF_Combinado.pdf';
+                    link.click();
+                } else {
+                    console.error('Error al combinar los PDFs:', result.message);
+                }
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
             }
         }
+
 
         function descargarCifrados() {
             var celebracionSelects = document.querySelectorAll('.tabla-celebracion select');
