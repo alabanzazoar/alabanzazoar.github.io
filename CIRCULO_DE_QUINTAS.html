@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Círculo de Quintas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .circle-of-fifths {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .note {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-of-fifths">
+        <div class="note" style="top: 0; left: 50%; transform: translate(-50%, -50%);" onclick="alert('C')">C</div>
+        <div class="note" style="top: 15%; left: 85%; transform: translate(-50%, -50%);" onclick="alert('G')">G</div>
+        <div class="note" style="top: 50%; left: 100%; transform: translate(-50%, -50%);" onclick="alert('D')">D</div>
+        <div class="note" style="top: 85%; left: 85%; transform: translate(-50%, -50%);" onclick="alert('A')">A</div>
+        <div class="note" style="top: 100%; left: 50%; transform: translate(-50%, -50%);" onclick="alert('E')">E</div>
+        <div class="note" style="top: 85%; left: 15%; transform: translate(-50%, -50%);" onclick="alert('B')">B</div>
+        <div class="note" style="top: 50%; left: 0; transform: translate(-50%, -50%);" onclick="alert('F#')">F#</div>
+        <div class="note" style="top: 15%; left: 15%; transform: translate(-50%, -50%);" onclick="alert('C#')">C#</div>
+        <div class="note" style="top: 0; left: 50%; transform: translate(-50%, -50%);" onclick="alert('Ab')">Ab</div>
+        <div class="note" style="top: 15%; left: 85%; transform: translate(-50%, -50%);" onclick="alert('Eb')">Eb</div>
+        <div class="note" style="top: 50%; left: 100%; transform: translate(-50%, -50%);" onclick="alert('Bb')">Bb</div>
+        <div class="note" style="top: 85%; left: 85%; transform: translate(-50%, -50%);" onclick="alert('F')">F</div>
+    </div>
+</body>
+</html>
