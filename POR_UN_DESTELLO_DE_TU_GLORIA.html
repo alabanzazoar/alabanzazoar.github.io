@@ -2,24 +2,27 @@
     <head>
         <title>POR UN DESTELLO DE TU GLORIA</title>
         <link rel="stylesheet" href="porUnDestelloDeTuGloria.css">
+        <link rel="icon" href="logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body>      
+        <p class="tono">
+            <button id="botonGrados" onclick="grados()"> Grados </button>          
+            <button onclick="regresar()"> Regresar </button>
+            <button onclick="generarPDF()"> Generar PDF </button>  
+            <button onclick="generarImagen()"> Generar Imagen </button>        
+        </p>
         <p class="titulo1"></p>
-        <p class="tono">Tonalidad:
+        <p class="tono" id="controlesTono">
+        Tonalidad:
         <button onclick="subirTono()"> +1 </button>
         <button onclick="subirMedioTono()"> +½ </button>
         <button onclick="bajarMedioTono()"> -½ </button>
         <button onclick="bajarTono()"> -1 </button>
-        </p>
-        <p class="tono">
-            <button onclick="regresar()"> Regresar </button>
-            <button onclick="generarPDF()"> Generar PDF </button>  
-            <button onclick="generarImagen()"> Generar Imagen </button>        
         </p>
         <br>
         <div class="letra">
@@ -46,17 +49,17 @@ Lo que tenga que pasar
 Lo que tenga que esperar//
 </p>
 <p class="titulo5">CORO<br>
-<span class="color-azul"><span id="nota19">E</span> <span id="nota20">A</span> <span id="nota21">C#</span></span>
+<span class="color-azul"><span id="nota19">E</span> <span id="nota20">A</span> <span id="nota21">C#m</span></span>
 Tengo hambre de Ti, de tu presencia
 <span class="color-azul"><span id="nota22">F#m</span> <span id="nota23">D</span></span>
 de tu fragancia, de tu poder
-<span class="color-azul"><span id="nota24">A</span> <span id="nota25">C#</span></span>
+<span class="color-azul"><span id="nota24">A</span> <span id="nota25">C#m</span></span>
 hambre que duele, que debilita
 <span class="color-azul"><span id="nota26">F#m</span> <span id="nota27">D</span></span>
 que desespera por ti
 
 
-<span class="color-azul"><span id="nota28">A</span> <span id="nota29">C#</span> <span id="nota30">F#m</span> <span id="nota31">D</span></span>
+<span class="color-azul"><span id="nota28">A</span> <span id="nota29">C#m</span> <span id="nota30">F#m</span> <span id="nota31">D</span></span>
 //Tengo hambre de ti Oh Oh hambre de ti Señor......//
 </p>
         <br>
@@ -66,8 +69,9 @@ que desespera por ti
             <p>MINISTERIOS ZOAR 2025</p>
         </div>
     </div>
-    
-    <script>
+
+    <script>      
+
         let elementoNotas =[
             document.getElementById('nota1'),
             document.getElementById('nota2'),
@@ -99,19 +103,7 @@ que desespera por ti
             document.getElementById('nota28'),
             document.getElementById('nota29'),
             document.getElementById('nota30'),
-            document.getElementById('nota31'),
-            document.getElementById('nota32'),
-            document.getElementById('nota33'),
-            document.getElementById('nota34'),
-            document.getElementById('nota35'),
-            document.getElementById('nota36'),
-            document.getElementById('nota37'),
-            document.getElementById('nota38'),
-            document.getElementById('nota39'),
-            document.getElementById('nota40'),
-            document.getElementById('nota41'),
-            document.getElementById('nota42'),
-            document.getElementById('nota43')
+            document.getElementById('nota31')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
@@ -127,6 +119,7 @@ que desespera por ti
                 elemento.textContent = listaNotas[nuevoIndice];
             });
         }
+
         //Función encargada de bajar un semitono a la nota actual
         function bajarMedioTono() {
             elementoNotas.forEach(elemento =>{
@@ -138,6 +131,7 @@ que desespera por ti
                 elemento.textContent = listaNotas[nuevoIndice];
             });
         }
+
         //Función encargada de subir un tono a la nota actual
         function subirTono() {
             elementoNotas.forEach(elemento =>{
@@ -162,6 +156,53 @@ que desespera por ti
             });
         }
 
+        //Cambiar de grados a notas.
+        function grados() {
+            let botonGr = document.getElementById("botonGrados");
+            let texto = botonGr.innerText;
+            
+            if (texto == "Grados"){
+                document.getElementById("controlesTono").style.display = "none";
+                document.getElementById("nota1").innerText = "I"; 
+                document.getElementById("nota2").innerText = "I"; 
+                document.getElementById("nota3").innerText = "V";   
+                document.getElementById("nota4").innerText = "Vi";  
+                document.getElementById("nota5").innerText = "IV";    
+                document.getElementById("nota6").innerText = "I"; 
+                document.getElementById("nota7").innerText = "iii";  
+                document.getElementById("nota8").innerText = "Vi";  
+                document.getElementById("nota9").innerText = "IV"; 
+                document.getElementById("nota10").innerText = "I";
+                document.getElementById("nota11").innerText = "iii"; 
+                document.getElementById("nota12").innerText = "Vi"; 
+                document.getElementById("nota13").innerText = "IV";
+                document.getElementById("nota14").innerText = "I";  
+                document.getElementById("nota15").innerText = "V";  
+                document.getElementById("nota16").innerText = "ii";  
+                document.getElementById("nota17").innerText = "V";      
+                document.getElementById("nota18").innerText = "IV"; 
+                document.getElementById("nota19").innerText = "V";  
+                document.getElementById("nota20").innerText = "I";   
+                document.getElementById("nota21").innerText = "iii"; 
+                document.getElementById("nota22").innerText = "Vi"; 
+                document.getElementById("nota23").innerText = "IV"; 
+                document.getElementById("nota24").innerText = "I";  
+                document.getElementById("nota25").innerText = "iii"; 
+                document.getElementById("nota26").innerText = "Vi";  
+                document.getElementById("nota27").innerText = "IV"; 
+                document.getElementById("nota28").innerText = "I"; 
+                document.getElementById("nota29").innerText = "iii";  
+                document.getElementById("nota30").innerText = "Vi"; 
+                document.getElementById("nota31").innerText = "IV"; 
+
+            //Cambio de nombre y función a boton
+                document.getElementById("botonGrados").innerText = "Notas";
+            } else {
+                location.reload();             
+            }
+            
+        }
+
         //Función para la generación de generarPDF
         function generarPDF(){
             // Selecciona el contenido que deseas incluir en el PDF
@@ -171,7 +212,7 @@ que desespera por ti
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'GLORIFICATE_MSM_' + notaCancion + '.pdf',
+                filename:     'POR_UN_DESTELLO_DE_TU_GLORIA_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -203,7 +244,7 @@ que desespera por ti
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
+                link.download = 'POR_UN_DESTELLO_DE_TU_GLORIA_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
@@ -213,10 +254,11 @@ que desespera por ti
             });
         }
 
-
         function regresar(){
             window.location.href = 'index.html';
         }
+
     </script>
+
     </body>
 </html>
