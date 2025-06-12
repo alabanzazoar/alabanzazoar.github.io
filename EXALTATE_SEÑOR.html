@@ -33,18 +33,20 @@ Bits:  BPM</p>
 // Me postro ante ti, mi Dios, mi Rey,
 <span class="color-azul"><span id="nota7">C#m</span> <span id="nota8">F#</span> <span id="nota9">G#m</span> <span id="signo2">-</span> <span id="nota10">F#</span> <span id="nota11">D#m</span></span>
 Es mucho lo que tú me has perdonado,
-<span class="color-azul"><span id="nota12">E</span> <span id="nota13">D#m</span> <span id="nota14">C#m</span> <span id="nota15">-</span> <span id="nota16">D#m</span></span>
+<span class="color-azul"><span id="nota12">E</span> <span id="nota13">D#m</span> <span id="nota14">C#m</span> <span id="signo3">-</span> <span id="nota15">D#m</span></span>
 Un corazón agradecido es lo que traigo a ti,
-<span class="color-azul"><span id="nota17"></span> <span id="nota9">A</span></span>
+<span class="color-azul"><span id="nota16">E</span> <span id="nota17">F#</span></span>
 Hoy derramo mi ser para ungirte Rey. //
 </p>
 <p class="titulo5">CORO<br>
-<span class="color-azul"><span id="nota15">D</span> <span id="nota16">A</span> <span id="signo17">G</span> <span id="nota18">A</span></span>
-Sea la gloria honor alabanza y poder
-<span class="color-azul"><span id="nota19">D</span> <span id="nota20">A</span> <span id="nota21">G</span> <span id="signo22">A</span></span>
-Al que reina por los siglos y su nombre
-<span class="color-azul"><span id="nota23">D</span></span>
-Santo es
+<span class="color-azul"><span id="nota18">B</span> <span id="nota19">C#m</span> <span id="signo4">-</span> <span id="nota20">D#m</span> <span id="signo5">-</span> <span id="nota21">E</span> <span id="nota22">D#m</span></span>
+Exáltate Señor,         exáltate Señor,
+<span class="color-azul"><span id="nota23">C#m</span> <span id="nota24">F#</span> <span id="nota25">G#m</span> <span id="signo6">-</span> <span id="nota26">E</span> <span id="signo7">-</span> <span id="nota27">F#</span></span>
+Que se llene esta casa con tu gloria,
+<span class="color-azul"><span id="nota28">B</span> <span id="nota29">C#m</span> <span id="signo8">-</span> <span id="nota30">D#m</span> <span id="signo9">-</span> <span id="nota31">E</span> <span id="nota32">D#m</span></span>
+Exáltate Señor,         exáltate Señor,
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Que se llene con tu gloria este lugar
 </p>
         <br>
         <br>
@@ -78,7 +80,21 @@ Santo es
             document.getElementById('nota20'),
             document.getElementById('nota21'),
             document.getElementById('nota22'),
-            document.getElementById('nota23')
+            document.getElementById('nota23'),
+            document.getElementById('nota24'),
+            document.getElementById('nota25'),
+            document.getElementById('nota26'),
+            document.getElementById('nota27'),
+            document.getElementById('nota28'),
+            document.getElementById('nota29'),
+            document.getElementById('nota30'),
+            document.getElementById('nota31'),
+            document.getElementById('nota32'),
+            document.getElementById('nota33'),
+            document.getElementById('nota34'),
+            document.getElementById('nota35'),
+            document.getElementById('nota36'),
+            document.getElementById('nota37')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
@@ -138,7 +154,7 @@ Santo es
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'A_EL_ALTO_Y_SUBLIME_' + notaCancion + '.pdf',
+                filename:     'EXÁLTATE_SEÑOR_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -170,7 +186,7 @@ Santo es
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'A_EL_ALTO_Y_SUBLIME_' + notaCancion + '.png';
+                link.download = 'EXÁLTATE_SEÑOR_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
