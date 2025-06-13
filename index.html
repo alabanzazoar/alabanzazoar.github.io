@@ -5,15 +5,18 @@
     <link rel="stylesheet" href="misEstilos3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
 </head>
 <body>
     <script>
         // Guarda la página de origen en localStorage
         localStorage.setItem('paginaOrigen', window.location.pathname);
     </script>
-    <br>
-    <a href="TABLA_CANTOS.html" class="tabla-link">Directoras</a>
+
+    <p class="tono">
+        <button onclick="circulo5()"> Circulo 5tas </button>
+        <button onclick="directoras()"> Directoras </button>
+    </p>
     <br>
     <h1 class="buscarCanto">Alabanza Zoar</h1>
     <form id="buscadorForm">
@@ -187,6 +190,15 @@
                 });
             }
         });
+
+        function directoras() {
+            window.location.href = 'TABLA_CANTOS.html';
+        }
+
+        function circulo5() {
+            window.location.href = 'CIRCULO_DE_QUINTAS.html';
+        }
+
     </script>
 </body>
 </html>

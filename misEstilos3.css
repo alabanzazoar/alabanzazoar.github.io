@@ -30,6 +30,7 @@ body {
    font-size: 16px;
 }
 
+
 button {
    background-color: #003366; /* Fondo azul oscuro */
    color: #ffffff; /* Texto blanco */
@@ -60,6 +61,15 @@ button:hover {
       width: 100%;
       font-size: 16px;
   }
+}
+
+.tono {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: right; /* Alinea el texto a la derecha */
+   width: 100%; /* Ocupa todo el ancho */
+   padding-right: 20px; /* Añade un poco de espacio a la derecha */
 }
 
 .pie{
