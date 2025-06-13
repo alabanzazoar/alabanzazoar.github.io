@@ -154,6 +154,59 @@
             });
         }
 
+        function descargarCifrados() {
+    var celebracionSelects = document.querySelectorAll('.tabla-celebracion select');
+    var adoracionSelects = document.querySelectorAll('.tabla-adoracion select');
+    var cantosSeleccionados = [];
+
+    celebracionSelects.forEach(function(select) {
+        var notaCelda = select.parentElement.nextElementSibling;
+        cantosSeleccionados.push({ name: select.value, nota: notaCelda.textContent.trim() });
+    });
+
+    adoracionSelects.forEach(function(select) {
+        var notaCelda = select.parentElement.nextElementSibling;
+        cantosSeleccionados.push({ name: select.value, nota: notaCelda.textContent.trim() });
+    });
+
+    var cifrados = [];
+    var directora = getQueryParam('directora');
+    var config = directorasConfig[directora];
+
+    if (config) {
+        Promise.all(cantosSeleccionados.map(function(canto) {
+            return fetch(`https://api.airtable.com/v0/${baseId}/${tableName}?filterByFormula=${encodeURIComponent(`AND({Name} = '${canto.name}', FIND('${config.directoraId}', {Directora}))`)}&fields[]=Cifrado`, {
+                headers: {
+                    'Authorization': `Bearer ${personalAccessToken}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.records.length > 0) {
+                    var cifradoUrl = data.records[0].fields.Cifrado[0].url;
+                    cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: ${cifradoUrl}`);
+                } else {
+                    cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: No encontrado`);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                cifrados.push(`Canto: ${canto.name}, Nota: ${canto.nota}, Cifrado: Error al obtener el cifrado`);
+            });
+        }))
+        .then(function() {
+            var contenido = cifrados.join('\n');
+            var blob = new Blob([contenido], { type: 'text/plain' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'cifrados.txt';
+            link.click();
+        });
+    } else {
+        console.error('Directora no encontrada');
+    }
+}
+
     </script>
     
     <p class="tono">
@@ -179,6 +232,7 @@
         </table>
     </div>
 
+    <button onclick="descargarCifrados()">Descargar Cifrados</button>
     <button onclick="generarImagen()">Generar lista de cantos</button>
     <br>
     <br>
