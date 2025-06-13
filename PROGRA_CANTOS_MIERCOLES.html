@@ -93,10 +93,14 @@
                 selectCanto.appendChild(blankOption);
 
                 records.forEach(function(record) {
+                    
                     var option = document.createElement('option');
-                    option.value = record.fields.Name || 'undefined';
-                    option.text = record.fields.Name || 'undefined';
+                    var nombre = record.fields.Name || 'undefined';
+                    var nota = record.fields.Nota || 'Sin nota';
+                    option.value = nombre;
+                    option.text = `${nombre} - ${nota}`;
                     selectCanto.appendChild(option);
+
                 });
 
                 celdaCanto.appendChild(selectCanto);
