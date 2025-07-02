@@ -1,7 +1,8 @@
 <!DOCTYPE html>
     <head>
         <title>ESPÍRITU SANTO BIENVENIDO</title>
-        <link rel="stylesheet" href="espirituSantoBienvenido.css">
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/espirituSantoBienvenido.css">
+        <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
@@ -47,12 +48,12 @@ Bienvenido Espíritu de Dios
 Hoy rendimos coronas a tus pies.
 </p>
 <p class="titulo5">SOLO<br>
-<span class="color-azul">//<span id="nota18">F#m</span> <span id="nota19">G</span> <span id="nota20">A</span> <span id="nota21">Bm</span>//</span>
+<span class="color-azul">//<span id="nota18">F#m</span>  <span id="nota19">G</span>  <span id="nota20">A</span>  <span id="nota21">Bm</span>//</span>
 </p>
         <br>
         <br>
         <div class="pie-container">
-            <img src="logo2.jpg" alt="Logo">
+            <img src="/LOGOS/logo2.jpg" alt="Logo">
             <p>MINISTERIOS ZOAR 2025</p>
         </div>
     </div>
@@ -79,29 +80,7 @@ Hoy rendimos coronas a tus pies.
             document.getElementById('nota18'),
             document.getElementById('nota19'),
             document.getElementById('nota20'),
-            document.getElementById('nota21'),
-            document.getElementById('nota22'),
-            document.getElementById('nota23'),
-            document.getElementById('nota24'),
-            document.getElementById('nota25'),
-            document.getElementById('nota26'),
-            document.getElementById('nota27'),
-            document.getElementById('nota28'),
-            document.getElementById('nota29'),
-            document.getElementById('nota30'),
-            document.getElementById('nota31'),
-            document.getElementById('nota32'),
-            document.getElementById('nota33'),
-            document.getElementById('nota34'),
-            document.getElementById('nota35'),
-            document.getElementById('nota36'),
-            document.getElementById('nota37'),
-            document.getElementById('nota38'),
-            document.getElementById('nota39'),
-            document.getElementById('nota40'),
-            document.getElementById('nota41'),
-            document.getElementById('nota42'),
-            document.getElementById('nota43')
+            document.getElementById('nota21')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
@@ -161,7 +140,7 @@ Hoy rendimos coronas a tus pies.
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'GLORIFICATE_MSM_' + notaCancion + '.pdf',
+                filename:     'ESPIRITU_SANTO_BIENVENIDO_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -193,7 +172,7 @@ Hoy rendimos coronas a tus pies.
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
+                link.download = 'ESPIRITU_SANTO_BIENVENIDO_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {

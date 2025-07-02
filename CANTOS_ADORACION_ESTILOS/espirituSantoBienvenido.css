@@ -157,8 +157,43 @@ button:hover {
 
 #nota10 {
    position: relative;
+   left: 10px;
+}
+
+#nota11 {
+   position: relative;
+   left: -20px;
+}
+
+#nota12 {
+   position: relative;
+   left: 65px;
+}
+
+#nota13 {
+   position: relative;
+   left: -75px;
+}
+
+#nota14 {
+   position: relative;
+   left: -35px;
+}
+
+#nota15 {
+   position: relative;
+   left: -50px;
+}
+
+#nota16 {
+   position: relative;
+   left: -50px;
+}
+#nota17 {
+   position: relative;
    left: 80px;
 }
+
 
 body {
    background-color: white;
