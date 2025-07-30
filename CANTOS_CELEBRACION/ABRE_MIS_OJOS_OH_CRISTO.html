@@ -215,7 +215,7 @@ Yo quiero verte //
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
+                link.download = 'ABRE_MIS_OJOS_OH_CRISTO_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
@@ -227,7 +227,7 @@ Yo quiero verte //
 
 
         function regresar() {
-            window.location.href = 'index.html';
+            window.location.href = '/index.html';
     }
     </script>
     </body>

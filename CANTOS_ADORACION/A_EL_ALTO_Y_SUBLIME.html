@@ -185,7 +185,7 @@ Y su nombre Santo es//
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'A_EL_Y_SUBLIME_' + notaCancion + '.png';
+                link.download = 'A_EL_ALTO_Y_SUBLIME_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
@@ -197,7 +197,7 @@ Y su nombre Santo es//
 
 
         function regresar(){
-            window.location.href = 'index.html';
+            window.location.href = '/index.html';
         }
     </script>
     </body>
