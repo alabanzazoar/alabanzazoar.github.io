@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+    <head>
+        <title>EL VIENE OTRA VEZ</title>
+        <link rel="stylesheet" href="elVieneOtraVez.css">
+        <link rel="icon" href="logo.jpg" type="image/x-icon">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p class="tono">
+            <button id="botonGrados" onclick="grados()"> Grados </button>          
+            <button onclick="regresar()"> Regresar </button>
+            <button onclick="generarPDF()"> Generar PDF </button>  
+            <button onclick="generarImagen()"> Generar Imagen </button>        
+        </p>
+        <p class="titulo1"></p>
+        <p class="tono" id="controlesTono">
+        Tonalidad:
+        <button onclick="subirTono()"> +1 </button>
+        <button onclick="subirMedioTono()"> +½ </button>
+        <button onclick="bajarMedioTono()"> -½ </button>
+        <button onclick="bajarTono()"> -1 </button>
+        </p>    
+        <br>
+        <div class="letra">
+        <h1 class="titulo2">EL VIENE OTRA VEZ</h1>
+        <p class="titulo3">Cristine D'Clario
+Nota "<span id="nota1">B</span>"
+Bits:  BPM</p>
+<p class="titulo4">                                                   INTRO: <span class="color-azul">   <span id="nota2">F</span> - <span id="nota3">C</span> - <span id="nota4">Am</span> - <span id="nota5">A#</span>
+</span></p>
+<p class="titulo5">VERSO 1<br>
+<span class="color-azul"><span id="nota6">F</span> <span id="nota7">C</span> <span id="signo1">-</span> <span id="nota8">A#</span></span>
+Ya no puedo esperar     por el día en que volverá
+<span class="color-azul"><span id="nota9">F</span><span id="nota10">C</span> <span id="signo2">-</span> <span id="nota11">A#</span></span>
+A la puerta él esta     y el tiempo se acerca ya
+<span class="color-azul"><span id="nota12">F</span> <span id="signo3">-</span> <span id="nota13">C</span> <span id="signo4">-</span> <span id="nota14">Am</span> <span id="signo5">-</span> <span id="nota15">A#</span></span>
+eh eh eh eh
+</p>
+<p class="titulo5">VERSO 2<br>
+<span class="color-azul"><span id="nota16">F</span> <span id="nota17">C</span> <span id="signo6">-</span> <span id="nota18">A#</span></span>
+Como anhelo estar,      junto a él por la eternidad
+<span class="color-azul"><span id="nota19">F</span> <span id="nota20">C</span> <span id="signo7">-</span> <span id="nota21">A#</span></span>
+Todo hay que preparar,       porque Cristo viene ya
+<span class="color-azul"><span id="nota22">F</span> <span id="signo8">-</span> <span id="nota23">C</span> <span id="signo9">-</span> <span id="nota24">Am</span> <span id="signo10">-</span> <span id="nota25">A#</span></span>
+Ven, ven, ven
+<span class="color-azul"><span id="nota26">Dm</span> <span id="nota30">C</span> <span id="nota31">A#</span></span>
+ven, ven
+</p>
+<p class="titulo5">CORO<br>
+<span class="color-azul"><span id="nota32">F</span> <span id="nota33">C</span> <span id="nota34">Am</span></span>
+Él viene otra vez
+<span class="color-azul"><span id="nota35">A#</span> <span id="nota36">F</span> <span id="nota37">C</span></span>
+Con gloria y con poder
+<span class="color-azul"><span id="nota38">Am</span> <span id="nota39">A#</span> <span id="nota40">F</span></span>
+Él viene entre las nubes
+<span class="color-azul"><span id="nota41">C</span> <span id="nota42">Am</span> <span id="nota43">A#</span> <span id="nota44">Dm</span> <span id="nota45">C</span> <span id="nota46">A#</span></span>
+Y su iglesia dice: Ven, ven, ven, ven
+<span class="color-azul"><span id="nota47">F</span> <span id="signo11">-</span> <span id="nota48">C</span> <span id="signo12">-</span> <span id="nota49">Am</span> <span id="signo13">-</span> <span id="nota50">A#</span></span>
+Ven, ven, ven
+</p>
+<p class="titulo5">PUENTE<br>
+<span class="color-azul"><span id="nota42">A#</span> <span id="nota43">F</span> <span id="signo6">/</span> <span id="nota44">A#</span></span>
+//Todo ojo le verá,
+<span class="color-azul"><span id="nota45">C</span> <span id="signo7">/</span> <span id="nota46">E</span></span>
+muertos resucitarán
+<span class="color-azul"><span id="nota47">Dm</span> <span id="nota48">A#</span></span>
+y su pueblo se unirá en el cielo
+<span class="color-azul"><span id="nota49">A#</span> <span id="nota50">F</span> <span id="signo8">/</span> <span id="nota51">A#</span></span>
+Ya no habrá porque llorar, 
+<span class="color-azul"><span id="nota52">A</span></span>
+será un gozo sin final juntos,
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+cantaremos Santo, Santo//
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Santo, santo
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Juntos cantaremos Santo, Santo
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Por los siglos de los siglos (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Porque solo él es digno (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Vamos cántalo con tu vecino (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Es que Cristo ha vencido (Santo Santo)
+</p>
+        <br>
+        <br>
+        <div class="pie-container">
+            <img src="logo2.jpg" alt="Logo">
+            <p>MINISTERIOS ZOAR 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        let elementoNotas =[
+            document.getElementById('nota1'),
+            document.getElementById('nota2'),
+            document.getElementById('nota3'),
+            document.getElementById('nota4'),
+            document.getElementById('nota5'),
+            document.getElementById('nota6'),
+            document.getElementById('nota7'),
+            document.getElementById('nota8'),
+            document.getElementById('nota9'),
+            document.getElementById('nota10'),
+            document.getElementById('nota11'),
+            document.getElementById('nota12'),
+            document.getElementById('nota13'),
+            document.getElementById('nota14'),
+            document.getElementById('nota15'),
+            document.getElementById('nota16'),
+            document.getElementById('nota17'),
+            document.getElementById('nota18'),
+            document.getElementById('nota19'),
+            document.getElementById('nota20'),
+            document.getElementById('nota21'),
+            document.getElementById('nota22'),
+            document.getElementById('nota23'),
+            document.getElementById('nota24'),
+            document.getElementById('nota25'),
+            document.getElementById('nota26'),
+            document.getElementById('nota27'),
+            document.getElementById('nota28'),
+            document.getElementById('nota29'),
+            document.getElementById('nota30'),
+            document.getElementById('nota31'),
+            document.getElementById('nota32'),
+            document.getElementById('nota33'),
+            document.getElementById('nota34'),
+            document.getElementById('nota35'),
+            document.getElementById('nota36'),
+            document.getElementById('nota37')
+        ]
+        let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+        let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
+
+        //Función encargada de subir un semitono a la nota actual
+        function subirMedioTono() {
+            elementoNotas.forEach(elemento =>{
+                let notaActual = elemento.textContent;
+                let esAlterada = notaActual.includes('m');
+                let listaNotas = esAlterada ? notasAlteradas : notas;
+                let indiceActual = listaNotas.indexOf(notaActual);
+                let nuevoIndice = (indiceActual + 1 + listaNotas.length) % listaNotas.length;
+                elemento.textContent = listaNotas[nuevoIndice];
+            });
+        }
+        //Función encargada de bajar un semitono a la nota actual
+        function bajarMedioTono() {
+            elementoNotas.forEach(elemento =>{
+                let notaActual = elemento.textContent;
+                let esAlterada = notaActual.includes('m');
+                let listaNotas = esAlterada ? notasAlteradas : notas;
+                let indiceActual = listaNotas.indexOf(notaActual);
+                let nuevoIndice = (indiceActual - 1 + listaNotas.length) % listaNotas.length;
+                elemento.textContent = listaNotas[nuevoIndice];
+            });
+        }
+        //Función encargada de subir un tono a la nota actual
+        function subirTono() {
+            elementoNotas.forEach(elemento =>{
+                let notaActual = elemento.textContent;
+                let esAlterada = notaActual.includes('m');
+                let listaNotas = esAlterada ? notasAlteradas : notas;
+                let indiceActual = listaNotas.indexOf(notaActual);
+                let nuevoIndice = (indiceActual + 2 + listaNotas.length) % listaNotas.length;
+                elemento.textContent = listaNotas[nuevoIndice];
+            });
+        }
+
+        //Función encargada de bajar un tono a la nota actual
+        function bajarTono() {
+            elementoNotas.forEach(elemento =>{
+                let notaActual = elemento.textContent;
+                let esAlterada = notaActual.includes('m');
+                let listaNotas = esAlterada ? notasAlteradas : notas;
+                let indiceActual = listaNotas.indexOf(notaActual);
+                let nuevoIndice = (indiceActual - 2 + listaNotas.length) % listaNotas.length;
+                elemento.textContent = listaNotas[nuevoIndice];
+            });
+        }
+
+        //Cambiar de grados a notas.
+        function grados() {
+            let botonGr = document.getElementById("botonGrados");
+            let texto = botonGr.innerText;
+            
+            if (texto == "Grados"){
+                document.getElementById("controlesTono").style.display = "none";
+                document.getElementById("nota1").innerText = "I"; 
+                document.getElementById("nota2").innerText = "I"; 
+                document.getElementById("nota2").style.right = "35px";
+                document.getElementById("nota3").innerText = "ii";
+                document.getElementById("nota3").style.right = "-30px"; 
+                document.getElementById("nota4").innerText = "iii";  
+                document.getElementById("nota5").innerText = "IV";    
+                document.getElementById("nota6").innerText = "iii"; 
+                document.getElementById("nota7").innerText = "ii";  
+                document.getElementById("nota8").innerText = "Vi";  
+                document.getElementById("nota9").innerText = "IV"; 
+                document.getElementById("nota10").innerText = "I";
+                document.getElementById("nota11").innerText = "iii"; 
+                document.getElementById("nota12").innerText = "Vi"; 
+                document.getElementById("nota13").innerText = "IV";
+                document.getElementById("nota14").innerText = "I";  
+                document.getElementById("nota15").innerText = "V";  
+                document.getElementById("nota16").innerText = "ii";  
+                document.getElementById("nota17").innerText = "V";      
+                document.getElementById("nota18").innerText = "IV"; 
+                document.getElementById("nota19").innerText = "V";  
+                document.getElementById("nota20").innerText = "I";   
+                document.getElementById("nota21").innerText = "iii"; 
+                document.getElementById("nota22").innerText = "Vi"; 
+                document.getElementById("nota23").innerText = "IV"; 
+                document.getElementById("nota24").innerText = "I";  
+                document.getElementById("nota25").innerText = "iii"; 
+                document.getElementById("nota26").innerText = "Vi";  
+                document.getElementById("nota27").innerText = "IV"; 
+                document.getElementById("nota28").innerText = "I"; 
+                document.getElementById("nota29").innerText = "iii";  
+                document.getElementById("nota30").innerText = "Vi"; 
+                document.getElementById("nota31").innerText = "IV"; 
+                document.getElementById("nota32").innerText = "Vi"; 
+                document.getElementById("nota33").innerText = "IV";
+                document.getElementById("nota34").innerText = "I";  
+                document.getElementById("nota35").innerText = "V";  
+                document.getElementById("nota36").innerText = "ii";  
+                document.getElementById("nota37").innerText = "V";
+
+            //Cambio de nombre y función a boton
+                document.getElementById("botonGrados").innerText = "Notas";
+            } else {
+                location.reload();             
+            }
+            
+        }
+
+        //Función para la generación de generarPDF
+        function generarPDF(){
+            // Selecciona el contenido que deseas incluir en el PDF
+            const element = document.querySelector('.letra'); // Cambia 'body' por el selector del contenido que deseas incluir
+            let notaCancion = document.getElementById('nota1').textContent;
+
+            // Opciones para html2pdf
+            const opt = {
+                margin:       0.2,
+                filename:     'EXÁLTATE_SEÑOR_' + notaCancion + '.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 3 },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(element).set(opt).save();     
+        }
+
+        function generarImagen() {
+            const element = document.querySelector('.letra');
+            let notaCancion = document.getElementById('nota1').textContent;
+            if (!element) {
+                console.error('Elemento .letra no encontrado');
+                return;
+            }
+            console.log('Elemento encontrado:', element);
+
+            // Crear un contenedor temporal con tamaño más grande
+            const tempContainer = document.createElement('div');
+            tempContainer.style.width = '210mm'; // Ancho A4
+            tempContainer.style.height = '297mm'; // Altura A4
+            tempContainer.style.position = 'absolute';
+            tempContainer.style.top = '-9999px';
+            tempContainer.style.left = '-9999px';
+            tempContainer.style.backgroundColor = 'white';
+            tempContainer.appendChild(element.cloneNode(true));
+            document.body.appendChild(tempContainer);
+
+            html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'EXÁLTATE_SEÑOR_' + notaCancion + '.png';
+                link.click();
+                console.log('Imagen descargada');
+            }).catch(error => {
+                console.error('Error al generar la imagen:', error);
+            }).finally(() => {
+                document.body.removeChild(tempContainer);
+            });
+        }
+
+
+        function regresar(){
+            window.location.href = 'index.html';
+        }
+    </script>
+    </body>
+</html>
