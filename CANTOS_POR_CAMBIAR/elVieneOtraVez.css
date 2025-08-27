@@ -141,47 +141,52 @@ button:hover {
 
 #nota10 {
    position: relative;
-   right: 10px;
+   right: 15px;
+}
+
+#signo2 {
+   position: relative;
+   right: 15px;
 }
 
 #nota11 {
    position: relative;
-   right: 10px;
+   right: 15px;
 }
 
 #nota12 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #signo3 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #nota13 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #signo4 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #nota14 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #signo5 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #nota15 {
    position: relative;
-   right: -30px;
+   right: -10px;
 }
 
 #nota16 {
@@ -206,27 +211,27 @@ button:hover {
 
 #nota19 {
    position: relative;
-   right: 160px;
+   right: 150px;
 }
 
 #nota20 {
    position: relative;
-   right: 10px;
+   right: 0px;
 }
 
 #signo7 {
    position: relative;
-   right: 10px;
+   right: 0px;
 }
 
 #nota21 {
    position: relative;
-   right: 10px;
+   right: 0px;
 }
 
 #nota22 {
    position: relative;
-   right: 10px;
+   right: -160px;
 }
 
 #signo8 {
@@ -236,141 +241,168 @@ button:hover {
 
 #nota23 {
    position: relative;
-   right: 10px;
+   right: -25px;
 }
 
 #signo9 {
    position: relative;
-   right: 10px;
+   right: -25px;
 }
 
 #nota24 {
    position: relative;
-   right: 10px;
+   right: -25px;
 }
 
 #signo10 {
    position: relative;
-   right: 10px;
+   right: -25px;
 }
 
 #nota25 {
    position: relative;
-   right: 10px;
+   right: -25px;
 }
 
-#nota32 {
+#nota26 {
    position: relative;
-   right: -30px;
+   right: -50px;
 }
 
-#nota33 {
+#nota27 {
    position: relative;
    right: -60px;
 }
 
-#nota34 {
+#nota28 {
    position: relative;
-   right: -80px;
+   right: -70px;
 }
 
-#nota35 {
+#nota29 {
    position: relative;
-   right: 35px;
-}
-
-#nota36 {
-   position: relative;
-   right: -40px;
-}
-
-#nota37 {
-   position: relative;
-   right: -75px;
-}
-
-#nota38 {
-   position: relative;
-   right: 50px;
-}
-
-#nota39 {
-   position: relative;
-   right: 20px;
-}
-
-#nota40 {
-   position: relative;
-   right: -20px;
-}
-
-#nota41 {
-   position: relative;
-   right: 60px;
-}
-
-#nota42 {
-   position: relative;
-   right: 30px;
-}
-
-#nota43 {
-   position: relative;
-   right: 15px;
-}
-
-#nota44 {
-   position: relative;
-   right: -15px;
-}
-
-#nota45 {
-   position: relative;
-   right: -20px;
-}
-
-#nota46 {
-   position: relative;
-   right: -40px;
-}
-
-#nota47 {
-   position: relative;
-   right: -85px;
+   right: -110px;
 }
 
 #signo11 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
-#nota48 {
+#nota30 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
 #signo12 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
-#nota49 {
+#nota31 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
 #signo13 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
-#nota50 {
+#nota32 {
    position: relative;
-   right: -85px;
+   right: -110px;
 }
 
+#nota33 {
+   position: relative;
+   right: -135px;
+}
 
+#signo14 {
+   position: relative;
+   right: -135px;
+}
 
+#nota34 {
+   position: relative;
+   right: -135px;
+}
+
+#signo15 {
+   position: relative;
+   right: -135px;
+}
+
+#nota35 {
+   position: relative;
+   right: -135px;
+}
+
+#signo16 {
+   position: relative;
+   right: -135px;
+}
+
+#nota36 {
+   position: relative;
+   right: -135px;
+}
+
+#nota37 {
+   position: relative;
+   right: -135px;
+}
+
+#signo17 {
+   position: relative;
+   right: -135px;
+}
+
+#nota38 {
+   position: relative;
+   right: -135px;
+}
+
+#signo18 {
+   position: relative;
+   right: -135px;
+}
+
+#nota39 {
+   position: relative;
+   right: -135px;
+}
+
+#signo19 {
+   position: relative;
+   right: -135px;
+}
+
+#nota40 {
+   position: relative;
+   right: -135px;
+}
+
+#nota41 {
+   position: relative;
+   right: -30px;
+}
+
+#nota42 {
+   position: relative;
+   right: -35px;
+}
+
+#nota43 {
+   position: relative;
+   right: -80px;
+}
+
+#nota44 {
+   position: relative;
+   right: -50px;
+}
 
 body {
    background-color: white;
