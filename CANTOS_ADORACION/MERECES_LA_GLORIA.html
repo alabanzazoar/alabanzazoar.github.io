@@ -1,7 +1,8 @@
 <!DOCTYPE html>
     <head>
-        <title>DIGNO</title>
-        <link rel="stylesheet" href="digno.css">
+        <title>MERECES LA GLORIA</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/merecesLaGloria.css">
+        <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
@@ -9,7 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <p class="titulo1"></p>
         <p class="tono">Tonalidad:
         <button onclick="subirTono()"> +1 </button>
         <button onclick="subirMedioTono()"> +½ </button>
@@ -23,32 +23,36 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">DIGNO</h1>
-        <p class="titulo3">Marcos Brunet
+        <h1 class="titulo2">MERECES LA GLORIA</h1>
+        <p class="titulo3">Luigui Castro
 Nota "<span id="nota1">A</span>"
-Bits: 64 BPM</p>
-<p class="titulo5"><br>
-<span class="color-azul"><span id="nota2">A</span> <span id="nota3">F#m</span></span>
-No tengo nada para ofrecer, nada que te pueda sorprender
-<span class="color-azul"><span id="nota4">Bm</span> <span id="nota5">A</span> <span id="nota6">E</span></span>
-Solo un corazón, quebrantado una y otra vez
-<span class="color-azul"><span id="nota7">A</span> <span id="nota8">F#m</span></span>
-Y no hay nada que me enamore mas, nada que me apasione mas
-<span class="color-azul"><span id="nota9">Bm</span> <span id="nota10">A</span> <span id="nota11">E</span></span>
-Solo tu presencia, solo tu mirada me hacen suspirar
-<span class="color-azul"><span id="nota12">Bm</span> <span id="nota13">Dm</span> <span id="nota14">A</span> <span id="nota15">E</span></span>
-//Me inclino ante ti,   Rey que perdona multitud de errores //
-<span class="color-azul"><span id="nota16">A</span> <span id="nota17">A</span> <span id="nota18">F#m</span></span>
-Dig no eternamente Dig no
-<span class="color-azul"><span id="nota19">F#m</span> <span id="nota20">A</span>/<span id="nota21">E</span> <span id="nota22">E</span></span>
-Impresionante y dig no solo ante ti yo
-<span class="color-azul"><span id="nota23">Bm</span> <span id="nota24">Dm</span> <span id="nota25">A</span> <span id="nota26">E</span></span>
-//Me inclino ante ti,   Rey que perdona multitud de errores //
+Bits:  BPM</p>
+<p class="titulo4">              INTRO:
+</spn></p>
+<p class="titulo5">VERSO<br>
+<span class="color-azul"><span id="nota21">A</span> <span id="nota2">E</span></span>
+Mereces la gloria y la honra
+<span class="color-azul"><span id="nota3">G</span> <span id="nota4">D</span></span>
+Levantamos nuestras manos
+<span class="color-azul"><span id="nota5">E</span> <span id="nota6">A</span></span>
+Exaltandote Señor
 </p>
+<p class="titulo5">CORO<br>
+<span class="color-azul"><span id="nota7">E</span> <span id="nota8">A</span> <span id="nota9">E</span> <span id="nota10">F#m</span></span>
+Altísimo milagros salvador
+<span class="color-azul"><span id="nota11">E</span> <span id="nota12">D</span></span>
+No hay nadie como tu
+<span class="color-azul"><span id="nota13">E</span><span id="nota14">D</span><span id="nota15">E</span><span id="nota16">A</span></span>
+No hay nadie como tu
+<span class="color-azul"><span id="nota17">A</span><span id="nota18">F#m</span><span id="nota19">B</span><span id="nota20">E</span></span>
+(se vuelve a repetir todo)
+</p>
+<br>
+<br>
         <br>
         <br>
         <div class="pie-container">
-            <img src="logo2.jpg" alt="Logo">
+            <img src="/LOGOS/logo2.jpg" alt="Logo">
             <p>MINISTERIOS ZOAR 2025</p>
         </div>
     </div>
@@ -75,15 +79,11 @@ Impresionante y dig no solo ante ti yo
             document.getElementById('nota18'),
             document.getElementById('nota19'),
             document.getElementById('nota20'),
-            document.getElementById('nota21'),
-            document.getElementById('nota22'),
-            document.getElementById('nota23'),
-            document.getElementById('nota24'),
-            document.getElementById('nota25'),
-            document.getElementById('nota26')
+            document.getElementById('nota21')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
+        let notaCancion = document.getElementById('nota1').textContent
 
         //Función encargada de subir un semitono a la nota actual
         function subirMedioTono() {
@@ -135,12 +135,11 @@ Impresionante y dig no solo ante ti yo
         function generarPDF(){
             // Selecciona el contenido que deseas incluir en el PDF
             const element = document.querySelector('.letra'); // Cambia 'body' por el selector del contenido que deseas incluir
-            let notaCancion = document.getElementById('nota1').textContent;
 
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'DIGNO_' + notaCancion + '.pdf',
+                filename:     'TU_NOMBRE_MSM_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -151,7 +150,6 @@ Impresionante y dig no solo ante ti yo
 
         function generarImagen() {
             const element = document.querySelector('.letra');
-            let notaCancion = document.getElementById('nota1').textContent;
             if (!element) {
                 console.error('Elemento .letra no encontrado');
                 return;
@@ -172,7 +170,7 @@ Impresionante y dig no solo ante ti yo
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'DIGNO_' + notaCancion + '.png';
+                link.download = 'TU_NOMBRE_MSM.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
