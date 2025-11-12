@@ -109,6 +109,31 @@ button:hover {
    margin-bottom: 20px;
 }
 
+#nota2 {
+   position: relative;
+   left: -50px;
+}
+
+#nota3 {
+   position: relative;
+   left: 60px;
+}
+
+#signo1 {
+   position: relative;
+   left: 60px;
+}
+
+#nota4 {
+   position: relative;
+   left: 60px;
+}
+
+#nota5 {
+   position: relative;
+   left: 70px;
+}
+
 #nota6 {
    position: relative;
    left: -60px;
@@ -116,152 +141,97 @@ button:hover {
 
 #nota7 {
    position: relative;
-   left: 5px;
+   left: 50px;
 }
 
 #nota8 {
    position: relative;
-   left: 80px;
+   left: 65px;
 }
 
 #nota9 {
    position: relative;
-   left: -5px;
+   left: -65px;
 }
 
 #nota10 {
    position: relative;
-   left: 90px;
+   left: 65px;
 }
 
-#nota11 {
-   position: relative;
-   left: -10px;
-}
-
-#nota12 {
-   position: relative;
-   left: 60px;
-}
-
-#nota13 {
-   position: relative;
-   left: -45px;
-}
-
-#nota14 {
-   position: relative;
-   left: 10px;
-}
-
-#nota15 {
-   position: relative;
-   left: 70px;
-}
-
-#nota16 {
-   position: relative;
-   left: -10px;
-}
-
-#nota17 {
-   position: relative;
-   left: 85px;
-}
-
-#nota18 {
-   position: relative;
-   left: -30px;
-}
-
-#nota19 {
-   position: relative;
-   left: 60px;
-}
-
-#nota20 {
-   position: relative;
-   left: -75px;
-}
-
-#nota21 {
-   position: relative;
-   left: -65px;
-}
-
-#nota22 {
-   position: relative;
-   left: -95px;
-}
-
-#nota23 {
-   position: relative;
-   left: 80px;
-}
-
-#nota24 {
-   position: relative;
-   left: 110px;
-}
-
-#nota25 {
-   position: relative;
-   left: -30px;
-}
-
-#nota26 {
-   position: relative;
-   left: 90px;
-}
-
-#nota27 {
-   position: relative;
-   left: -20px;
-}
-
-#nota28 {
-   position: relative;
-   left: 40px;
-}
-
-#nota29 {
-   position: relative;
-   left: 15px;
-}
-
-#nota30 {
-   position: relative;
-   left: 90px;
-}
-
-#nota31 {
-   position: relative;
-   left: -50px;
-}
-
-#nota32 {
-   position: relative;
-   left: -25px;
-}
-
-#nota33 {
-   position: relative;
-   left: 5px;
-}
-
-#nota34 {
-   position: relative;
-   left: 60px;
-}
-
-#nota35 {
+#signo2 {
    position: relative;
    left: 65px;
 }
 
-#nota36 {
+#nota11 {
    position: relative;
-   left: 115px;
+   left: 65px;
+}
+
+#nota12 {
+   position: relative;
+   left: 75px;
+}
+
+#nota13 {
+   position: relative;
+   left: -80px;
+}
+
+#nota14 {
+   position: relative;
+   left: 20px;
+}
+
+#nota15 {
+   position: relative;
+   left: 75px;
+}
+
+#nota16 {
+   position: relative;
+   left: 0px;
+}
+
+#nota17 {
+   position: relative;
+   left: -130px;
+}
+
+#nota18 {
+   position: relative;
+   left: 5px;
+}
+
+#nota19 {
+   position: relative;
+   left: -70px;
+}
+
+#nota20 {
+   position: relative;
+   left: 65px;
+}
+
+#nota21 {
+   position: relative;
+   left: -60px;
+}
+
+#nota22 {
+   position: relative;
+   left: 35px;
+}
+
+#nota23 {
+   position: relative;
+   left: -20px;
+}
+
+#nota24 {
+   position: relative;
+   left: 45px;
 }
 
 body {

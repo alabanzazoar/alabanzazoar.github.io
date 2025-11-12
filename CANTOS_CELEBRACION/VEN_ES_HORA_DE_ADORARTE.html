@@ -31,25 +31,25 @@ Bits: 115 BPM</p>
 <p class="titulo4">              INTRO:
 </spn></p>
 <p class="titulo5">VERSO <br>
-<span class="color-azul"><span id="nota6">A</span> <span id="nota7">E</span> <span id="nota8">F#m</span></span>
+<span class="color-azul"><span id="nota2">A</span> <span id="nota3">D</span><span id="signo1">/</span><span id="nota4">A</span> <span id="nota5">A</span></span>
 Ven, es hora de adorarle
-<span class="color-azul"><span id="nota9">D</span> <span id="nota10">A</span></span>
+<span class="color-azul"><span id="nota6">E</span> <span id="nota7">Bm</span> <span id="nota8">D</span></span>
 Ven, abre tu corazón a Él
-<span class="color-azul"><span id="nota11">E</span> <span id="nota12">D</span></span>
+<span class="color-azul"><span id="nota9">A</span> <span id="nota10">D</span><span id="signo2">/</span><span id="nota11">A</span> <span id="nota12">A</span></span>
 Ven, ante su trono estamos
-<span class="color-azul"><span id="nota13">A</span> <span id="nota14">E</span> <span id="nota15">F#m</span></span>
+<span class="color-azul"><span id="nota13">E</span> <span id="nota14">Bm</span> <span id="nota15">D</span></span>
 Ven, ante la majestad de Dios.
-<span class="color-azul"><span id="nota16">D</span> <span id="nota17">A</span></span>
+<span class="color-azul"><span id="nota16">A</span></span>
 ¡Ven!
 </p>
 <p class="titulo5">CORO<br>
-<span class="color-azul"><span id="nota25">E</span> <span id="nota26">F#m</span></span>
+<span class="color-azul"><span id="nota17">D</span> <span id="nota18">A</span></span>
 Toda lengua confesará que es Él es Dios
-<span class="color-azul"><span id="nota27">D</span> <span id="nota28">A</span></span>
+<span class="color-azul"><span id="nota19">D</span> <span id="nota20">A</span></span>
 Las rodillas se doblarán
-<span class="color-azul"><span id="nota29">E</span> <span id="nota30">D</span></span>
+<span class="color-azul"><span id="nota21">D</span> <span id="nota22">F#m</span></span>
 Y un tesoro tendrás en Él
-<span class="color-azul"><span id="nota31">A</span></span>
+<span class="color-azul"><span id="nota23">D</span> <span id="nota24">E</span></span>
 Si escoges su amor.
 </p>
         <br>
@@ -84,26 +84,7 @@ Si escoges su amor.
             document.getElementById('nota21'),
             document.getElementById('nota22'),
             document.getElementById('nota23'),
-            document.getElementById('nota24'),
-            document.getElementById('nota25'),
-            document.getElementById('nota26'),
-            document.getElementById('nota27'),
-            document.getElementById('nota28'),
-            document.getElementById('nota29'),
-            document.getElementById('nota30'),
-            document.getElementById('nota31'),
-            document.getElementById('nota32'),
-            document.getElementById('nota33'),
-            document.getElementById('nota34'),
-            document.getElementById('nota35'),
-            document.getElementById('nota36'),
-            document.getElementById('nota37'),
-            document.getElementById('nota38'),
-            document.getElementById('nota39'),
-            document.getElementById('nota40'),
-            document.getElementById('nota41'),
-            document.getElementById('nota42'),
-            document.getElementById('nota43')
+            document.getElementById('nota24')
         ]
         let notas = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
         let notasAlteradas = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
@@ -163,7 +144,7 @@ Si escoges su amor.
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'GLORIFICATE_MSM_' + notaCancion + '.pdf',
+                filename:     'VEN_ES_HORA_DE_ADORARTE_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -195,7 +176,7 @@ Si escoges su amor.
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'GLORIFICATE_MSM_' + notaCancion + '.png';
+                link.download = 'VEN_ES_HORA_DE_ADORARTE_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {
