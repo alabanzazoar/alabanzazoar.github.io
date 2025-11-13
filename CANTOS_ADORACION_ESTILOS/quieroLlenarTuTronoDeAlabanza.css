@@ -109,29 +109,44 @@ button:hover {
    margin-bottom: 20px;
 }
 
-#nota18 {
+#nota2 {
    position: relative;
-   left: 35px;
+   left: -30px;
 }
 
-#nota23 {
+#nota3 {
    position: relative;
-   left: 45px;
+   left: -70px;
 }
 
-#nota28 {
+#nota4 {
    position: relative;
-   left: 15px;
+   left: -40px;
 }
 
-#nota33 {
+#nota5 {
    position: relative;
-   left: -10px;
+   left: -75px;
 }
 
-#nota36 {
+#nota6 {
    position: relative;
-   left: -25px;
+   left: -130px;
+}
+
+#nota7 {
+   position: relative;
+   left: -50px;
+}
+
+#nota8 {
+   position: relative;
+   left: -70px;
+}
+
+#nota9 {
+   position: relative;
+   left: 50px;
 }
 
 
