@@ -194,6 +194,26 @@ button:hover {
    left: 10px;
 }
 
+#nota25 {
+   position: relative;
+   left: -25px;
+}
+
+#nota26 {
+   position: relative;
+   left: -30px;
+}
+
+#nota27 {
+   position: relative;
+   left: -35px;
+}
+
+#nota28 {
+   position: relative;
+   left: 20px;
+}
+
 
 body {
    background-color: white;
