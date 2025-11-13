@@ -111,122 +111,137 @@ button:hover {
 
 #nota2 {
    position: relative;
-   left: -120px;
+   left: -190px;
 }
 
 #nota3 {
    position: relative;
-   left: 5px;
+   left: 0px;
 }
 
 #nota4 {
    position: relative;
-   left: -40px;
+   left: -25px;
 }
 
 #nota5 {
    position: relative;
-   left: 40px;
+   left: 70px;
+}
+
+#signo1 {
+   position: relative;
+   left: 70px;
+}
+
+#nota27 {
+   position: relative;
+   left: 70px;
 }
 
 #nota6 {
    position: relative;
-   left: 115px;
+   left: 125px;
 }
 
 #nota7 {
    position: relative;
-   left: -140px;
+   left: -205px;
 }
 
 #nota8 {
    position: relative;
-   left: 50px;
+   left: 40px;
 }
 
 #nota9 {
    position: relative;
-   left: -95px;
+   left: -45px;
 }
 
 #nota10 {
    position: relative;
-   left: 20px;
+   left: 25px;
+}
+
+#signo2 {
+   position: relative;
+   left: 25px;
+}
+
+#nota28 {
+   position: relative;
+   left: 25px;
 }
 
 #nota11 {
    position: relative;
-   left: 120px;
+   left: 150px;
 }
 
 #nota12 {
    position: relative;
-   left: -130px;
+   left: -40px;
 }
 
 #nota13 {
    position: relative;
-   left: -70px;
+   left: 50px;
 }
 
 #nota14 {
    position: relative;
-   left: 15px;
+   left: -15px;
 }
 
 #nota15 {
    position: relative;
-   left: 140px;
+   left: 115px;
+}
+
+#signo3 {
+   position: relative;
+   left: 115px;
+}
+
+#nota29 {
+   position: relative;
+   left: 115px;
 }
 
 #nota16 {
    position: relative;
-   left: -75px;
+   left: -40px;
 }
 
 #nota17 {
    position: relative;
-   left: 10px;
+   left: 50px;
 }
 
 #nota18 {
    position: relative;
-   left: 45px;
+   left: -65px;
 }
 
 #nota19 {
    position: relative;
-   left: -40px;
+   left: -60px;
 }
 
-#nota21 {
-   position: relative;
-   left: 60px;
-}
-
-#nota22 {
-   position: relative;
-   left: -10px;
-}
-
-#nota23 {
-   position: relative;
-   left: -130px;
-}
-
-#nota24 {
+#nota20 {
    position: relative;
    left: -70px;
 }
 
-#nota25 {
+#nota21 {
    position: relative;
-   left: 10spx;
+   left: 5px;
 }
 
-#nota26 {
+#nota22 {
    position: relative;
-   left: 140px;
+   left: 35px;
 }
 
 body {
