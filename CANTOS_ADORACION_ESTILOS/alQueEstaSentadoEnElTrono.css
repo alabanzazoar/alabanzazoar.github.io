@@ -111,7 +111,7 @@ button:hover {
 
 #nota5 {
    position: relative;
-   left: -85px;
+   left: -100px;
 }
 
 #nota6 {
@@ -181,7 +181,7 @@ button:hover {
 
 #nota19 {
    position: relative;
-   left: 15px;
+   left: 25px;
 }
 
 #nota20 {
@@ -192,16 +192,6 @@ button:hover {
 #nota21 {
    position: relative;
    left: 10px;
-}
-
-#nota22 {
-   position: relative;
-   left: 100px;
-}
-
-#nota23 {
-   position: relative;
-   left: 145px;
 }
 
 
