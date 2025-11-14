@@ -109,31 +109,185 @@ button:hover {
    margin-bottom: 20px;
 }
 
-#nota18 {
+#nota6 {
    position: relative;
-   left: 35px;
+   left: -95px;
 }
 
-#nota23 {
+#nota7 {
    position: relative;
-   left: 45px;
+   left: 80px;
 }
 
-#nota28 {
-   position: relative;
-   left: 15px;
-}
-
-#nota33 {
+#nota8 {
    position: relative;
    left: -10px;
 }
 
-#nota36 {
+#nota9 {
+   position: relative;
+   left: 110px;
+}
+
+#nota10 {
+   position: relative;
+   left: -95px;
+}
+
+#nota11 {
+   position: relative;
+   left: 80px;
+}
+
+#nota12 {
+   position: relative;
+   left: -20px;
+}
+
+#nota13 {
+   position: relative;
+   left: 110px;
+}
+
+#nota18 {
+   position: relative;
+   left: -70px;
+}
+
+#nota19 {
+   position: relative;
+   left: 105px;
+}
+
+#nota20 {
+   position: relative;
+   left: -90px;
+}
+
+#nota21 {
+   position: relative;
+   left: 130px;
+}
+
+#nota22 {
+   position: relative;
+   left: -40px;
+}
+
+#nota23 {
+   position: relative;
+   left: -40px;
+}
+
+#nota24 {
+   position: relative;
+   left: -5px;
+}
+
+#nota25 {
+   position: relative;
+   left: 95px;
+}
+
+#nota26 {
+   position: relative;
+   left: 100px;
+}
+
+#nota27 {
+   position: relative;
+   left: 100px;
+}
+
+#nota28 {
+   position: relative;
+   left: 100px;
+}
+
+#nota37 {
+   position: relative;
+   left: -15px;
+}
+
+#nota38 {
+   position: relative;
+   left: -15px;
+}
+
+#nota39 {
+   position: relative;
+   left: -10px;
+}
+
+#nota40 {
+   position: relative;
+   left: 25px;
+}
+
+#nota41 {
+   position: relative;
+   left: -20px;
+}
+
+#nota42 {
+   position: relative;
+   left: -20px;
+}
+
+#nota43 {
+   position: relative;
+   left: -15px;
+}
+
+#nota44 {
+   position: relative;
+   left: 35px;
+}
+
+#nota45 {
+   position: relative;
+   left: -45px;
+}
+
+#nota46 {
+   position: relative;
+   left: -45px;
+}
+
+#nota47 {
+   position: relative;
+   left: 0px;
+}
+
+#nota48 {
+   position: relative;
+   left: 70px;
+}
+
+#nota49 {
+   position: relative;
+   left: 0px;
+}
+
+#nota50 {
+   position: relative;
+   left: 65px;
+}
+
+#nota51 {
    position: relative;
    left: -25px;
 }
 
+#nota52 {
+   position: relative;
+   left: 65px;
+}
+
+#nota53 {
+   position: relative;
+   left: 20px;
+}
 
 body {
    background-color: white;
