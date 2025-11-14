@@ -1,0 +1,191 @@
+.titulo1{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   text-align: left;
+}
+
+.titulo2{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-size: 20px;
+   text-align: center;
+}
+
+.titulo3{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   white-space: pre;
+   font-size: 15px;
+   text-align: center;
+}
+
+.titulo4 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: left;
+}
+
+.titulo5 {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: center;
+}
+
+.color-azul{
+   color: rgb(4, 130, 180);
+}
+.color-rojo{
+   font-size: 15px;
+   color: red;
+}
+
+button {
+   background-color: #003366; /* Azul oscuro */
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 10px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 3px;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #00509e; /* Azul más claro al pasar el ratón */
+}
+
+.tono{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 15px;
+   font-weight: bold;
+   text-align: right;
+}
+.nota{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 12px;
+   text-align: left;
+   font-weight: bold;
+}
+.nota1{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: -50px;
+}
+.nota2{
+   color: rgb(4, 130, 180);
+   position: relative;
+   left: 10px;
+}
+
+.pie{
+   text-align: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pie-container {
+   display: flex;
+   justify-content: center; /* Centra el contenido horizontalmente */
+   align-items: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.pie-container img {
+   width: 50px; /* Ajusta el tamaño según tus necesidades */
+   height: auto; /* Mantiene la proporción de la imagen */
+   margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.buscarCanto{
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+}
+
+.buscadorForm {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+#nota2 {
+   position: relative;
+   left: -45px;
+}
+
+#nota3 {
+   position: relative;
+   left: 40px;
+}
+
+#nota4 {
+   position: relative;
+   left: -80px;
+}
+
+#nota5 {
+   position: relative;
+   left: 100px;
+}
+
+#nota6 {
+   position: relative;
+   left: -40px;
+}
+
+#nota7 {
+   position: relative;
+   left: 40px;
+}
+
+#nota8 {
+   position: relative;
+   left: -50px;
+}
+
+#nota9 {
+   position: relative;
+   left: 30px;
+}
+
+#nota10 {
+   position: relative;
+   left: 100px;
+}
+
+#nota11 {
+   position: relative;
+   left: -65px;
+}
+
+#nota12 {
+   position: relative;
+   left: 50px;
+}
+
+#nota13 {
+   position: relative;
+   left: -60px;
+}
+
+#nota14 {
+   position: relative;
+   left: 30px;
+}
+
+#nota15 {
+   position: relative;
+   left: 100px;
+}
+
+body {
+   background-color: white;
+}
+
+@media (max-width: 600px) {
+   #query {
+       width: 100%;
+       font-size: 16px;
+   }
+}
