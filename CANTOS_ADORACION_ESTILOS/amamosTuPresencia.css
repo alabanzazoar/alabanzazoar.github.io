@@ -226,6 +226,36 @@ button:hover {
    left: 70px;
 }
 
+#nota41 {
+   position: relative;
+   left: -35px;
+}
+
+#nota42 {
+   position: relative;
+   left: 0px;
+}
+
+#nota43 {
+   position: relative;
+   left: 15px;
+}
+
+#signo5 {
+   position: relative;
+   left: 15px;
+}
+
+#nota44 {
+   position: relative;
+   left: 15px;
+}
+
+#nota45 {
+   position: relative;
+   left: 20px;
+}
+
 .pie{
    text-align: center;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
