@@ -31,82 +31,54 @@
         <p class="pie">MINISTERIOS ZOAR 2025</p>
     </div>
     <script>
-        const elementos = [
-            "ALGO ESTÁ CAYENDO AQUÍ",
-            'ALGO ESTA CAYENDO AQUI',
-            'A EL ALTO Y SUBLIME',
-            'ESPÍRITU SANTO BIENVENIDO',
-            'ESPIRITU SANTO BIENVENIDO',
-            'POR UN DESTELLO DE TU GLORIA',
-            'ABRE MIS OJOS OH CRISTO',
-            'TU ERES DIGNO DE GLORIA',
-            'AL QUE ESTA SENTADO EN EL TRONO',
-            'CREO EN TI',
-            'DIGNO / MARCOS BRUNET',
-            'CUANTO DARIA',
-            'MERECES LA GLORIA',
-            'COMO EN EL CIELO',
-            'VEN ES HORA DE ADORARTE',
-            'ANCIANO DE DIAS',
-            'ANCIANO DE DíAS',
-            'HERMOSO ERES',
-            'NO HAY LUGAR MAS ALTO',
-            'SANTO SANTO SANTO',
-            'QUIERO LLENAR TU TRONO DE ALABANZA',
-            'AMAMOS TU PRESENCIA',
-            'PRECIOSA SANGRE',
-            'LIBRE YO SOY LIBRE',
-            'YA HA LLEGADO',
-            'ME GOZARE',
-            'ME GOZARÉ',
-            'HAY LIBERTAD',
-            'GLORIFICATE',
-            'ESTAR CONTIGO'
+        const canciones = [
+            { nombre: "ALGO ESTÁ CAYENDO AQUÍ", href: "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html" },
+            { nombre: 'ALGO ESTA CAYENDO AQUI', href: 'CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html' },
+            { nombre: 'A EL ALTO Y SUBLIME', href: 'CANTOS_ADORACION/A_EL_ALTO_Y_SUBLIME.html' },
+            { nombre: 'ESPÍRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
+            { nombre: 'ESPIRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
+            { nombre: 'POR UN DESTELLO DE TU GLORIA', href: 'CANTOS_ADORACION/POR_UN_DESTELLO_DE_TU_GLORIA.html' },
+            { nombre: 'ABRE MIS OJOS OH CRISTO', href: 'CANTOS_CELEBRACION/ABRE_MIS_OJOS_OH_CRISTO.html' },
+            { nombre: 'TU ERES DIGNO DE GLORIA', href: 'CANTOS_CELEBRACION/TU_ERES_DIGNO_DE_GLORIA.html' },
+            { nombre: 'AL QUE ESTA SENTADO EN EL TRONO', href: 'CANTOS_ADORACION/AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html' },
+            { nombre: 'CREO EN TI', href: 'CANTOS_ADORACION/CREO_EN_TI.html' },
+            { nombre: 'DIGNO / MARCOS BRUNET', href: 'CANTOS_ADORACION/DIGNO.html' },
+            { nombre: 'CUANTO DARIA', href: 'CANTOS_ADORACION/CUANTO_DARIA.html' },
+            { nombre: 'MERECES LA GLORIA', href: 'CANTOS_ADORACION/MERECES_LA_GLORIA.html' },
+            { nombre: 'COMO EN EL CIELO', href: 'CANTOS_CELEBRACION/COMO_EN_EL_CIELO.html' },
+            { nombre: 'VEN ES HORA DE ADORARTE', href: 'CANTOS_CELEBRACION/VEN_ES_HORA_DE_ADORARTE.html' },
+            { nombre: 'ANCIANO DE DIAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
+            { nombre: 'ANCIANO DE DíAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
+            { nombre: 'HERMOSO ERES', href: 'CANTOS_ADORACION/HERMOSO_ERES.html' },
+            { nombre: 'NO HAY LUGAR MAS ALTO', href: 'CANTOS_ADORACION/NO_HAY_LUGAR_MAS_ALTO.html' },
+            { nombre: 'SANTO SANTO SANTO', href: 'CANTOS_ADORACION/SANTO_SANTO_SANTO.html' },
+            { nombre: 'QUIERO LLENAR TU TRONO DE ALABANZA', href: 'CANTOS_ADORACION/QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html' },
+            { nombre: 'AMAMOS TU PRESENCIA', href: 'CANTOS_ADORACION/AMAMOS_TU_PRESENCIA.html' },
+            { nombre: 'PRECIOSA SANGRE', href: 'CANTOS_ADORACION/PRECIOSA_SANGRE.html' },
+            { nombre: 'LIBRE YO SOY LIBRE', href: 'CANTOS_CELEBRACION/LIBRE_YO_SOY_LIBRE.html' },
+            { nombre: 'YA HA LLEGADO', href: 'CANTOS_CELEBRACION/YA_HA_LLEGADO.html' },
+            { nombre: 'ME GOZARE', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
+            { nombre: 'ME GOZARÉ', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
+            { nombre: 'HAY LIBERTAD', href: 'CANTOS_CELEBRACION/HAY_LIBERTAD.html' },
+            { nombre: 'GLORIFICATE', href: 'CANTOS_ADORACION/GLORIFICATE.html' },
+            { nombre: 'ESTAR CONTIGO', href: 'CANTOS_ADORACION/ESTAR_CONTIGO.html' }
         ];
-
-        let listaCanciones = [
-            "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html",
-            "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html",
-            'CANTOS_ADORACION/A_EL_ALTO_Y_SUBLIME.html',
-            'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html',
-            'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html',
-            'CANTOS_ADORACION/POR_UN_DESTELLO_DE_TU_GLORIA.html',
-            'CANTOS_CELEBRACION/ABRE_MIS_OJOS_OH_CRISTO.html',
-            'CANTOS_CELEBRACION/TU_ERES_DIGNO_DE_GLORIA.html',
-            'CANTOS_ADORACION/AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html',
-            'CANTOS_ADORACION/CREO_EN_TI.html',
-            'CANTOS_ADORACION/DIGNO.html',
-            'CANTOS_ADORACION/CUANTO_DARIA.html',
-            'CANTOS_ADORACION/MERECES_LA_GLORIA.html',
-            'CANTOS_CELEBRACION/COMO_EN_EL_CIELO.html',
-            'CANTOS_CELEBRACION/VEN_ES_HORA_DE_ADORARTE.html',
-            'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html',
-            'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html',
-            'CANTOS_ADORACION/HERMOSO_ERES.html',
-            'CANTOS_ADORACION/NO_HAY_LUGAR_MAS_ALTO.html',
-            'CANTOS_ADORACION/SANTO_SANTO_SANTO.html',
-            'CANTOS_ADORACION/QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html',
-            'CANTOS_ADORACION/AMAMOS_TU_PRESENCIA.html',
-            'CANTOS_ADORACION/PRECIOSA_SANGRE.html',
-            'CANTOS_CELEBRACION/LIBRE_YO_SOY_LIBRE.html',
-            'CANTOS_CELEBRACION/YA_HA_LLEGADO.html',
-            'CANTOS_CELEBRACION/ME_GOZARE.html',
-            'CANTOS_CELEBRACION/ME_GOZARE.html',
-            'CANTOS_CELEBRACION/HAY_LIBERTAD.html',
-            'CANTOS_ADORACION/GLORIFICATE.html',
-            'CANTOS_ADORACION/ESTAR_CONTIGO.html'
-        ];
+        // Ordenar canciones por nombre (alfabético, sin distinguir mayúsculas ni tildes)
+        canciones.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
 
         document.getElementById('buscadorForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que el formulario se envíe
 
-            const query = document.getElementById('query').value.toLowerCase();
-            const resultados = elementos.filter(elemento => elemento.toLowerCase().includes(query));
+            const query = document.getElementById('query').value.toLowerCase().trim();
+            const matches = [];
+            canciones.forEach((cancion, i) => {
+                if (cancion.nombre.toLowerCase().includes(query)) matches.push({ cancion, i });
+            });
 
-            if (resultados.length > 0) {
+            if (matches.length > 0) {
                 let htmlContent = '<ul>';
-                resultados.forEach((resultado, index) => {
-                    htmlContent += `<li><a href="${listaCanciones[elementos.indexOf(resultado)]}">${resultado}</a></li>`;
+                matches.forEach(match => {
+                    htmlContent += `<li><a href="${match.cancion.href}">${match.cancion.nombre}</a></li>`;
                 });
                 htmlContent += '</ul>';
 
