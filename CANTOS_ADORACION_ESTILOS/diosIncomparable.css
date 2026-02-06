@@ -1,43 +1,43 @@
 .titulo1{
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-size: 15px;
    text-align: left;
 }
 
+:root{
+   --stack-verdana: Verdana, Geneva, Tahoma, sans-serif;
+   --stack-lucida: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   --azul: rgb(4, 130, 180);
+}
+
+/* aplicar pilas de fuente comunes */
+body, .titulo1, .tono, .pie, .pie-container { font-family: var(--stack-verdana); }
+.titulo2, .titulo3, .titulo4, .titulo5, .nota, .buscarCanto, .buscadorForm { font-family: var(--stack-lucida); }
+
 .titulo2{
-   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    font-size: 20px;
    text-align: center;
 }
 
 .titulo3{
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    white-space: pre;
    font-size: 15px;
    text-align: center;
 }
 
 .titulo4 {
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    font-size: 15px;
    white-space: pre; /* Mantiene los espacios y saltos de línea */
    text-align: left;
 }
 
 .titulo5 {
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    font-size: 15px;
    white-space: pre; /* Mantiene los espacios y saltos de línea */
    text-align: center;
 }
 
-.color-azul{
-   color: rgb(4, 130, 180);
-}
-.color-rojo{
-   font-size: 15px;
-   color: red;
-}
+.color-azul{ color: var(--azul); }
+.color-rojo{ font-size: 15px; color: red; }
 
 button {
    background-color: #003366; /* Azul oscuro */
@@ -59,38 +59,24 @@ button:hover {
 }
 
 .tono{
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
    font-size: 15px;
    font-weight: bold;
    text-align: right;
 }
 .nota{
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    font-size: 12px;
    text-align: left;
    font-weight: bold;
 }
-.nota1{
-   color: rgb(4, 130, 180);
-   position: relative;
-   left: -50px;
-}
-.nota2{
-   color: rgb(4, 130, 180);
-   position: relative;
-   left: 10px;
-}
 
 .pie{
    text-align: center;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .pie-container {
    display: flex;
    justify-content: center; /* Centra el contenido horizontalmente */
    align-items: center;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .pie-container img {
    width: 50px; /* Ajusta el tamaño según tus necesidades */
@@ -99,7 +85,6 @@ button:hover {
 }
 
 .buscarCanto{
-   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    text-align: center;
 }
 
@@ -133,7 +118,6 @@ button:hover {
    position: relative;
    left: -25px;
 }
-
 
 body {
    background-color: white;
