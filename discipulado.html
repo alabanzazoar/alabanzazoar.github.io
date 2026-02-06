@@ -170,6 +170,33 @@
             margin-right: 10px;
         }
 
+        .lesson-btn {
+            display: inline-block;
+            margin-top: 8px;
+            margin-left: 15px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lesson-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .lesson-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .back-btn {
             display: inline-block;
             padding: 12px 30px;
@@ -231,10 +258,30 @@
                 </div>
                 <div class="module-content">
                     <ul class="module-list">
-                        <li>Relación con Dios y aprender a orar</li>
-                        <li>Compromiso</li>
-                        <li>El pecado</li>
-                        <li>Primeros pasos / Tomar decisiones/ El bautismo</li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Relación con Dios y aprender a orar</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Convertirse', 'Relación con Dios y aprender a orar')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Compromiso</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Convertirse', 'Compromiso')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>El pecado</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Convertirse', 'El pecado')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Primeros pasos / Tomar decisiones / El bautismo</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Convertirse', 'Primeros pasos / Tomar decisiones / El bautismo')">📖 Leer</button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -247,10 +294,30 @@
                 </div>
                 <div class="module-content">
                     <ul class="module-list">
-                        <li>Creyente a discípulo / Temor a la osadía</li>
-                        <li>El evangelio del reino</li>
-                        <li>Iglesia / Mayordomía</li>
-                        <li>Servicio</li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Creyente a discípulo / Temor a la osadía</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Integrarse', 'Creyente a discípulo / Temor a la osadía')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>El evangelio del reino</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Integrarse', 'El evangelio del reino')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Iglesia / Mayordomía</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Integrarse', 'Iglesia / Mayordomía')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Servicio</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Integrarse', 'Servicio')">📖 Leer</button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -263,10 +330,30 @@
                 </div>
                 <div class="module-content">
                     <ul class="module-list">
-                        <li>Fundamentos en la roca</li>
-                        <li>La muerte, revelación y resurreción de Cristo, aprendiendo a perdonar</li>
-                        <li>Antiguo testamento</li>
-                        <li>Nuevo testamento</li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Fundamentos en la roca</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Cimentar', 'Fundamentos en la roca')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>La muerte, revelación y resurreción de Cristo, aprendiendo a perdonar</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Cimentar', 'La muerte, revelación y resurrección de Cristo, aprendiendo a perdonar')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Antiguo testamento</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Cimentar', 'Antiguo testamento')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Nuevo testamento</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Cimentar', 'Nuevo testamento')">📖 Leer</button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -279,10 +366,30 @@
                 </div>
                 <div class="module-content">
                     <ul class="module-list">
-                        <li>Herencia espiritual</li>
-                        <li>Apologética</li>
-                        <li>Autoridad espiritual</li>
-                        <li>Cómo hacer un altar familiar</li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Herencia espiritual</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Sobrenatural', 'Herencia espiritual')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Apologética</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Sobrenatural', 'Apologética')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Autoridad espiritual</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Sobrenatural', 'Autoridad espiritual')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Cómo hacer un altar familiar</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Sobrenatural', 'Cómo hacer un altar familiar')">📖 Leer</button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -295,10 +402,30 @@
                 </div>
                 <div class="module-content">
                     <ul class="module-list">
-                        <li>Sectas</li>
-                        <li>El diario vivir para el creyente</li>
-                        <li>Traducciones de la Biblia</li>
-                        <li>El Rapto</li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Sectas</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Mirad que nadie os engañe', 'Sectas')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>El diario vivir para el creyente</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Mirad que nadie os engañe', 'El diario vivir para el creyente')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>Traducciones de la Biblia</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Mirad que nadie os engañe', 'Traducciones de la Biblia')">📖 Leer</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lesson-item">
+                                <span>El Rapto</span>
+                                <button class="lesson-btn" onclick="abrirLeccion('Mirad que nadie os engañe', 'El Rapto')">📖 Leer</button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -323,6 +450,12 @@
             if (!isActive) {
                 module.classList.add('active');
             }
+        }
+
+        function abrirLeccion(modulo, leccion) {
+            // Crear URL con parámetros
+            const url = `leccion.html?modulo=${encodeURIComponent(modulo)}&leccion=${encodeURIComponent(leccion)}`;
+            window.location.href = url;
         }
     </script>
 </body>

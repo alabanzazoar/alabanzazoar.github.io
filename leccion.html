@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leccion - Discipulado Zoar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 50%, #06b6d4 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 95vw;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: #0369a1;
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        .back-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.5);
+        }
+
+        .pdf-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00f2fe;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #fee;
+            border: 2px solid #f99;
+            color: #c33;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #00f2fe;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            color: #0369a1;
+        }
+
+        .info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .pdf-container {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="leccionTitle">Cargando...</h1>
+            <button class="back-btn" onclick="goBack()">← Atrás</button>
+        </div>
+
+        <div class="info" id="infoBox" style="display: none;">
+            <strong id="leccionName"></strong>
+            <span id="leccionModule"></span>
+        </div>
+
+        <div class="pdf-container" id="pdfContainer">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Cargando documento...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURACIÓN DE AIRTABLE
+        const AIRTABLE_TOKEN = 'patJxB4Jkw1GK19XJ.e9baed267c8647649bfcd7a3af57756a224282e5e8033009575ca961888c3628'; // Token configurado
+        const AIRTABLE_BASE_ID = 'appyn3FuqAu63Ak0j'; // Base ID configurado
+        const AIRTABLE_TABLE_NAME = 'Lecciones'; // Nombre de tu tabla
+        
+        async function cargarLeccion() {
+            try {
+                // Obtener parámetros de la URL
+                const params = new URLSearchParams(window.location.search);
+                const modulo = params.get('modulo');
+                const leccion = params.get('leccion');
+
+                if (!modulo || !leccion) {
+                    mostrarError('Parámetros inválidos. No se especificó módulo o lección.');
+                    return;
+                }
+
+                // Consultar Airtable
+                const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`;
+                
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${AIRTABLE_TOKEN}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al consultar Airtable: ' + response.statusText);
+                }
+
+                const data = await response.json();
+                
+                // Buscar el registro que coincida
+                const registro = data.records.find(record => {
+                    return record.fields.modulo === modulo && record.fields.leccion === leccion;
+                });
+
+                if (!registro) {
+                    mostrarError('Lección no encontrada en la base de datos.');
+                    return;
+                }
+
+                // Actualizar información
+                document.getElementById('leccionTitle').textContent = leccion;
+                document.getElementById('leccionName').textContent = leccion;
+                document.getElementById('leccionModule').textContent = `Módulo: ${modulo}`;
+                document.getElementById('infoBox').style.display = 'block';
+
+                // Cargar PDF
+                const urlPdf = registro.fields.url_pdf;
+                if (!urlPdf) {
+                    mostrarError('No hay PDF disponible para esta lección.');
+                    return;
+                }
+
+                const pdfContainer = document.getElementById('pdfContainer');
+                pdfContainer.innerHTML = `<iframe src="${urlPdf}#toolbar=0" allow="autoplay"></iframe>`;
+
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarError('Error al cargar la lección: ' + error.message);
+            }
+        }
+
+        function mostrarError(mensaje) {
+            document.getElementById('pdfContainer').innerHTML = `
+                <div class="error">
+                    <p>${mensaje}</p>
+                    <button class="back-btn" onclick="goBack()" style="margin-top: 15px;">← Volver</button>
+                </div>
+            `;
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Cargar al abrir la página
+        window.addEventListener('load', cargarLeccion);
+    </script>
+</body>
+</html>
