@@ -1,117 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alabanza Zoar</title>
-    <link rel="stylesheet" href="misEstilos3.css">
+    <title>Ministerios Zoar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
-</head>
-<body>
-    <script>
-        // Guarda la página de origen en localStorage
-        localStorage.setItem('paginaOrigen', window.location.pathname);
-    </script>
-
-    <!-- <p class="tono">
-         <button onclick="circulo5()"> Circulo 5tas </button> 
-         <button onclick="directoras()"> Directoras </button>
-    </p>
-    <br>-->
-    <h1 class="buscarCanto">Alabanza Zoar</h1>
-    <form id="buscadorForm">
-        <input type="text" id="query" placeholder="Buscar canto" autocomplete="off">
-        <button type="submit">Buscar</button>
-    </form>
-    <br><br><br><br>
-    <p class="pie">"Este es el día que hizo el Señor; nos gozaremos y alegraremos en él." Salmo 118:24</p>
-     <br>
-    <div class="pie-container">
-        <img src="logo2.jpg" alt="Logo">
-        <p class="pie">MINISTERIOS ZOAR 2025</p>
-    </div>
-    <script>
-        const canciones = [
-            { nombre: "ALGO ESTÁ CAYENDO AQUÍ", href: "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html" },
-            { nombre: 'ALGO ESTA CAYENDO AQUI', href: 'CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html' },
-            { nombre: 'A EL ALTO Y SUBLIME', href: 'CANTOS_ADORACION/A_EL_ALTO_Y_SUBLIME.html' },
-            { nombre: 'ESPÍRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
-            { nombre: 'ESPIRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
-            { nombre: 'POR UN DESTELLO DE TU GLORIA', href: 'CANTOS_ADORACION/POR_UN_DESTELLO_DE_TU_GLORIA.html' },
-            { nombre: 'ABRE MIS OJOS OH CRISTO', href: 'CANTOS_CELEBRACION/ABRE_MIS_OJOS_OH_CRISTO.html' },
-            { nombre: 'TU ERES DIGNO DE GLORIA', href: 'CANTOS_CELEBRACION/TU_ERES_DIGNO_DE_GLORIA.html' },
-            { nombre: 'AL QUE ESTA SENTADO EN EL TRONO', href: 'CANTOS_ADORACION/AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html' },
-            { nombre: 'CREO EN TI', href: 'CANTOS_ADORACION/CREO_EN_TI.html' },
-            { nombre: 'DIGNO / MARCOS BRUNET', href: 'CANTOS_ADORACION/DIGNO_MB.html' },
-            { nombre: 'CUANTO DARIA', href: 'CANTOS_ADORACION/CUANTO_DARIA.html' },
-            { nombre: 'MERECES LA GLORIA', href: 'CANTOS_ADORACION/MERECES_LA_GLORIA.html' },
-            { nombre: 'COMO EN EL CIELO', href: 'CANTOS_CELEBRACION/COMO_EN_EL_CIELO.html' },
-            { nombre: 'VEN ES HORA DE ADORARTE', href: 'CANTOS_CELEBRACION/VEN_ES_HORA_DE_ADORARTE.html' },
-            { nombre: 'ANCIANO DE DIAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
-            { nombre: 'ANCIANO DE DíAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
-            { nombre: 'HERMOSO ERES', href: 'CANTOS_ADORACION/HERMOSO_ERES.html' },
-            { nombre: 'NO HAY LUGAR MAS ALTO', href: 'CANTOS_ADORACION/NO_HAY_LUGAR_MAS_ALTO.html' },
-            { nombre: 'SANTO SANTO SANTO', href: 'CANTOS_ADORACION/SANTO_SANTO_SANTO.html' },
-            { nombre: 'QUIERO LLENAR TU TRONO DE ALABANZA', href: 'CANTOS_ADORACION/QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html' },
-            { nombre: 'AMAMOS TU PRESENCIA', href: 'CANTOS_ADORACION/AMAMOS_TU_PRESENCIA.html' },
-            { nombre: 'PRECIOSA SANGRE', href: 'CANTOS_ADORACION/PRECIOSA_SANGRE.html' },
-            { nombre: 'LIBRE YO SOY LIBRE', href: 'CANTOS_CELEBRACION/LIBRE_YO_SOY_LIBRE.html' },
-            { nombre: 'YA HA LLEGADO', href: 'CANTOS_CELEBRACION/YA_HA_LLEGADO.html' },
-            { nombre: 'ME GOZARE', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
-            { nombre: 'ME GOZARÉ', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
-            { nombre: 'HAY LIBERTAD', href: 'CANTOS_CELEBRACION/HAY_LIBERTAD.html' },
-            { nombre: 'GLORIFICATE', href: 'CANTOS_ADORACION/GLORIFICATE.html' },
-            { nombre: 'ESTAR CONTIGO', href: 'CANTOS_ADORACION/ESTAR_CONTIGO.html' },
-            { nombre: 'TU FIDELIDAD', href: 'CANTOS_ADORACION/TU_FIDELIDAD.html' },
-            { nombre: 'DIGNO / ELEVATION WORSHIP', href: 'CANTOS_ADORACION/DIGNO_EW.html' },
-            { nombre: 'AL ESTAR AQUI', href: 'CANTOS_ADORACION/AL_ESTAR_AQUI.html' },
-            { nombre: 'TUS CUERDAS DE AMOR', href: 'CANTOS_ADORACION/TUS_CUERDAS_DE_AMOR.html' },
-            { nombre: 'MI PLENITUD', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'SI TE TENGO A TI', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'CRISTO JESUS ERES MI PLENITUD', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'PURIFICAME', href: 'CANTOS_ADORACION/PURIFICAME.html' },
-            { nombre: 'YO QUIERO MAS DE TI', href: 'CANTOS_ADORACION/YO_QUIERO_MAS_DE_TI.html' }
-        ];
-        // Ordenar canciones por nombre (alfabético, sin distinguir mayúsculas ni tildes)
-        canciones.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
-
-        document.getElementById('buscadorForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe
-
-            const query = document.getElementById('query').value.toLowerCase().trim();
-            const matches = [];
-            canciones.forEach((cancion, i) => {
-                if (cancion.nombre.toLowerCase().includes(query)) matches.push({ cancion, i });
-            });
-
-            if (matches.length > 0) {
-                let htmlContent = '<ul>';
-                matches.forEach(match => {
-                    htmlContent += `<li><a href="${match.cancion.href}">${match.cancion.nombre}</a></li>`;
-                });
-                htmlContent += '</ul>';
-
-                Swal.fire({
-                    title: 'Resultados',
-                    html: htmlContent,
-                    showCloseButton: true
-                });
-            } else {
-                Swal.fire({
-                    title: 'No se encontraron resultados',
-                    text: 'Intenta con otra búsqueda.'
-                });
-            }
-        });
-
-        function directoras() {
-            window.location.href = 'TABLA_CANTOS.html';
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        // function circulo5() {
-        //     window.location.href = 'CIRCULO_DE_QUINTAS.html';
-        // }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 50%, #06b6d4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
 
-    </script>
+        .container {
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 20px 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-adoracion {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-adoracion:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-discipulado {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-discipulado:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+        }
+
+        .footer {
+            width: 100%;
+            padding: 20px;
+            color: white;
+            font-size: 1em;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 15px 35px;
+                font-size: 1.1em;
+            }
+
+            .buttons-container {
+                gap: 15px;
+            }
+
+            .footer {
+                padding: 15px;
+            }
+
+            .footer p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo2.jpg" alt="Ministerios Zoar">
+        </div>
+        
+        <h1>Ministerios Zoar</h1>
+        <p class="subtitle">Elige una opción para continuar</p>
+        
+        <div class="buttons-container">
+            <a href="alabanza.html" class="btn btn-adoracion">🎵 Alabanza</a>
+            <a href="discipulado.html" class="btn btn-discipulado">📖 Discipulado</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>"Este es el día que hizo el Señor; nos gozaremos y alegraremos en él." Salmo 118:24</p>
+        <p>MINISTERIOS ZOAR 2025</p>
+    </div>
 </body>
 </html>
