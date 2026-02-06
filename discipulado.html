@@ -15,18 +15,17 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 50%, #06b6d4 100%);
             min-height: 100vh;
+            padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
 
         .container {
-            background: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            max-width: 700px;
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 30px;
             animation: slideIn 0.5s ease-out;
         }
 
@@ -41,64 +40,290 @@
             }
         }
 
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
         h1 {
-            color: #0369a1;
+            color: white;
             font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
             margin-bottom: 20px;
         }
 
-        p {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .modules-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .module {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            animation: moduleSlide 0.5s ease-out backwards;
+        }
+
+        .module:nth-child(1) { animation-delay: 0.1s; }
+        .module:nth-child(2) { animation-delay: 0.2s; }
+        .module:nth-child(3) { animation-delay: 0.3s; }
+        .module:nth-child(4) { animation-delay: 0.4s; }
+        .module:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes moduleSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .module:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05em;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .module-header:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #06b6d4 100%);
+        }
+
+        .module-icon {
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .module.active .module-icon {
+            transform: rotate(180deg);
+        }
+
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 20px;
+        }
+
+        .module.active .module-content {
+            max-height: 600px;
+            padding: 20px;
+        }
+
+        .module-text {
+            color: #333;
+            line-height: 1.7;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .module-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .module-list li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+
+        .module-list li:hover {
+            color: #0369a1;
+            padding-left: 5px;
+        }
+
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+
+        .module-list li:before {
+            content: "✓ ";
+            color: #00f2fe;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
         .back-btn {
             display: inline-block;
             padding: 12px 30px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             font-weight: bold;
+            border: 2px solid white;
+            margin-top: 20px;
         }
 
         .back-btn:hover {
+            background: white;
+            color: #0369a1;
             transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(79, 172, 254, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .icon {
-            font-size: 3em;
-            margin-bottom: 20px;
+        .footer-link {
+            text-align: center;
         }
 
-        .status {
-            background: #f0f0f0;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            color: #888;
-            font-size: 0.95em;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .module-header {
+                padding: 15px 16px;
+                font-size: 0.95em;
+            }
+
+            .module-icon {
+                font-size: 1.2em;
+            }
+
+            .subtitle {
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon">📖</div>
-        
-        <h1>Sección de Discipulado</h1>
-        
-        <div class="status">
-            <p>Esta sección está en desarrollo</p>
+        <div class="header">
+            <h1>📖 Discipulado Zoar</h1>
+            <p class="subtitle">Módulos de formación espiritual</p>
         </div>
-        
-        <p>Próximamente encontrarás aquí recursos y materiales para el discipulado y formación espiritual de los Ministerios Zoar.</p>
-        
-        <a href="index.html" class="back-btn">← Volver al Inicio</a>
+
+        <div class="modules-container">
+            <!-- Módulo 1 -->
+            <div class="module">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span>1. Convertirse</span>
+                    <span class="module-icon">▼</span>
+                </div>
+                <div class="module-content">
+                    <ul class="module-list">
+                        <li>Relación con Dios y aprender a orar</li>
+                        <li>Compromiso</li>
+                        <li>El pecado</li>
+                        <li>Primeros pasos / Tomar decisiones/ El bautismo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="module">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span>2. Integrarse</span>
+                    <span class="module-icon">▼</span>
+                </div>
+                <div class="module-content">
+                    <ul class="module-list">
+                        <li>Creyente a discípulo / Temor a la osadía</li>
+                        <li>El evangelio del reino</li>
+                        <li>Iglesia / Mayordomía</li>
+                        <li>Servicio</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="module">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span>3. Cimentar</span>
+                    <span class="module-icon">▼</span>
+                </div>
+                <div class="module-content">
+                    <ul class="module-list">
+                        <li>Fundamentos en la roca</li>
+                        <li>La muerte, revelación y resurreción de Cristo, aprendiendo a perdonar</li>
+                        <li>Antiguo testamento</li>
+                        <li>Nuevo testamento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Módulo 4 -->
+            <div class="module">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span>4. Sobrenatural</span>
+                    <span class="module-icon">▼</span>
+                </div>
+                <div class="module-content">
+                    <ul class="module-list">
+                        <li>Herencia espiritual</li>
+                        <li>Apologética</li>
+                        <li>Autoridad espiritual</li>
+                        <li>Cómo hacer un altar familiar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Módulo 5 -->
+            <div class="module">
+                <div class="module-header" onclick="toggleModule(this)">
+                    <span>5. Mirad que nadie os engañe</span>
+                    <span class="module-icon">▼</span>
+                </div>
+                <div class="module-content">
+                    <ul class="module-list">
+                        <li>Sectas</li>
+                        <li>El diario vivir para el creyente</li>
+                        <li>Traducciones de la Biblia</li>
+                        <li>El Rapto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-link">
+            <a href="index.html" class="back-btn">← Volver al Inicio</a>
+        </div>
     </div>
+
+    <script>
+        function toggleModule(header) {
+            const module = header.parentElement;
+            const isActive = module.classList.contains('active');
+            
+            // Cerrar todos los módulos
+            document.querySelectorAll('.module').forEach(m => {
+                m.classList.remove('active');
+            });
+            
+            // Abrir el módulo clickeado si no estaba abierto
+            if (!isActive) {
+                module.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
