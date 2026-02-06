@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title>PURIFICAME</title>
-        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/purificame.css">
+        <title>YO QUIERO MAS DE TI</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/yoQuieroMasDeTi.css">
         <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -25,29 +25,37 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">PURIFICAME</h1>
-        <p class="titulo3">Marcos Witt
+        <h1 class="titulo2">YO QUIERO MAS DE TI</h1>
+        <p class="titulo3">Jaime Murrell
 Nota "<span id="nota1">A</span>"
 Bits: 75 BPM</p>
 <p class="titulo5">VERSO<br>
-<span class="color-azul"><span id="nota2">A</span> <span id="nota3">F#m</span> <span id="nota4">D</span> <span id="nota5">E</span> <span id="nota6">D</span> <span id="nota7">E</span> <span id="nota8">A</span></span>
-Enseñame tu camino Señor y andaré en tu luz
-<span class="color-azul"><span id="nota9">Fm</span></span>
-Dame un corazón entregado a ti para
-<span class="color-azul"><span id="nota10">D</span> <span id="nota11">Bm</span> <span id="nota12">E</span></span>
-honrarte oh Dios
+<span class="color-azul"><span id="nota2">A</span> <span id="nota3">D</span></span>
+Yo quiero más de ti
+<span class="color-azul"><span id="nota4">E</span> <span id="nota5">A</span></span>
+Y habitar en tu presencia
+<span class="color-azul"><span id="nota6">F#m</span> <span id="nota7">D</span> <span id="nota8">Bm</span> <span id="nota9">D</span></span>
+Menguar para que crezcas tú, y cada día seré
+<span class="color-azul"><span id="nota10">E</span></span>
+más como tú
 </p>
 <p class="titulo5">CORO<br>
-<span class="color-azul"><span id="nota13">D</span> <span id="nota14">E</span> <span id="nota15">C#m</span> <span id="nota16">F#m</span></span>
-Purificame, limpiame Señor
-<span class="color-azul"><span id="nota17">D</span> <span id="nota18">C#m</span> <span id="nota19">D</span> <span id="nota20">E</span></span>
-Y limpiame de lo que impida el fluir
-<span class="color-azul"><span id="nota21">A</span></span>
-De tu amor
+<span class="color-azul"><span id="nota11">E</span> <span id="nota12">D</span> <span id="nota13">E</span></span>
+Quebranta mi corazón
+<span class="color-azul"><span id="nota14">C#m</span> <span id="nota15">F#m</span></span>
+Quebranta mi vi---da
+<span class="color-azul"><span id="nota16">D</span> <span id="nota17">E</span> <span id="nota18">A</span> <span id="nota19">A</span></span>
+Te entrego mi voluntad a ti
+<span class="color-azul"><span id="nota20">D</span> <span id="nota21">E</span></span>
+Todo lo que soy Señor
+<span class="color-azul"><span id="nota22">C#m</span> <span id="nota23">F#m</span></span>
+Todo cuanto tengo es tuyo
+<span class="color-azul"><span id="nota24">D</span> <span id="nota25">E</span> <span id="nota26">A</span></span>
+Yo quiero menguar para que crezcas tu
 </p>
 <br>
 <br>
-<p class="nota">Nota: </p>
+<p class="nota">Nota: El intro lo hace el teclado.</p>
         <br>
         <br>
         <div class="pie-container">
@@ -88,7 +96,7 @@ De tu amor
             if(!element) return;
             const opt = {
                 margin: 0.2,
-                filename: 'PURIFICAME_' + notaCancion + '.pdf',
+                filename: 'YO_QUIERO_MAS_DE_TI_' + notaCancion + '.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 3 },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -113,7 +121,7 @@ De tu amor
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'PURIFICAME_' + notaCancion + '.png';
+                link.download = 'YO_QUIERO_MAS_DE_TI_' + notaCancion + '.png';
                 link.click();
             }).catch(error => {
                 console.error('Error al generar la imagen:', error);
