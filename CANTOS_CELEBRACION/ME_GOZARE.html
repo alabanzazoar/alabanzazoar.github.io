@@ -124,7 +124,7 @@ Solo en ella me gozaré
             // Opciones para html2pdf
             const opt = {
                 margin:       0.2,
-                filename:     'YA_HA_LLEGADO_' + notaCancion + '.pdf',
+                filename:     'ME_GOZARÉ_' + notaCancion + '.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 3 },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -156,7 +156,7 @@ Solo en ella me gozaré
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'YA_HA_LLEGADO_' + notaCancion + '.png';
+                link.download = 'ME_GOZARÉ_' + notaCancion + '.png';
                 link.click();
                 console.log('Imagen descargada');
             }).catch(error => {

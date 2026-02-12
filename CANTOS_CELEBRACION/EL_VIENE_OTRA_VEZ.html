@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>ESTAR CONTIGO</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/estarContigo.css">
+        <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.10.0/dist/html-to-image.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p class="titulo1"></p>
+        <p class="tono">Tonalidad:
+        <button onclick="subirTono()"> +1 </button>
+        <button onclick="subirMedioTono()"> +½ </button>
+        <button onclick="bajarMedioTono()"> -½ </button>
+        <button onclick="bajarTono()"> -1 </button>
+        </p>
+        <p class="tono">
+            <button onclick="regresar()"> Regresar </button>
+            <button onclick="generarPDF()"> Generar PDF </button>  
+            <button onclick="generarImagen()"> Generar Imagen </button>        
+        </p>
+        <br>
+        <div class="letra">
+        <h1 class="titulo2">ESTAR CONTIGO</h1>
+        <p class="titulo3">Job Gonzalez
+Nota "<span id="nota1">G</span>"
+Bits: 75 BPM</p>
+<p class="titulo4">                                                   INTRO: <span class="color-azul">   <span id="nota2">F</span> - <span id="nota3">C</span> - <span id="nota4">Am</span> - <span id="nota5">A#</span>
+</span></p>
+<p class="titulo5">VERSO 1<br>
+<span class="color-azul"><span id="nota6">F</span> <span id="nota7">C</span> <span id="signo1">-</span> <span id="nota8">A#</span></span>
+Ya no puedo esperar     por el día en que volverá
+<span class="color-azul"><span id="nota9">F</span><span id="nota10">C</span> <span id="signo2">-</span> <span id="nota11">A#</span></span>
+A la puerta él esta     y el tiempo se acerca ya
+<span class="color-azul"><span id="nota12">F</span> <span id="signo3">-</span> <span id="nota13">C</span> <span id="signo4">-</span> <span id="nota14">Am</span> <span id="signo5">-</span> <span id="nota15">A#</span></span>
+eh eh eh eh
+</p>
+<p class="titulo5">VERSO 2<br>
+<span class="color-azul"><span id="nota16">F</span> <span id="nota17">C</span> <span id="signo6">-</span> <span id="nota18">A#</span></span>
+Como anhelo estar,      junto a él por la eternidad
+<span class="color-azul"><span id="nota19">F</span> <span id="nota20">C</span> <span id="signo7">-</span> <span id="nota21">A#</span> <span id="nota22">F</span></span>
+Todo hay que preparar,       porque Cristo viene ya
+<span class="color-azul"><span id="nota23">C</span> <span id="signo9">-</span> <span id="nota24">Am</span> <span id="signo10">-</span> <span id="nota25">A#</span></span>
+Ven, ven, ven
+<span class="color-azul"><span id="nota26">Dm</span> <span id="nota27">C</span> <span id="nota28">A#</span></span>
+(Dilo conmigo)      ven, ven
+</p>
+<p class="titulo5">CORO<br>
+<span class="color-azul"><span id="nota29">F</span> <span id="signo11">-</span> <span id="nota30">C</span> <span id="signo12">-</span> <span id="nota31">Am</span> <span id="signo13">-</span> <span id="nota32">A#</span></span>
+Él viene otra vez
+<span class="color-azul"><span id="nota33">F</span> <span id="signo14">-</span> <span id="nota34">C</span> <span id="signo15">-</span> <span id="nota35">Am</span> <span id="signo16">-</span> <span id="nota36">A#</span></span>
+Con gloria y con poder
+<span class="color-azul"><span id="nota37">F</span> <span id="signo17">-</span> <span id="nota38">C</span> <span id="signo18">-</span> <span id="nota39">Am</span> <span id="signo19">-</span> <span id="nota40">A#</span></span>
+Él viene entre las nubes
+<span class="color-azul"><span id="nota41">Dm</span> <span id="nota42">C</span> <span id="nota43">A#</span></span>
+Y su iglesia dice: Ven, ven, ven, ven
+<span class="color-azul"><span id="nota44">F</span></span>
+Ven, ven, ven
+
+REPETIR VERSO:   <span class="color-azul"><span id="nota45">C</span> <span id="signo20">-</span> <span id="nota46">Am</span> <span id="signo21">-</span> <span id="nota47">A#</span> <span id="signo22">-</span> <span id="nota48">Dm</span> <span id="signo23">-</span> <span id="nota49">C</span></span>
+</p>
+<p class="titulo5">PUENTE<br>
+<span class="color-azul"><span id="nota50">A#</span> <span id="nota43">F</span> <span id="signo6">/</span> <span id="nota44">A#</span></span>
+Yo sé que Él regresar      Su libro lo expresa
+<span class="color-azul"><span id="nota45">C</span> <span id="signo7">/</span> <span id="nota46">E</span></span>
+Y mientras le doy mi alabanza De pies a cabeza
+<span class="color-azul"><span id="nota47">Dm</span> <span id="nota48">A#</span></span>
+Tengo la certeza      Que Él viene
+<span class="color-azul"><span id="nota49">A#</span> <span id="nota50">F</span> <span id="signo8">/</span> <span id="nota51">A#</span></span>
+Esa es mi esperanza      Tengo mil razones     
+<span class="color-azul"><span id="nota52">A</span></span>
+Y muchas canciones      Con seguridad y confianza
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Que Jesucristo vuelvev      Y su iglesia danza porque
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+///Cuando Él vuelva por las nubes      Todo, todo ojo le verá
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Ay le verá      Yo creo que///
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Cuando Él vuelva por las nubes      Todo, todo ojo le verá
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Y hoy puede ser el día que
+</p>
+<p class="titulo5">PUENTE<br>
+<span class="color-azul"><span id="nota42">A#</span> <span id="nota43">F</span> <span id="signo6">/</span> <span id="nota44">A#</span></span>
+//Todo ojo le verá,
+<span class="color-azul"><span id="nota45">C</span> <span id="signo7">/</span> <span id="nota46">E</span></span>
+muertos resucitarán
+<span class="color-azul"><span id="nota47">Dm</span> <span id="nota48">A#</span></span>
+y su pueblo se unirá en el cielo
+<span class="color-azul"><span id="nota49">A#</span> <span id="nota50">F</span> <span id="signo8">/</span> <span id="nota51">A#</span></span>
+Ya no habrá porque llorar, 
+<span class="color-azul"><span id="nota52">A</span></span>
+será un gozo sin final juntos,
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+cantaremos Santo, Santo//
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Santo, santo
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Juntos cantaremos Santo, Santo
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Por los siglos de los siglos (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Porque solo él es digno (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Vamos cántalo con tu vecino (Santo Santo)
+<span class="color-azul"><span id="nota33">C#m</span> <span id="nota34">F#</span> <span id="nota35">G#m</span> <span id="signo10">-</span> <span id="nota36">E</span> <span id="signo11">-</span> <span id="nota37">F#</span></span>
+Es que Cristo ha vencido (Santo Santo)
+</p>
+<br>
+<br>
+<p class="nota">Nota: El intro lo hace el teclado.</p>
+        <br>
+        <br>
+        <div class="pie-container">
+            <img src="/LOGOS/logo2.jpg" alt="Logo">
+            <p>MINISTERIOS ZOAR 2026</p>
+        </div>
+    </div>
+    
+    <script>
+        const elementoNotas = Array.from(document.querySelectorAll('[id^="nota"]'));
+        const notas = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+        const notasAlteradas = ['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
+        const mapNotas = Object.fromEntries(notas.map((n,i)=>[n,i]));
+        const mapNotasAlt = Object.fromEntries(notasAlteradas.map((n,i)=>[n,i]));
+
+        function cambiarSemitonos(delta){
+            elementoNotas.forEach(el=>{
+                if(!el) return;
+                const actual = (el.textContent||'').trim();
+                if(!actual) return;
+                const esAlterada = actual.endsWith('m');
+                const lista = esAlterada ? notasAlteradas : notas;
+                const map = esAlterada ? mapNotasAlt : mapNotas;
+                const idx = map[actual];
+                if (idx === undefined) return;
+                el.textContent = lista[(idx + delta + lista.length) % lista.length];
+            });
+        }
+
+        function subirMedioTono(){ cambiarSemitonos(1); }
+        function bajarMedioTono(){ cambiarSemitonos(-1); }
+        function subirTono(){ cambiarSemitonos(2); }
+        function bajarTono(){ cambiarSemitonos(-2); }
+
+        function generarPDF(){
+            const element = document.querySelector('.letra');
+            const notaCancion = document.getElementById('nota1')?.textContent?.trim() || '';
+            if(!element) return;
+            const opt = {
+                margin: 0.2,
+                filename: 'ESTAR_CONTIGO_' + notaCancion + '.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 3 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(opt).save();
+        }
+
+        function generarImagen(){
+            const element = document.querySelector('.letra');
+            const notaCancion = document.getElementById('nota1')?.textContent?.trim() || '';
+            if(!element){ console.error('Elemento .letra no encontrado'); return; }
+            const tempContainer = document.createElement('div');
+            tempContainer.style.width = '210mm';
+            tempContainer.style.height = '297mm';
+            tempContainer.style.position = 'absolute';
+            tempContainer.style.top = '-9999px';
+            tempContainer.style.left = '-9999px';
+            tempContainer.style.backgroundColor = 'white';
+            tempContainer.appendChild(element.cloneNode(true));
+            document.body.appendChild(tempContainer);
+
+            html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'ESTAR_CONTIGO_' + notaCancion + '.png';
+                link.click();
+            }).catch(error => {
+                console.error('Error al generar la imagen:', error);
+            }).finally(()=>{
+                document.body.removeChild(tempContainer);
+            });
+        }
+
+        function regresar(){ window.location.href = '/alabanza.html'; }
+    </script>
+    </body>
+</html>

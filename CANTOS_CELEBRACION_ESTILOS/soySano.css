@@ -1,0 +1,201 @@
+.titulo1{
+   font-size: 15px;
+   text-align: left;
+}
+
+:root{
+   --stack-verdana: Verdana, Geneva, Tahoma, sans-serif;
+   --stack-lucida: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   --azul: rgb(4, 130, 180);
+}
+
+/* aplicar pilas de fuente comunes */
+body, .titulo1, .tono, .pie, .pie-container { font-family: var(--stack-verdana); }
+.titulo2, .titulo3, .titulo4, .titulo5, .nota, .buscarCanto, .buscadorForm { font-family: var(--stack-lucida); }
+
+.titulo2{
+   font-size: 20px;
+   text-align: center;
+}
+
+.titulo3{
+   white-space: pre;
+   font-size: 15px;
+   text-align: center;
+}
+
+.titulo4 {
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: left;
+}
+
+.titulo5 {
+   font-size: 15px;
+   white-space: pre; /* Mantiene los espacios y saltos de línea */
+   text-align: center;
+}
+
+.color-azul{ color: var(--azul); }
+.color-rojo{ font-size: 15px; color: red; }
+
+button {
+   background-color: #003366; /* Azul oscuro */
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 10px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 3px;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #00509e; /* Azul más claro al pasar el ratón */
+}
+
+.tono{
+   font-size: 15px;
+   font-weight: bold;
+   text-align: right;
+}
+.nota{
+   font-size: 12px;
+   text-align: left;
+   font-weight: bold;
+}
+
+.pie{
+   text-align: center;
+}
+
+.pie-container {
+   display: flex;
+   justify-content: center; /* Centra el contenido horizontalmente */
+   align-items: center;
+}
+.pie-container img {
+   width: 50px; /* Ajusta el tamaño según tus necesidades */
+   height: auto; /* Mantiene la proporción de la imagen */
+   margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.buscarCanto{
+   text-align: center;
+}
+
+.buscadorForm {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+#nota9 {
+   position: relative;
+   left: -120px;
+}
+
+#nota11 {
+   position: relative;
+   left: 125px;
+}
+
+#nota12 {
+   position: relative;
+   left: -180px;
+}
+
+#nota13 {
+   position: relative;
+   left: 15px;
+}
+
+#nota14 {
+   position: relative;
+   left: 170px;
+}
+
+#nota15 {
+   position: relative;
+   left: -75px;
+}
+
+#nota17 {
+   position: relative;
+   left: 90px;
+}
+
+#nota18 {
+   position: relative;
+   left: -35px;
+}
+
+#nota19 {
+   position: relative;
+   left: 25px;
+}
+
+#nota20 {
+   position: relative;
+   left: 80px;
+}
+
+#nota21 {
+   position: relative;
+   left: 100px;
+}
+
+#nota22 {
+   position: relative;
+   left: -50px;
+}
+
+#nota23 {
+   position: relative;
+   left: 80px;
+}
+
+#nota24 {
+   position: relative;
+   left: -15px;
+}
+
+#nota25 {
+   position: relative;
+   left: 155px;
+}
+
+#nota26 {
+   position: relative;
+   left: -70px;
+}
+
+#nota27 {
+   position: relative;
+   left: 80px;
+}
+
+#nota28 {
+   position: relative;
+   left: -5px;
+}
+
+#nota29 {
+   position: relative;
+   left: 130px;
+}
+
+body {
+   background-color: white;
+}
+
+@media (max-width: 600px) {
+   #query {
+       width: 100%;
+       font-size: 16px;
+   }
+}
