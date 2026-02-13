@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title>ESTAR CONTIGO</title>
-        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/estarContigo.css">
+        <title>YA NO SOY ESCLAVO</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/yaNoSoyEsclavo.css">
         <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -25,8 +25,8 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">ESTAR CONTIGO</h1>
-        <p class="titulo3">Job Gonzalez
+        <h1 class="titulo2">YA NO SOY ESCLAVO</h1>
+        <p class="titulo3">Julio Melgar
 Nota "<span id="nota1">C</span>"
 Bits: 75 BPM</p>
 <p class="titulo4">              INTRO: <spn class="color-azul"> <span id="nota2">Am</span> <span id="nota3">G</span> <span id="nota4">C</span> <span id="nota5">F</span>
@@ -107,7 +107,7 @@ Me envuelves hoy con una canción                                               
             if(!element) return;
             const opt = {
                 margin: 0.2,
-                filename: 'ESTAR_CONTIGO_' + notaCancion + '.pdf',
+                filename: 'YA_NO_SOY_ESCLAVO_' + notaCancion + '.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 3 },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -132,7 +132,7 @@ Me envuelves hoy con una canción                                               
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'ESTAR_CONTIGO_' + notaCancion + '.png';
+                link.download = 'YA_NO_SOY_ESCLAVO_' + notaCancion + '.png';
                 link.click();
             }).catch(error => {
                 console.error('Error al generar la imagen:', error);

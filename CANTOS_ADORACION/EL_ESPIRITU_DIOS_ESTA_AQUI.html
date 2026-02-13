@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title>ESTAR CONTIGO</title>
-        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/estarContigo.css">
+        <title>EL ESPÍRITU DE DIOS ESTA AQUÍ</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/elEspirituDeDiosEstaAqui.css">
         <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -25,19 +25,33 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">ESTAR CONTIGO</h1>
-        <p class="titulo3">Job Gonzalez
-Nota "<span id="nota1">G</span>"
+        <h1 class="titulo2">EL ESPÍRITU DE DIOS ESTA AQUÍ</h1>
+        <p class="titulo3">Inspiración
+Nota "<span id="nota1">D</span>"
 Bits: 75 BPM</p>
-<p class="titulo5"><br>
-<span class="color-azul"><span id="nota2">Am</span> <span id="nota3">G</span> <span id="nota4">F</span> <span id="nota5">E</span></span>
-//Espíritu de Dios, llena mi vida, llena mi alma, llena mi ser//
+<p class="titulo5">VERSO<br>
+<span class="color-azul"><span id="nota2">D</span> <span id="nota3">G</span> <span id="nota4">D</span></span>
+//El Espíritu de Dios esta en este lugar
+<span class="color-azul"><span id="nota5">G</span> <span id="nota6">A</span></span>
+El Espíritu de Dios se mueve en este lugar
+<span class="color-azul"><span id="nota7">D</span> <span id="nota8">G</span></span>
+Esta aquí para consolar
+<span class="color-azul"><span id="nota9">D</span> <span id="nota10">G</span></span>
+Esta aquí para liberar
+<span class="color-azul"><span id="nota11">D</span></span>
+Esta aquí para guiar
+<span class="color-azul"><span id="nota12">A</span> <span id="nota13">D</span></span>
+El Espíritu de Dios esta en este aquí//
 </p>
 <p class="titulo5">CORO<br>
-<span class="color-azul"><span id="nota6">Am</span> <span id="nota7">G</span></span>
-//Lléname, lléname, lléname, con tu presencia lléname, lléname
-<span class="color-azul"><span id="nota8">F</span> <span id="nota9">E</span></span>
-Con tu poder lléname, lléname, con tú amor//
+<span class="color-azul"><span id="nota14">G</span> <span id="nota15">A</span> <span id="nota16">Bm</span></span>
+//Muévete en mi, muévete en mi
+<span class="color-azul"><span id="nota17">G</span> <span id="nota18">A</span></span>
+Toma mi mente y mi corazón
+<span class="color-azul"><span id="nota19">F#m</span> <span id="nota20">Bm</span></span>
+Llena mi vida de tu amor
+<span class="color-azul"><span id="nota21">G</span> <span id="nota22">A</span> <span id="nota23">D</span></span>
+Muévete en mi, Dios Espíritu, muévete en mi//
 </p>
 <br>
 <br>
@@ -82,7 +96,7 @@ Con tu poder lléname, lléname, con tú amor//
             if(!element) return;
             const opt = {
                 margin: 0.2,
-                filename: 'ESTAR_CONTIGO_' + notaCancion + '.pdf',
+                filename: 'EL_EPÍRITU_DE_DIOS_ESTA_AQUÍ_' + notaCancion + '.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 3 },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -107,7 +121,7 @@ Con tu poder lléname, lléname, con tú amor//
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'ESTAR_CONTIGO_' + notaCancion + '.png';
+                link.download = 'EL_EPÍRITU_DE_DIOS_ESTA_AQUÍ_' + notaCancion + '.png';
                 link.click();
             }).catch(error => {
                 console.error('Error al generar la imagen:', error);

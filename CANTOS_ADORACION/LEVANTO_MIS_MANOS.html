@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
-        <title>ESTAR CONTIGO</title>
-        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/estarContigo.css">
+        <title>LEVANTO MIS MANOS</title>
+        <link rel="stylesheet" href="/CANTOS_ADORACION_ESTILOS/levantoMisManos.css">
         <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -25,9 +25,9 @@
         </p>
         <br>
         <div class="letra">
-        <h1 class="titulo2">ESTAR CONTIGO</h1>
-        <p class="titulo3">Job Gonzalez
-Nota "<span id="nota1">G</span>"
+        <h1 class="titulo2">LEVANTO MIS MANOS</h1>
+        <p class="titulo3">Samuel Hérnandez
+Nota "<span id="nota1">A</span>"
 Bits: 75 BPM</p>
         <p class="titulo4">                    INTRO: <spn class="color-azul">             <span id="nota2">D</span>       <span id="nota3">E</span>                  <span id="nota4">C#</span>      <span id="nota5">F#</span>                    <span id="nota6">B</span>         <span id="nota7">E</span>               <span id="nota8">A</span>           <span id="nota9">A</span>
                                <span id="nota10">A</span><span id="nota11">A</span><span id="nota12">B</span><span id="nota13">C#</span><span id="nota14">C#</span>  <span id="nota15">D</span><span id="nota16">C#</span><span id="nota17">B</span><span class="color-rojo">/ </span> <span id="nota18">G#</span> <span id="nota19">G#</span> <span id="nota20">B</span> <span id="nota21">B</span>   <span id="nota22">C#</span> <span id="nota23">A</span>  <span class="color-rojo">/</span><span id="nota24">A</span> <span id="nota25">A</span> <span id="nota26">B</span> <span id="nota27">C#</span> <span id="nota28">C#</span>  <span id="nota29">D</span> <span id="nota30">C#</span> <span id="nota31">B</span>  <span class="color-rojo">/ </span><span id="nota32">A</span> <span id="nota33">G#</span> <span id="nota34">A</span> <span id="nota35">A</span> <span id="nota36">G#</span> <span id="nota37">E</span> <span id="nota38">C#</span>
@@ -109,7 +109,7 @@ Cuando levanto mis manos
             if(!element) return;
             const opt = {
                 margin: 0.2,
-                filename: 'ESTAR_CONTIGO_' + notaCancion + '.pdf',
+                filename: 'LEVANTO_MIS_MANOS_' + notaCancion + '.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 3 },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
@@ -134,7 +134,7 @@ Cuando levanto mis manos
             html2canvas(tempContainer, { scale: 3, backgroundColor: null }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'ESTAR_CONTIGO_' + notaCancion + '.png';
+                link.download = 'LEVANTO_MIS_MANOS_' + notaCancion + '.png';
                 link.click();
             }).catch(error => {
                 console.error('Error al generar la imagen:', error);
