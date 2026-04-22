@@ -174,14 +174,9 @@ button:hover {
    right: -45px;
 }
 
-#signo3 {
-   position: relative;
-   right: -45px;
-}
-
 #nota15 {
    position: relative;
-   right: -45px;
+   right: -120px;
 }
 
 #nota16 {
@@ -251,12 +246,12 @@ button:hover {
 
 #signo7 {
    position: relative;
-   right: -110px;
+   right: -95px;
 }
 
 #nota27 {
    position: relative;
-   right: -105px;
+   right: -95px;
 }
 
 #nota28 {
@@ -316,12 +311,12 @@ button:hover {
 
 #signo11 {
    position: relative;
-   right: -110px;
+   right: -95px;
 }
 
 #nota37 {
    position: relative;
-   right: -105px;
+   right: -95px;
 }
 
 body {
