@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
     <title>Agregar Canto - Ministerios Zoar</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -32,6 +33,7 @@
         input[type=text],select{width:100%;padding:12px 16px;border:2px solid rgba(255, 255, 255, 0.3);border-radius:8px;font-family:Lato,sans-serif;font-size:13px;color:var(--texto);background:rgba(255, 255, 255, 0.9);outline:none;transition:all 0.3s ease;}
         input[type=text]:focus,select:focus{border-color:#00f2fe;box-shadow:0 0 10px rgba(0, 242, 254, 0.3);}
         .bs{margin-left:auto;display:flex;gap:5px;flex-wrap:wrap;}
+        .bs-bottom{display:flex;gap:5px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--azul-claro);}
         #cs{display:flex;flex-direction:column;gap:12px;}
         .mv{color:var(--gris);font-size:13px;text-align:center;padding:22px 0;}
         .sb{border:1px solid var(--borde);border-radius:6px;overflow:hidden;}
@@ -184,19 +186,19 @@
         <div class="ms-card">
             <div class="ms-titulo">
                 &#127932; Secciones
-                <div class="bs">
-                    <button class="btn ba bsm" id="ms-b1">+ Intro</button>
-                    <button class="btn ba bsm" id="ms-b2">+ Verso</button>
-                    <button class="btn ba bsm" id="ms-b3">+ Coro</button>
-                    <button class="btn bsm"    id="ms-b4">+ Puente</button>
-                    <button class="btn bsm"    id="ms-b5">+ Interludio</button>
-                    <button class="btn bsm"    id="ms-b6">+ Otro</button>
-                </div>
             </div>
             <p style="font-size:11px;color:var(--gris);margin-bottom:12px;">
                 Cada fila = una linea del canto. Selecciona la nota del acorde (izquierda) y escribe el texto de esa linea (derecha).
             </p>
             <div id="ms-cs"><p class="mv" id="ms-mv">Haz clic en los botones para agregar secciones.</p></div>
+            <div class="bs-bottom">
+                <button class="btn ba bsm" id="ms-b1">+ Intro</button>
+                <button class="btn ba bsm" id="ms-b2">+ Verso</button>
+                <button class="btn ba bsm" id="ms-b3">+ Coro</button>
+                <button class="btn bsm"    id="ms-b4">+ Puente</button>
+                <button class="btn bsm"    id="ms-b5">+ Interludio</button>
+                <button class="btn bsm"    id="ms-b6">+ Otro</button>
+            </div>
         </div>
         <div class="ms-card">
             <div class="ms-titulo">&#128065; Vista Previa</div>
@@ -262,14 +264,6 @@
     <div class="card">
         <div class="ct">
             &#127932; Secciones
-            <div class="bs">
-                <button class="btn ba bsm" id="b1">+ Intro</button>
-                <button class="btn ba bsm" id="b2">+ Verso</button>
-                <button class="btn ba bsm" id="b3">+ Coro</button>
-                <button class="btn bsm" id="b4">+ Puente</button>
-                <button class="btn bsm" id="b5">+ Interludio</button>
-                <button class="btn bsm" id="b6">+ Otro</button>
-            </div>
         </div>
         <p style="font-size:11px;color:var(--gris);margin-bottom:12px;">
             Cada linea = varios <strong>segmentos</strong>. Cada segmento tiene una nota (opcional) + el texto desde esa nota hasta la siguiente.<br>
@@ -277,6 +271,14 @@
         </p>
         <div id="cs">
             <p class="mv" id="mv">Haz clic en los botones para agregar secciones.</p>
+        </div>
+        <div class="bs-bottom">
+            <button class="btn ba bsm" id="b1">+ Intro</button>
+            <button class="btn ba bsm" id="b2">+ Verso</button>
+            <button class="btn ba bsm" id="b3">+ Coro</button>
+            <button class="btn bsm" id="b4">+ Puente</button>
+            <button class="btn bsm" id="b5">+ Interludio</button>
+            <button class="btn bsm" id="b6">+ Otro</button>
         </div>
     </div>
 
@@ -609,7 +611,7 @@ function gen(){
   for(var i=0;i<secs.length;i++){
     var s=secs[i];
     var tm=(s.tipo==="OTRO")?(s.tipoCustom||"SECCION"):s.tipo;
-    cu+='<p class="titulo5">'+esc(tm)+'<br>\n';
+    cu+='<p class="titulo5"><span class="color-negro">'+esc(tm)+'<\/span><br>\n';
     for(var j=0;j<s.lineas.length;j++) cu+=buildLineaHTML(s.lineas[j],niRef);
     cu+='<\/p>\n';
   }
@@ -678,11 +680,12 @@ function gen(){
     "      a.click();",
     "    }).finally(function(){ if(barra)barra.style.display=''; });",
     "  }",
-    "  function regresar(){ window.history.back(); }"
+    "  function regresar(){ window.location.href = '/alabanza.html'; }"
   ].join("\n");
 
   hf="<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n"
     +"<meta charset=\"UTF-8\">\n<title>"+esc(nom)+"<\/title>\n"
+    +"<link rel=\"icon\" href=\"\/LOGOS\/logo.jpg\" type=\"image\/x-icon\">\n"
     +"<link rel=\"stylesheet\" href=\"/"+carp+"_ESTILOS/"+nom.toLowerCase().replace(/\s+/g,"_")+".css\">\n"
     +scLibs+"\n"
     +"<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\">\n"
@@ -706,10 +709,11 @@ function gen(){
     +"  text-align:center;margin-bottom:6px;column-span:all;}\n"
     +".titulo3{white-space:pre;font-size:14px;text-align:center;color:#555;\n"
     +"  margin-bottom:14px;column-span:all;line-height:1.6;}\n"
-    +".titulo5{font-family:'Courier New',monospace;font-size:13px;white-space:pre;\n"
+    +".titulo5{font-family:'Courier New',monospace;font-size:16px;font-weight:500;white-space:pre;\n"
     +"  text-align:left;break-inside:avoid;page-break-inside:avoid;\n"
     +"  margin-bottom:16px;display:block;}\n"
-    +".color-azul{color:rgb(4,130,180);font-weight:700;}\n"
+    +".color-azul{color:rgb(4,130,180);font-weight:200;}\n"
+    +".color-negro{color:rgb(0, 0, 0);font-weight:600;}\n"
     +".nota{font-size:12px;font-weight:bold;}\n"
     +".pie-container{display:flex;justify-content:center;align-items:center;\n"
     +"  margin-top:24px;font-size:12px;color:#888;column-span:all;}\n"
@@ -1105,29 +1109,27 @@ function msCalcLinea(segs){
 
 /* ── Mover tono en preview modo simple ── */
 function msMoverTono(d){
-  var spans=g("ms-preview-area").querySelectorAll("[data-nota-ms]");
-  var notasAMover={};
-  spans.forEach(function(el){
-    var v=el.textContent.trim(); if(!v)return;
-    var alt=v.endsWith("m");
-    var list=alt?msNotasAlt:msNotas;
-    var idx=list.indexOf(v); if(idx===-1)return;
-    el.textContent=list[(idx+d+12)%12];
-    notasAMover[v]=list[(idx+d+12)%12];
-  });
-  // Actualizar en el array de segmentos
+  // Actualizar TODAS las notas en los segmentos
   for(var i=0;i<msSecs.length;i++){
     for(var j=0;j<msSecs[i].lineas.length;j++){
       for(var k=0;k<msSecs[i].lineas[j].segs.length;k++){
         var seg=msSecs[i].lineas[j].segs[k];
-        if(seg.nota && notasAMover[seg.nota]){
-          seg.nota=notasAMover[seg.nota];
-          var el=g("ms-snotasel"+seg.id); if(el)el.value=seg.nota;
-        }
+        if(!seg.nota) continue;
+        // Determinar si es nota menor (termina con "m")
+        var alt=seg.nota.endsWith("m");
+        var list=alt?msNotasAlt:msNotas;
+        var idx=list.indexOf(seg.nota);
+        if(idx===-1) continue;
+        // Calcular nueva nota
+        var nueva=list[(idx+d+12)%12];
+        seg.nota=nueva;
+        // Actualizar dropdown en la UI
+        var el=g("ms-snotasel"+seg.id);
+        if(el) el.value=nueva;
       }
     }
   }
-  // Actualizar indicador de tono
+  // Actualizar indicador de tono base
   var nb=g("ms-nB").value;
   if(nb){
     var alt=nb.endsWith("m");
