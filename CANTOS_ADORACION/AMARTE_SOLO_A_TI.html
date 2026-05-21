@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>AMARTE SOLO A TI</title>
+<link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lucida Sans',sans-serif;background:#fff;color:#1a2740;}
+.barra{position:fixed;top:0;left:0;right:0;z-index:999;background:#003366;
+  padding:7px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.barra button{background:rgba(255,255,255,.18);color:#fff;
+  border:1px solid rgba(255,255,255,.3);padding:5px 11px;
+  font-size:11px;font-weight:700;cursor:pointer;border-radius:3px;}
+.barra button:hover{background:rgba(255,255,255,.35);}
+.barra .sep{color:rgba(255,255,255,.3);}
+.barra .lbl{color:rgba(255,255,255,.6);font-size:10px;font-weight:700;text-transform:uppercase;}
+.barra .tono-val{color:#c9a84c;font-weight:700;font-size:14px;min-width:24px;text-align:center;}
+.letra{max-width:900px;margin:0 auto;padding:70px 24px 40px;
+  column-count:2;column-gap:36px;column-rule:1px solid #dce3ed;}
+@media(max-width:600px){.letra{column-count:1;}}
+.titulo2{font-family:'Lucida Sans Unicode',sans-serif;font-size:20px;
+  text-align:center;margin-bottom:6px;column-span:all;}
+.titulo3{white-space:pre;font-size:14px;text-align:center;color:#555;
+  margin-bottom:14px;column-span:all;line-height:1.6;}
+.titulo5{font-family:'Courier New',monospace;font-size:16px;font-weight:500;white-space:pre;
+  text-align:left;break-inside:avoid;page-break-inside:avoid;
+  margin-bottom:16px;display:block;}
+.color-azul{color:rgb(4,130,180);font-weight:200;}
+.color-negro{color:rgb(0, 0, 0);font-weight:600;}
+.nota{font-size:12px;font-weight:bold;}
+.pie-container{display:flex;justify-content:center;align-items:center;
+  margin-top:24px;font-size:12px;color:#888;column-span:all;}
+.pie-container img{width:40px;height:auto;margin-right:8px;}
+@media print{.barra{display:none!important;}.letra{padding-top:10px;}}
+</style>
+</head>
+<body>
+<div class="barra">
+  <span class="lbl">Tono:</span>
+  <span class="tono-val" id="tonoActual">Cm/</span>
+  <button onclick="moverSemitono(1)">&#9839; +&frac12;</button>
+  <button onclick="moverSemitono(-1)">&#9837; -&frac12;</button>
+  <button onclick="moverSemitono(2)">+1 tono</button>
+  <button onclick="moverSemitono(-2)">-1 tono</button>
+  <span class="sep">|</span>
+  <button onclick="generarPDF()">&#128196; PDF</button>
+  <button onclick="generarImagen()">&#128247; Imagen</button>
+  <span class="sep">|</span>
+  <button onclick="regresar()">&#8592; Regresar</button>
+</div>
+<div class="letra">
+<h1 class="titulo2">AMARTE SOLO A TI</h1>
+<p class="titulo3">Bethel Music
+Nota "<span id="nota0">Cm</span>"
+Bits: 89
+</p>
+<p class="titulo5"><span class="color-negro">VERSO</span><br>
+<span class="color-azul"><span id="nota1">Cm</span>            <span id="nota2">G</span>
+</span>Amarte solo a ti Señor
+<span class="color-azul">              <span id="nota3">Cm</span>
+</span>Amarte solo a ti Señor
+<span class="color-azul"><span id="nota4">Cm</span>            <span id="nota5">G</span>
+</span>Amarte solo a ti Señor
+<span class="color-azul">           <span id="nota6">Cm</span>      <span id="nota7">C</span>
+</span>y no mirar atrás.  
+</p>
+<p class="titulo5"><span class="color-negro">CORO</span><br>
+<span class="color-azul">    <span id="nota8">C</span>          <span id="nota9">Fm</span>          <span id="nota10">A#</span>
+</span>seguir tu caminar Seño  o  or
+<span class="color-azul">                    <span id="nota11">D#</span>    <span id="nota12">G#</span>
+</span>Seguir sin desmayar Seño  o  or
+<span class="color-azul">                <span id="nota13">G</span>
+</span>Postrado ante tualtar Señor
+<span class="color-azul">             <span id="nota14">G</span>     <span id="nota15">C</span>
+</span>Y no mirar atrás// 
+</p>
+
+<div class="pie-container"><img src="/LOGOS/logo2.jpg" alt="Logo"><p>MINISTERIOS ZOAR 2026</p></div>
+</div>
+<script>
+        const eN=Array.from(document.querySelectorAll('[id^="nota"]'));
+        const nM=['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+        const nA=['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
+        const mN=Object.fromEntries(nM.map((n,i)=>[n,i]));
+        const mA=Object.fromEntries(nA.map((n,i)=>[n,i]));
+        function cambiarSemitonos(d){
+          eN.forEach(el=>{
+            const v=(el.textContent||'').trim();if(!v)return;
+            const alt=v.endsWith('m');
+            const list=alt?nA:nM;const map=alt?mA:mN;
+            const idx=map[v];if(idx===undefined)return;
+            el.textContent=list[(idx+d+12)%12];
+          });
+        }
+  const eN2=Array.from(document.querySelectorAll('[id^="nota"]'));
+  function moverSemitono(d){
+    const nM2=['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+    const nA2=['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
+    eN2.forEach(el=>{
+      const v=(el.textContent||'').trim(); if(!v)return;
+      const alt=v.endsWith('m');
+      const list=alt?nA2:nM2;
+      const idx=list.indexOf(v); if(idx===-1)return;
+      el.textContent=list[(idx+d+12)%12];
+    });
+    const t=document.getElementById('tonoActual');
+    if(t&&eN2[0])t.textContent=eN2[0].textContent;
+  }
+  function generarPDF(){
+    var barra=document.querySelector('.barra');
+    var nota=eN2[0]?eN2[0].textContent:'';
+    if(barra)barra.style.display='none';
+    var opt={margin:[8,8,8,8],filename:document.title+'_'+nota+'.pdf',
+      image:{type:'jpeg',quality:0.98},
+      html2canvas:{scale:2,useCORS:true},
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}};
+    html2pdf().from(document.querySelector('.letra')).set(opt).save().then(function(){
+      if(barra)barra.style.display='';
+    });
+  }
+  function generarImagen(){
+    var barra=document.querySelector('.barra');
+    var nota=eN2[0]?eN2[0].textContent:'';
+    if(barra)barra.style.display='none';
+    html2canvas(document.querySelector('.letra'),{scale:3,backgroundColor:'#ffffff',useCORS:true}).then(function(canvas){
+      var a=document.createElement('a');
+      a.href=canvas.toDataURL('image/png');
+      a.download=document.title+'_'+nota+'.png';
+      a.click();
+    }).finally(function(){ if(barra)barra.style.display=''; });
+  }
+  function regresar(){ window.location.href = "/alabanza.html"; }
+</script>
+</body>
+</html>
