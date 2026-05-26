@@ -10,105 +10,66 @@
         body {
             background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 50%, #06b6d4 100%) !important;
         }
-        
         .back-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            position: absolute; top: 20px; left: 20px;
             padding: 10px 20px;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.95em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
-            display: inline-block;
+            color: white; text-decoration: none; border-radius: 50px;
+            font-size: 0.95em; font-weight: 600; transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79,172,254,0.3); display: inline-block;
         }
-
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.5);
-        }
-
+        .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
         .add-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: absolute; top: 20px; right: 20px;
             padding: 10px 20px;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.95em;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
-            display: inline-block;
+            color: white; text-decoration: none; border-radius: 50px;
+            font-size: 0.95em; font-weight: 600; transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79,172,254,0.3); display: inline-block;
         }
-
-        .add-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.5);
-        }
-
+        .add-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
         h1.buscarCanto {
             color: white !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
         #buscadorForm button {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
-            border: none;
-            padding: 10px 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+            border: none; padding: 10px 25px; font-weight: 600;
+            transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(79,172,254,0.3);
         }
-
-        #buscadorForm button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.5);
-        }
-
+        #buscadorForm button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
         #buscadorForm input {
-            padding: 12px 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            font-size: 1em;
-            background: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s ease;
+            padding: 12px 16px; border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 8px; font-size: 1em;
+            background: rgba(255,255,255,0.9); transition: all 0.3s ease;
         }
-
-        #buscadorForm input:focus {
-            outline: none;
-            border-color: #00f2fe;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
-        }
-
-        .pie {
-            color: white !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
+        #buscadorForm input:focus { outline: none; border-color: #00f2fe; box-shadow: 0 0 10px rgba(0,242,254,0.3); }
+        .pie { color: white !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
         .pie-container {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.1); padding: 20px;
+            border-radius: 10px; backdrop-filter: blur(10px);
         }
+        /* Badge que indica si viene de Airtable o del array */
+        .badge-at{display:inline-block;background:linear-gradient(135deg,#11998e,#38ef7d);
+          color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;
+          margin-left:6px;vertical-align:middle;}
+        .badge-local{display:inline-block;background:rgba(79,172,254,0.3);
+          color:#fff;font-size:10px;padding:2px 7px;border-radius:10px;
+          margin-left:6px;vertical-align:middle;}
+        /* Indicador de carga de Airtable */
+        #at-status{position:fixed;bottom:16px;right:16px;background:rgba(0,0,0,0.6);
+          color:#fff;font-size:11px;padding:6px 12px;border-radius:20px;
+          display:none;backdrop-filter:blur(4px);}
     </style>
 </head>
 <body>
     <script>
-        // Guarda la página de origen en localStorage
         localStorage.setItem('paginaOrigen', window.location.pathname);
     </script>
 
     <a href="index.html" class="back-btn">← Inicio</a>
     <a href="AGREGAR_CANTO.html" class="add-btn">+ Agregar Canto</a>
-    
+
     <h1 class="buscarCanto">Alabanza Zoar</h1>
     <form id="buscadorForm">
         <input type="text" id="query" placeholder="Buscar canto" autocomplete="off">
@@ -116,98 +77,193 @@
     </form>
     <br><br><br><br>
     <p class="pie">"Este es el día que hizo el Señor; nos gozaremos y alegraremos en él." Salmo 118:24</p>
-     <br>
+    <br>
     <div class="pie-container">
         <img src="logo2.jpg" alt="Logo">
         <p class="pie">MINISTERIOS ZOAR 2025</p>
     </div>
+
+    <!-- Indicador de estado de carga Airtable -->
+    <div id="at-status">⏳ Cargando cantos de Airtable...</div>
+
     <script>
-        const canciones = [
-            { nombre: "ALGO ESTÁ CAYENDO AQUÍ", href: "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html" },
-            { nombre: 'ALGO ESTA CAYENDO AQUI', href: 'CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html' },
-            { nombre: 'A EL ALTO Y SUBLIME', href: 'CANTOS_ADORACION/A_EL_ALTO_Y_SUBLIME.html' },
-            { nombre: 'ESPÍRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
-            { nombre: 'ESPIRITU SANTO BIENVENIDO', href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
-            { nombre: 'POR UN DESTELLO DE TU GLORIA', href: 'CANTOS_ADORACION/POR_UN_DESTELLO_DE_TU_GLORIA.html' },
-            { nombre: 'ABRE MIS OJOS OH CRISTO', href: 'CANTOS_CELEBRACION/ABRE_MIS_OJOS_OH_CRISTO.html' },
-            { nombre: 'TU ERES DIGNO DE GLORIA', href: 'CANTOS_CELEBRACION/TU_ERES_DIGNO_DE_GLORIA.html' },
-            { nombre: 'AL QUE ESTA SENTADO EN EL TRONO', href: 'CANTOS_ADORACION/AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html' },
-            { nombre: 'CREO EN TI', href: 'CANTOS_ADORACION/CREO_EN_TI.html' },
-            { nombre: 'DIGNO / MARCOS BRUNET', href: 'CANTOS_ADORACION/DIGNO_MB.html' },
-            { nombre: 'CUANTO DARIA', href: 'CANTOS_ADORACION/CUANTO_DARIA.html' },
-            { nombre: 'MERECES LA GLORIA', href: 'CANTOS_ADORACION/MERECES_LA_GLORIA.html' },
-            { nombre: 'COMO EN EL CIELO', href: 'CANTOS_CELEBRACION/COMO_EN_EL_CIELO.html' },
-            { nombre: 'VEN ES HORA DE ADORARTE', href: 'CANTOS_CELEBRACION/VEN_ES_HORA_DE_ADORARTE.html' },
-            { nombre: 'ANCIANO DE DIAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
-            { nombre: 'ANCIANO DE DíAS', href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
-            { nombre: 'HERMOSO ERES', href: 'CANTOS_ADORACION/HERMOSO_ERES.html' },
-            { nombre: 'NO HAY LUGAR MAS ALTO', href: 'CANTOS_ADORACION/NO_HAY_LUGAR_MAS_ALTO.html' },
-            { nombre: 'SANTO SANTO SANTO', href: 'CANTOS_ADORACION/SANTO_SANTO_SANTO.html' },
-            { nombre: 'QUIERO LLENAR TU TRONO DE ALABANZA', href: 'CANTOS_ADORACION/QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html' },
-            { nombre: 'AMAMOS TU PRESENCIA', href: 'CANTOS_ADORACION/AMAMOS_TU_PRESENCIA.html' },
-            { nombre: 'PRECIOSA SANGRE', href: 'CANTOS_ADORACION/PRECIOSA_SANGRE.html' },
-            { nombre: 'LIBRE YO SOY LIBRE', href: 'CANTOS_CELEBRACION/LIBRE_YO_SOY_LIBRE.html' },
-            { nombre: 'YA HA LLEGADO', href: 'CANTOS_CELEBRACION/YA_HA_LLEGADO.html' },
-            { nombre: 'ME GOZARE', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
-            { nombre: 'ME GOZARÉ', href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
-            { nombre: 'HAY LIBERTAD', href: 'CANTOS_CELEBRACION/HAY_LIBERTAD.html' },
-            { nombre: 'GLORIFICATE', href: 'CANTOS_ADORACION/GLORIFICATE.html' },
-            { nombre: 'ESTAR CONTIGO', href: 'CANTOS_ADORACION/ESTAR_CONTIGO.html' },
-            { nombre: 'TU FIDELIDAD', href: 'CANTOS_ADORACION/TU_FIDELIDAD.html' },
-            { nombre: 'DIGNO / ELEVATION WORSHIP', href: 'CANTOS_ADORACION/DIGNO_EW.html' },
-            { nombre: 'AL ESTAR AQUI', href: 'CANTOS_ADORACION/AL_ESTAR_AQUI.html' },
-            { nombre: 'TUS CUERDAS DE AMOR', href: 'CANTOS_ADORACION/TUS_CUERDAS_DE_AMOR.html' },
-            { nombre: 'MI PLENITUD', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'SI TE TENGO A TI', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'CRISTO JESUS ERES MI PLENITUD', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
-            { nombre: 'PURIFICAME', href: 'CANTOS_ADORACION/PURIFICAME.html' },
-            { nombre: 'YO QUIERO MAS DE TI', href: 'CANTOS_ADORACION/YO_QUIERO_MAS_DE_TI.html' },
-            { nombre: 'EXALTATE SEÑOR', href: 'CANTOS_ADORACION/EXALTATE_SEÑOR.html' },
-            { nombre: 'MI GOZO', href: 'CANTOS_CELEBRACION/MI_GOZO.html' },
-            { nombre: 'JESÚS ERES MI BUEN PASTOR', href: 'CANTOS_ADORACION/JESUS_ERES_MI_BUEN_PASTOR.html' },
-            { nombre: 'TU ERES MI RESPUESTA', href: 'CANTOS_ADORACION/TU_ERES_MI_RESPUESTA.html' },
-            { nombre: 'AMARTE SOLO A TI', href: 'CANTOS_ADORACION/AMARTE_SOLO_A_TI.html' }
-        ];
-        // Ordenar canciones por nombre (alfabético, sin distinguir mayúsculas ni tildes)
-        canciones.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
+    // ═══════════════════════════════════════════════════════
+    // ARRAY DE RESPALDO (cantos con archivo HTML existente)
+    // ═══════════════════════════════════════════════════════
+    const cancionesLocales = [
+        // { nombre: "ALGO ESTÁ CAYENDO AQUÍ",  href: "CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html" },
+        // { nombre: 'ALGO ESTA CAYENDO AQUI',  href: 'CANTOS_ADORACION/ALGO_ESTA_CAYENDO_AQUI.html' },
+        // { nombre: 'A EL ALTO Y SUBLIME',     href: 'CANTOS_ADORACION/A_EL_ALTO_Y_SUBLIME.html' },
+        // { nombre: 'ESPÍRITU SANTO BIENVENIDO',href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
+        // { nombre: 'ESPIRITU SANTO BIENVENIDO',href: 'CANTOS_CELEBRACION/ESPIRITU_SANTO_BIENVENIDO.html' },
+        // { nombre: 'POR UN DESTELLO DE TU GLORIA', href: 'CANTOS_ADORACION/POR_UN_DESTELLO_DE_TU_GLORIA.html' },
+        // { nombre: 'ABRE MIS OJOS OH CRISTO', href: 'CANTOS_CELEBRACION/ABRE_MIS_OJOS_OH_CRISTO.html' },
+        // { nombre: 'TU ERES DIGNO DE GLORIA', href: 'CANTOS_CELEBRACION/TU_ERES_DIGNO_DE_GLORIA.html' },
+        // { nombre: 'AL QUE ESTA SENTADO EN EL TRONO', href: 'CANTOS_ADORACION/AL_QUE_ESTA_SENTADO_EN_EL_TRONO.html' },
+        // { nombre: 'CREO EN TI',              href: 'CANTOS_ADORACION/CREO_EN_TI.html' },
+        // { nombre: 'DIGNO / MARCOS BRUNET',   href: 'CANTOS_ADORACION/DIGNO_MB.html' },
+        // { nombre: 'CUANTO DARIA',            href: 'CANTOS_ADORACION/CUANTO_DARIA.html' },
+        // { nombre: 'MERECES LA GLORIA',       href: 'CANTOS_ADORACION/MERECES_LA_GLORIA.html' },
+        // { nombre: 'COMO EN EL CIELO',        href: 'CANTOS_CELEBRACION/COMO_EN_EL_CIELO.html' },
+        // { nombre: 'VEN ES HORA DE ADORARTE', href: 'CANTOS_CELEBRACION/VEN_ES_HORA_DE_ADORARTE.html' },
+        // { nombre: 'ANCIANO DE DIAS',         href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
+        // { nombre: 'ANCIANO DE DíAS',         href: 'CANTOS_CELEBRACION/ANCIANO_DE_DIAS.html' },
+        // { nombre: 'HERMOSO ERES',            href: 'CANTOS_ADORACION/HERMOSO_ERES.html' },
+        // { nombre: 'NO HAY LUGAR MAS ALTO',   href: 'CANTOS_ADORACION/NO_HAY_LUGAR_MAS_ALTO.html' },
+        // { nombre: 'SANTO SANTO SANTO',       href: 'CANTOS_ADORACION/SANTO_SANTO_SANTO.html' },
+        // { nombre: 'QUIERO LLENAR TU TRONO DE ALABANZA', href: 'CANTOS_ADORACION/QUIERO_LLENAR_TU_TRONO_DE_ALABANZA.html' },
+        // { nombre: 'AMAMOS TU PRESENCIA',     href: 'CANTOS_ADORACION/AMAMOS_TU_PRESENCIA.html' },
+        // { nombre: 'PRECIOSA SANGRE',         href: 'CANTOS_ADORACION/PRECIOSA_SANGRE.html' },
+        // { nombre: 'LIBRE YO SOY LIBRE',      href: 'CANTOS_CELEBRACION/LIBRE_YO_SOY_LIBRE.html' },
+        // { nombre: 'YA HA LLEGADO',           href: 'CANTOS_CELEBRACION/YA_HA_LLEGADO.html' },
+        // { nombre: 'ME GOZARE',               href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
+        // { nombre: 'ME GOZARÉ',               href: 'CANTOS_CELEBRACION/ME_GOZARE.html' },
+        // { nombre: 'HAY LIBERTAD',            href: 'CANTOS_CELEBRACION/HAY_LIBERTAD.html' },
+        // { nombre: 'GLORIFICATE',             href: 'CANTOS_ADORACION/GLORIFICATE.html' },
+        // { nombre: 'ESTAR CONTIGO',           href: 'CANTOS_ADORACION/ESTAR_CONTIGO.html' },
+        // { nombre: 'TU FIDELIDAD',            href: 'CANTOS_ADORACION/TU_FIDELIDAD.html' },
+        // { nombre: 'DIGNO / ELEVATION WORSHIP',href: 'CANTOS_ADORACION/DIGNO_EW.html' },
+        // { nombre: 'AL ESTAR AQUI',           href: 'CANTOS_ADORACION/AL_ESTAR_AQUI.html' },
+        // { nombre: 'TUS CUERDAS DE AMOR',     href: 'CANTOS_ADORACION/TUS_CUERDAS_DE_AMOR.html' },
+        // { nombre: 'MI PLENITUD',             href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
+        // { nombre: 'SI TE TENGO A TI',        href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
+        // { nombre: 'CRISTO JESUS ERES MI PLENITUD', href: 'CANTOS_ADORACION/MI_PLENITUD.html' },
+        // { nombre: 'PURIFICAME',              href: 'CANTOS_ADORACION/PURIFICAME.html' },
+        // { nombre: 'YO QUIERO MAS DE TI',     href: 'CANTOS_ADORACION/YO_QUIERO_MAS_DE_TI.html' },
+        // { nombre: 'EXALTATE SEÑOR',          href: 'CANTOS_ADORACION/EXALTATE_SEÑOR.html' },
+        // { nombre: 'MI GOZO',                 href: 'CANTOS_CELEBRACION/MI_GOZO.html' },
+        // { nombre: 'JESÚS ERES MI BUEN PASTOR',href: 'CANTOS_ADORACION/JESUS_ERES_MI_BUEN_PASTOR.html' },
+        // { nombre: 'TU ERES MI RESPUESTA',    href: 'CANTOS_ADORACION/TU_ERES_MI_RESPUESTA.html' },
+        // { nombre: 'AMARTE SOLO A TI',        href: 'CANTOS_ADORACION/AMARTE_SOLO_A_TI.html' },
+        // { nombre: 'CADA MAÑANA',             href: 'CANTOS_CELEBRACION/CADA_MAÑANA.html' },
+        // { nombre: 'SANTO POR SIEMPRE',       href: 'CANTOS_ADORACION/SANTO_POR_SIEMPRE.html' },
+        // { nombre: 'YA NO SOY ESCLAVO',       href: 'CANTOS_ADORACION/YA_NO_SOY_ESCLAVO.html' },
+        // { nombre: 'VENIMOS ANTE TI SEÑOR',   href: 'CANTOS_ADORACION/VENIMOS_ANTE_TI_SEÑOR.html' },
+        // { nombre: 'AL ESTAR AQUÍ',           href: 'CANTOS_ADORACION/AL_ESTAR_AQUI.html' }
+    ];
 
-        document.getElementById('buscadorForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe
+    // ═══════════════════════════════════════════════════════
+    // AIRTABLE — cargar cantos guardados
+    // ═══════════════════════════════════════════════════════
+    var AT_TOKEN = 'patJxB4Jkw1GK19XJ.e9baed267c8647649bfcd7a3af57756a224282e5e8033009575ca961888c3628';
+    var AT_BASE  = 'appyn3FuqAu63Ak0j';
+    var AT_TABLE = 'Estructuras';
+    var cantosAirtable = [];   // {nombre, href}
+    var airtableCargado = false;
 
-            const query = document.getElementById('query').value.toLowerCase().trim();
-            const matches = [];
-            canciones.forEach((cancion, i) => {
-                if (cancion.nombre.toLowerCase().includes(query)) matches.push({ cancion, i });
+    function cargarAirtable(){
+      var st = document.getElementById('at-status');
+      if(st) st.style.display = 'block';
+
+      // Traer solo campos Name (no necesitamos EstructuraJSON para buscar)
+      var url = 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE)
+              + '?fields[]=Name&fields[]=Tipo';
+
+      fetch(url, { headers:{ 'Authorization':'Bearer '+AT_TOKEN } })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data.records){
+          cantosAirtable = data.records
+            .filter(function(r){ return r.fields && r.fields.Name; })
+            .map(function(r){
+              return {
+                nombre: r.fields.Name,
+                href: '/ver_canto.html?nombre='+encodeURIComponent(r.fields.Name),
+                esAirtable: true
+              };
             });
-
-            if (matches.length > 0) {
-                let htmlContent = '<ul>';
-                matches.forEach(match => {
-                    htmlContent += `<li><a href="${match.cancion.href}">${match.cancion.nombre}</a></li>`;
-                });
-                htmlContent += '</ul>';
-
-                Swal.fire({
-                    title: 'Resultados',
-                    html: htmlContent,
-                    showCloseButton: true
-                });
-            } else {
-                Swal.fire({
-                    title: 'No se encontraron resultados',
-                    text: 'Intenta con otra búsqueda.'
-                });
-            }
-        });
-
-        function directoras() {
-            window.location.href = 'TABLA_CANTOS.html';
         }
+        airtableCargado = true;
+        if(st) st.style.display = 'none';
+      })
+      .catch(function(){
+        // Falla silenciosamente — el array local sigue funcionando
+        airtableCargado = true;
+        if(st) st.style.display = 'none';
+      });
+    }
 
-        // function circulo5() {
-        //     window.location.href = 'CIRCULO_DE_QUINTAS.html';
-        // }
+    // ═══════════════════════════════════════════════════════
+    // BÚSQUEDA COMBINADA
+    // ═══════════════════════════════════════════════════════
+    function buscar(query){
+      query = query.toLowerCase().trim();
+      if(!query) return;
 
+      // Combinar: Airtable primero, luego locales que no estén ya en Airtable
+      var nombresAirtable = cantosAirtable.map(function(c){ return c.nombre.toLowerCase(); });
+
+      // Filtrar locales que NO tienen versión en Airtable
+      var soloLocales = cancionesLocales.filter(function(c){
+        return !nombresAirtable.includes(c.nombre.toLowerCase());
+      });
+      soloLocales = soloLocales.map(function(c){
+        return { nombre: c.nombre, href: c.href, esAirtable: false };
+      });
+
+      var todos = cantosAirtable.concat(soloLocales);
+
+      // Quitar duplicados por nombre (mantener el primero = Airtable tiene prioridad)
+      var vistos = {};
+      todos = todos.filter(function(c){
+        var key = c.nombre.toLowerCase();
+        if(vistos[key]) return false;
+        vistos[key] = true;
+        return true;
+      });
+
+      // Ordenar alfabéticamente
+      todos.sort(function(a,b){
+        return a.nombre.localeCompare(b.nombre,'es',{sensitivity:'base'});
+      });
+
+      // Filtrar por búsqueda parcial
+      var matches = todos.filter(function(c){
+        return c.nombre.toLowerCase().includes(query);
+      });
+
+      if(matches.length === 0){
+        Swal.fire({
+          title: 'No encontrado',
+          text: 'No hay cantos que coincidan con "'+query+'".',
+          icon: 'info'
+        });
+        return;
+      }
+
+      var htmlContent = '<ul style="text-align:left;padding:0 8px;">';
+      matches.forEach(function(c){
+        var badge = c.esAirtable
+          ? '<span class="badge-at">activo</span>'
+          : '<span class="badge-local">Local</span>';
+        htmlContent += '<li style="margin:8px 0;list-style:none;">'
+          + '<a href="'+c.href+'" style="color:#003366;font-weight:600;text-decoration:none;font-size:15px;">'
+          + c.nombre + '</a>' + badge + '</li>';
+      });
+      htmlContent += '</ul>';
+
+      Swal.fire({
+        title: 'Resultados ('+ matches.length +')',
+        html: htmlContent,
+        showCloseButton: true,
+        width: 500
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // EVENTOS
+    // ═══════════════════════════════════════════════════════
+    document.getElementById('buscadorForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      buscar(document.getElementById('query').value);
+    });
+
+    function directoras(){
+      window.location.href = 'TABLA_CANTOS.html';
+    }
+
+    // Arrancar carga de Airtable al abrir la página
+    window.addEventListener('load', cargarAirtable);
     </script>
 </body>
 </html>

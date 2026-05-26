@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Canto - Ministerios Zoar</title>
+<link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lucida Sans',sans-serif;background:#fff;color:#1a2740;}
+
+/* ── BARRA SUPERIOR ── */
+.barra{position:fixed;top:0;left:0;right:0;z-index:999;background:#003366;
+  padding:7px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.barra button{background:rgba(255,255,255,.18);color:#fff;
+  border:1px solid rgba(255,255,255,.3);padding:5px 11px;
+  font-size:11px;font-weight:700;cursor:pointer;border-radius:3px;transition:all .2s;}
+.barra button:hover{background:rgba(255,255,255,.35);}
+.barra .btn-editar{background:linear-gradient(135deg,#11998e,#38ef7d);
+  color:#fff;border:none;}
+.barra .btn-editar:hover{opacity:.85;}
+.barra .sep{color:rgba(255,255,255,.3);}
+.barra .lbl{color:rgba(255,255,255,.6);font-size:10px;font-weight:700;text-transform:uppercase;}
+.barra .tono-val{color:#c9a84c;font-weight:700;font-size:14px;min-width:28px;text-align:center;}
+
+/* ── CONTENIDO ── */
+.letra{max-width:900px;margin:0 auto;padding:70px 24px 40px;
+  column-count:2;column-gap:36px;column-rule:1px solid #dce3ed;}
+@media(max-width:600px){.letra{column-count:1;padding:70px 14px 30px;}}
+.titulo2{font-family:'Lucida Sans Unicode',sans-serif;font-size:20px;
+  text-align:center;margin-bottom:6px;column-span:all;font-weight:700;}
+.titulo3{white-space:pre;font-size:14px;text-align:center;color:#555;
+  margin-bottom:14px;column-span:all;line-height:1.6;}
+.titulo5{font-family:'Courier New',monospace;font-size:15px;font-weight:500;white-space:pre;
+  text-align:left;break-inside:avoid;page-break-inside:avoid;
+  margin-bottom:16px;display:block;}
+.color-azul{color:rgb(4,130,180);font-weight:700;display:block;white-space:pre;}
+.color-negro{color:#000;font-weight:700;}
+.pie-container{display:flex;justify-content:center;align-items:center;
+  margin-top:24px;font-size:12px;color:#888;column-span:all;gap:8px;}
+.pie-container img{width:40px;height:auto;}
+
+/* ── ESTADOS ── */
+.estado{max-width:500px;margin:120px auto;text-align:center;padding:40px 20px;}
+.estado .ico{font-size:48px;margin-bottom:16px;}
+.estado h2{font-size:1.3rem;color:#003366;margin-bottom:8px;}
+.estado p{color:#6b7a99;font-size:14px;margin-bottom:20px;}
+.estado .spinner{width:40px;height:40px;border:4px solid #dce3ed;
+  border-top-color:#003366;border-radius:50%;animation:spin .8s linear infinite;
+  margin:0 auto 16px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.btn-volver{display:inline-block;background:linear-gradient(135deg,#4facfe,#00f2fe);
+  color:#fff;border:none;padding:10px 24px;border-radius:50px;font-size:14px;
+  font-weight:700;cursor:pointer;text-decoration:none;}
+
+@media print{.barra{display:none!important;}.letra{padding-top:10px;}}
+</style>
+</head>
+<body>
+
+<!-- BARRA (se rellena por JS) -->
+<div class="barra" id="barra" style="display:none;">
+  <span class="lbl">Tono:</span>
+  <span class="tono-val" id="tonoActual">?</span>
+  <button onclick="moverTono(1)">&#9839; +½</button>
+  <button onclick="moverTono(-1)">&#9837; -½</button>
+  <button onclick="moverTono(2)">+1 tono</button>
+  <button onclick="moverTono(-2)">-1 tono</button>
+  <span class="sep">|</span>
+  <button onclick="generarPDF()">&#128196; PDF</button>
+  <button onclick="generarImagen()">&#128247; Imagen</button>
+  <span class="sep">|</span>
+  <button class="btn-editar" onclick="editarCanto()">&#9998; Editar</button>
+  <span class="sep">|</span>
+  <button onclick="regresar()">&#8592; Regresar</button>
+</div>
+
+<!-- ESTADO: cargando / error / no encontrado -->
+<div class="estado" id="estadoWrap">
+  <div class="spinner" id="spinner"></div>
+  <h2 id="estadoTitulo">Cargando canto...</h2>
+  <p id="estadoMsg">Consultando Airtable</p>
+</div>
+
+<!-- CONTENIDO DEL CANTO -->
+<div class="letra" id="letraWrap" style="display:none;"></div>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────
+var AT_TOKEN = 'patJxB4Jkw1GK19XJ.e9baed267c8647649bfcd7a3af57756a224282e5e8033009575ca961888c3628';
+var AT_BASE  = 'appyn3FuqAu63Ak0j';   // Zoar Discipulado
+var AT_TABLE = 'Estructuras';
+
+// Notas para transposición
+var NM = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+var NA = ['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
+
+// Estado global
+var cantoActual = null;   // campos de Airtable
+var secsActual  = [];     // array de secciones parseado
+
+// ── HELPERS ─────────────────────────────────────────────
+function g(id){ return document.getElementById(id); }
+function esc(s){ return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
+
+function mostrarEstado(titulo, msg, spinner){
+  g('estadoWrap').style.display = 'block';
+  g('letraWrap').style.display  = 'none';
+  g('barra').style.display      = 'none';
+  g('spinner').style.display    = spinner ? 'block' : 'none';
+  g('estadoTitulo').textContent = titulo;
+  g('estadoMsg').textContent    = msg;
+}
+
+function mostrarError(titulo, msg){
+  mostrarEstado(titulo, msg, false);
+  g('estadoWrap').innerHTML +=
+    '<br><button class="btn-volver" onclick="regresar()">← Regresar</button>';
+}
+
+// ── CARGAR DESDE AIRTABLE ────────────────────────────────
+function cargarCanto(){
+  var params = new URLSearchParams(window.location.search);
+  var nombre = params.get('nombre');
+  if(!nombre){
+    mostrarError('Sin parámetro','No se especificó el nombre del canto.');
+    return;
+  }
+  document.title = decodeURIComponent(nombre);
+  mostrarEstado('Cargando...','Buscando "'+decodeURIComponent(nombre)+'" en Airtable', true);
+
+  var url = 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE)
+          + '?filterByFormula=' + encodeURIComponent("{Name}='" + decodeURIComponent(nombre) + "'")
+          + '&maxRecords=1';
+
+  fetch(url, { headers:{ 'Authorization':'Bearer '+AT_TOKEN } })
+  .then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  })
+  .then(function(data){
+    if(!data.records || data.records.length === 0){
+      mostrarError('No encontrado',
+        '"'+decodeURIComponent(nombre)+'" aún no tiene estructura guardada.\n'+
+        'Ábrelo desde AGREGAR_CANTO y usa 💾 Guardar en Airtable primero.');
+      return;
+    }
+    cantoActual = data.records[0].fields;
+    if(!cantoActual.EstructuraJSON){
+      mostrarError('Sin estructura','El canto existe pero no tiene secciones guardadas.');
+      return;
+    }
+    try{ secsActual = JSON.parse(cantoActual.EstructuraJSON); }
+    catch(e){ mostrarError('Error de datos','No se pudo leer la estructura del canto.'); return; }
+    renderizarCanto();
+  })
+  .catch(function(e){
+    mostrarError('Error de conexión', e.message);
+  });
+}
+
+// ── CALCULAR POSICIÓN DE NOTAS ───────────────────────────
+function calcLinea(segs){
+  var texto='', posiciones=[];
+  for(var i=0;i<segs.length;i++){ posiciones.push(texto.length); texto+=segs[i].texto||''; }
+  var arr=[];
+  for(var i=0;i<texto.length;i++) arr.push(' ');
+  for(var i=0;i<segs.length;i++){
+    if(!segs[i].nota) continue;
+    var n=segs[i].nota, pos=posiciones[i];
+    for(var j=0;j<n.length;j++){
+      if(pos+j<arr.length) arr[pos+j]=n[j]; else arr.push(n[j]);
+    }
+  }
+  while(arr.length<texto.length) arr.push(' ');
+  return { notas: arr.join(''), texto: texto };
+}
+
+// ── RENDERIZAR CANTO ─────────────────────────────────────
+function renderizarCanto(){
+  var nom   = cantoActual.Name    || 'SIN NOMBRE';
+  var autor = cantoActual.Autor   || '';
+  var nb    = cantoActual.NotaBase|| '';
+  var bpm   = cantoActual.BPM     || '';
+
+  document.title = nom;
+
+  // Actualizar tono en barra
+  g('tonoActual').textContent = nb || '?';
+
+  var html = '';
+
+  // Título
+  html += '<h1 class="titulo2">'+esc(nom)+'</h1>\n';
+
+  // Info: autor, nota, bpm
+  var info = '';
+  if(autor) info += esc(autor)+'\n';
+  if(nb)    info += 'Nota "'+esc(nb)+'"\n';
+  if(bpm)   info += 'Bits: '+esc(bpm)+'\n';
+  if(info)  html += '<p class="titulo3">'+info+'</p>\n';
+
+  // Secciones
+  for(var i=0;i<secsActual.length;i++){
+    var sec = secsActual[i];
+    var tm  = (sec.tipo==='OTRO') ? (sec.tipoCustom||'SECCIÓN') : (sec.tipo||'');
+    html += '<p class="titulo5"><span class="color-negro">'+esc(tm)+'</span>\n';
+
+    for(var j=0;j<(sec.lineas||[]).length;j++){
+      var res = calcLinea(sec.lineas[j].segs||[]);
+      var hasNota = false;
+      for(var k=0;k<(sec.lineas[j].segs||[]).length;k++){
+        if(sec.lineas[j].segs[k].nota){ hasNota=true; break; }
+      }
+      if(hasNota){
+        // Línea de notas con spans para poder transponerlas
+        var notasHtml = '';
+        var cursor = 0;
+        var segs = sec.lineas[j].segs;
+        var texto = '';
+        var posiciones = [];
+        for(var k=0;k<segs.length;k++){ posiciones.push(texto.length); texto+=segs[k].texto||''; }
+        for(var k=0;k<segs.length;k++){
+          if(!segs[k].nota) continue;
+          // espacios hasta posición
+          while(cursor < posiciones[k]){ notasHtml += ' '; cursor++; }
+          notasHtml += '<span class="nt">'+esc(segs[k].nota)+'</span>';
+          cursor += segs[k].nota.length;
+        }
+        html += '<span class="color-azul">'+notasHtml+'\n</span>';
+      }
+      if(res.texto.trim() || !hasNota){
+        html += esc(res.texto)+'\n';
+      }
+    }
+    html += '</p>\n';
+  }
+
+  html += '<div class="pie-container"><img src="/LOGOS/logo2.jpg" alt="Logo"><span>MINISTERIOS ZOAR 2026</span></div>\n';
+
+  g('letraWrap').innerHTML = html;
+  g('estadoWrap').style.display = 'none';
+  g('letraWrap').style.display  = 'block';
+  g('barra').style.display      = 'flex';
+}
+
+// ── TRANSPOSICIÓN ────────────────────────────────────────
+function moverTono(delta){
+  var spans = document.querySelectorAll('.nt');
+  spans.forEach(function(el){
+    var v = (el.textContent||'').trim();
+    if(!v) return;
+    var alt  = v.endsWith('m');
+    var list = alt ? NA : NM;
+    var idx  = list.indexOf(v);
+    if(idx === -1) return;
+    el.textContent = list[(idx+delta+12)%12];
+  });
+  // Actualizar nota base en barra
+  var nb = g('tonoActual').textContent;
+  var alt = nb.endsWith('m');
+  var list = alt ? NA : NM;
+  var idx = list.indexOf(nb);
+  if(idx !== -1) g('tonoActual').textContent = list[(idx+delta+12)%12];
+}
+
+// ── PDF ──────────────────────────────────────────────────
+function generarPDF(){
+  var barra = g('barra');
+  var nota  = g('tonoActual').textContent || '';
+  var nom   = (cantoActual ? cantoActual.Name : 'CANTO').replace(/\s+/g,'_');
+  if(barra) barra.style.display = 'none';
+  var opt = {
+    margin:[8,8,8,8], filename: nom+'_'+nota+'.pdf',
+    image:{type:'jpeg',quality:0.98},
+    html2canvas:{scale:2,useCORS:true},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  };
+  html2pdf().from(g('letraWrap')).set(opt).save().then(function(){
+    if(barra) barra.style.display='flex';
+  });
+}
+
+// ── IMAGEN ───────────────────────────────────────────────
+function generarImagen(){
+  var barra = g('barra');
+  var nota  = g('tonoActual').textContent || '';
+  var nom   = (cantoActual ? cantoActual.Name : 'CANTO').replace(/\s+/g,'_');
+  if(barra) barra.style.display = 'none';
+  html2canvas(g('letraWrap'),{scale:3,backgroundColor:'#ffffff',useCORS:true}).then(function(canvas){
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = nom+'_'+nota+'.png';
+    a.click();
+  }).finally(function(){ if(barra) barra.style.display='flex'; });
+}
+
+// ── EDITAR ───────────────────────────────────────────────
+function editarCanto(){
+  if(!cantoActual){ alert('No hay canto cargado.'); return; }
+  sessionStorage.setItem('editarCanto', JSON.stringify(cantoActual));
+  window.location.href = '/AGREGAR_CANTO.html?modo=editar';
+}
+
+// ── REGRESAR ─────────────────────────────────────────────
+function regresar(){
+  window.location.href = '/alabanza.html';
+}
+
+// ── ARRANCAR ─────────────────────────────────────────────
+window.addEventListener('load', cargarCanto);
+</script>
+</body>
+</html>

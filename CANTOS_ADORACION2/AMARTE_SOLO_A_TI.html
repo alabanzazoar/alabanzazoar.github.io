@@ -17,6 +17,10 @@ body{font-family:'Lucida Sans',sans-serif;background:#fff;color:#1a2740;}
   border:1px solid rgba(255,255,255,.3);padding:5px 11px;
   font-size:11px;font-weight:700;cursor:pointer;border-radius:3px;}
 .barra button:hover{background:rgba(255,255,255,.35);}
+.barra .btn-editar{background:linear-gradient(135deg,#11998e,#38ef7d);
+  color:#fff;border:none;padding:5px 13px;font-size:11px;font-weight:700;
+  cursor:pointer;border-radius:3px;}
+.barra .btn-editar:hover{opacity:.85;}
 .barra .sep{color:rgba(255,255,255,.3);}
 .barra .lbl{color:rgba(255,255,255,.6);font-size:10px;font-weight:700;text-transform:uppercase;}
 .barra .tono-val{color:#c9a84c;font-weight:700;font-size:14px;min-width:24px;text-align:center;}
@@ -42,7 +46,7 @@ body{font-family:'Lucida Sans',sans-serif;background:#fff;color:#1a2740;}
 <body>
 <div class="barra">
   <span class="lbl">Tono:</span>
-  <span class="tono-val" id="tonoActual">Cm/</span>
+  <span class="tono-val" id="tonoActual">Cm</span>
   <button onclick="moverSemitono(1)">&#9839; +&frac12;</button>
   <button onclick="moverSemitono(-1)">&#9837; -&frac12;</button>
   <button onclick="moverSemitono(2)">+1 tono</button>
@@ -50,6 +54,8 @@ body{font-family:'Lucida Sans',sans-serif;background:#fff;color:#1a2740;}
   <span class="sep">|</span>
   <button onclick="generarPDF()">&#128196; PDF</button>
   <button onclick="generarImagen()">&#128247; Imagen</button>
+  <span class="sep">|</span>
+  <button class="btn-editar" onclick="editarCanto()">&#9998; Editar</button>
   <span class="sep">|</span>
   <button onclick="regresar()">&#8592; Regresar</button>
 </div>
@@ -135,6 +141,41 @@ Bits: 89
     }).finally(function(){ if(barra)barra.style.display=''; });
   }
   function regresar(){ window.location.href = "/alabanza.html"; }
+
+  /* ── Botón Editar: carga estructura desde Airtable y abre AGREGAR_CANTO ── */
+  function editarCanto(){
+    var btn=document.querySelector('.btn-editar');
+    btn.textContent='Buscando...';
+    btn.style.pointerEvents='none';
+
+    var AT_TOKEN = 'patJxB4Jkw1GK19XJ.e9baed267c8647649bfcd7a3af57756a224282e5e8033009575ca961888c3628';
+    var AT_BASE  = 'appyn3FuqAu63Ak0j';
+    var AT_TABLE = 'Estructuras';
+    var NOMBRE   = 'AMARTE SOLO A TI';
+
+    fetch(
+      'https://api.airtable.com/v0/'+AT_BASE+'/'+encodeURIComponent(AT_TABLE)
+      +'?filterByFormula='+encodeURIComponent("{Name}='"+NOMBRE+"'")+'&maxRecords=1',
+      { headers:{ 'Authorization':'Bearer '+AT_TOKEN } }
+    )
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(!data.records || data.records.length===0){
+        alert('No se encontró la estructura guardada para este canto.\nAbre AGREGAR_CANTO y guárdala primero usando el botón "💾 Guardar en Airtable".');
+        btn.textContent='✏️ Editar';
+        btn.style.pointerEvents='';
+        return;
+      }
+      var fields = data.records[0].fields;
+      sessionStorage.setItem('editarCanto', JSON.stringify(fields));
+      window.location.href = '/AGREGAR_CANTO.html?modo=editar';
+    })
+    .catch(function(e){
+      alert('Error al conectar con Airtable: '+e.message);
+      btn.textContent='✏️ Editar';
+      btn.style.pointerEvents='';
+    });
+  }
 </script>
 </body>
 </html>

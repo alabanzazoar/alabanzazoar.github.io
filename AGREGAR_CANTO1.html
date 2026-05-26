@@ -1039,19 +1039,6 @@ function msMoverTono(d){
         seg.nota=nueva;
         var el=g("ms-snotasel"+seg.id);
         if(el) el.value=nueva;
-        // Transponer sufijo si existe (ej: /D → /D#)
-        if(seg.sufijo && seg.sufijo.indexOf('/')===0){
-          var notaSuf=seg.sufijo.slice(1);
-          var altSuf=notaSuf.endsWith("m");
-          var listSuf=altSuf?msNotasAlt:msNotas;
-          var idxSuf=listSuf.indexOf(notaSuf);
-          if(idxSuf!==-1){
-            var nuevaSuf=listSuf[(idxSuf+d+12)%12];
-            seg.sufijo='/'+nuevaSuf;
-            var elSuf=g("ms-ssuf"+seg.id);
-            if(elSuf) elSuf.value=seg.sufijo;
-          }
-        }
       }
     }
   }
