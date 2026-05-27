@@ -28,9 +28,30 @@
             box-shadow: 0 5px 15px rgba(79,172,254,0.3); display: inline-block;
         }
         .add-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
+        .list-btn {
+            position: absolute; top: 20px; right: 240px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white; text-decoration: none; border-radius: 50px;
+            font-size: 0.95em; font-weight: 600; transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79,172,254,0.3); display: inline-block;
+        }
+        .list-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
         h1.buscarCanto {
             color: white !important;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-top: 80px;
+        }
+        @media (max-width: 768px) {
+            .back-btn, .add-btn, .list-btn {
+                position: static;
+                display: block;
+                margin: 10px auto;
+                width: fit-content;
+            }
+            h1.buscarCanto {
+                margin-top: 20px;
+            }
         }
         #buscadorForm button {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
@@ -68,6 +89,7 @@
     </script>
 
     <a href="index.html" class="back-btn">← Inicio</a>
+    <a href="LISTA_CANTOS.html" class="list-btn">Listar Cantos</a>
     <a href="AGREGAR_CANTO.html" class="add-btn">+ Agregar Canto</a>
 
     <h1 class="buscarCanto">Alabanza Zoar</h1>

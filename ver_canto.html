@@ -199,7 +199,7 @@ function renderizarCanto(){
   // Info: autor, nota, bpm
   var info = '';
   if(autor) info += esc(autor)+'\n';
-  if(nb)    info += 'Nota "'+esc(nb)+'"\n';
+  if(nb)    info += 'Nota "<span class="nt">'+esc(nb)+'</span>"\n';
   if(bpm)   info += 'Bits: '+esc(bpm)+'\n';
   if(info)  html += '<p class="titulo3">'+info+'</p>\n';
 
