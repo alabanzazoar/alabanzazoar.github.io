@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lista de Cantos - Ministerios Zoar</title>
+<link rel="icon" href="/LOGOS/logo.jpg" type="image/x-icon">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Lucida Sans', sans-serif; 
+  background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 50%, #06b6d4 100%) !important; 
+  color: #1a2740; 
+  min-height: 100vh; 
+  padding: 20px;
+}
+
+.back-btn {
+  position: absolute; top: 20px; left: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white; text-decoration: none; border-radius: 50px;
+  font-size: 0.95em; font-weight: 600; transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(79,172,254,0.3); display: inline-block;
+}
+.back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,172,254,0.5); }
+
+.hdr { 
+  max-width: 1100px; 
+  margin: 0 auto 18px; 
+  margin-top: 60px;
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hdr h1 { 
+  font-size: 26px; 
+  color: white; 
+  flex: 1; 
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.btn { 
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+  color: #fff; 
+  border: none;
+  padding: 9px 18px; 
+  border-radius: 6px; 
+  font-size: 13px; 
+  font-weight: 700; 
+  cursor: pointer;
+  transition: all .3s; 
+  font-family: 'Lucida Sans', sans-serif;
+  box-shadow: 0 5px 15px rgba(79,172,254,0.3);
+}
+.btn:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 20px rgba(79,172,254,0.5);
+}
+.btn-verde { background: linear-gradient(135deg, #11998e, #38ef7d); box-shadow: 0 5px 15px rgba(17,153,142,0.3); }
+.btn-oro   { background: linear-gradient(135deg, #c9a84c, #a8862d); box-shadow: 0 5px 15px rgba(201,168,76,0.3); }
+.btn-rojo  { background: linear-gradient(135deg, #e74c3c, #c0392b); box-shadow: 0 5px 15px rgba(231,76,60,0.3); }
+.btn-gris  { background: #6b7a99; box-shadow: 0 5px 15px rgba(107,122,153,0.3); }
+.btn:disabled { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.main { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 18px; }
+@media (max-width: 900px) { .main { grid-template-columns: 1fr; } }
+
+.card { background: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
+.card-titulo { font-size: 13px; font-weight: 700; color: #003366; text-transform: uppercase;
+  letter-spacing: .05em; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #dce3ed; }
+
+#buscador { width: 100%; padding: 10px 14px; border: 2px solid #dce3ed; border-radius: 6px;
+  font-size: 14px; font-family: 'Lucida Sans', sans-serif; outline: none; margin-bottom: 12px; background: rgba(255,255,255,0.9); }
+#buscador:focus { border-color: #4facfe; box-shadow: 0 0 10px rgba(79,172,254,0.3); }
+
+.lista { max-height: 540px; overflow-y: auto; border: 1px solid #eef1f7; border-radius: 6px; }
+.item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #f4f6fa;
+  cursor: pointer; transition: background .15s; }
+.item:hover { background: #f0f7ff; }
+.item.sel { background: #e7f0ff; }
+.item:last-child { border-bottom: none; }
+.item input[type=checkbox] { width: 17px; height: 17px; cursor: pointer; accent-color: #003366; }
+.item-nom { flex: 1; font-size: 13px; font-weight: 600; color: #1a2740; }
+.item-meta { font-size: 11px; color: #6b7a99; }
+.item-nota { background: #003366; color: #c9a84c; font-weight: 700; font-size: 11px;
+  padding: 3px 8px; border-radius: 3px; min-width: 30px; text-align: center; }
+
+.estado-lista { padding: 30px; text-align: center; color: #6b7a99; font-size: 13px; }
+.spinner-mini { display: inline-block; width: 20px; height: 20px; border: 3px solid #dce3ed;
+  border-top-color: #4facfe; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.contador { display: inline-block; background: #c9a84c; color: #fff; padding: 2px 8px;
+  border-radius: 10px; font-size: 11px; font-weight: 700; margin-left: 6px; }
+
+.sel-item { display: flex; align-items: center; gap: 8px; padding: 9px 10px; border: 1px solid #dce3ed;
+  border-radius: 6px; margin-bottom: 8px; background: #fafbfd; }
+.sel-orden { font-weight: 700; color: #003366; font-size: 12px; min-width: 18px; }
+.sel-nom { flex: 1; font-size: 12px; font-weight: 600; color: #1a2740; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.sel-tono { padding: 4px 7px; border: 1px solid #dce3ed; border-radius: 4px; font-size: 11px;
+  font-weight: 700; background: #fff; cursor: pointer; width: 62px; outline: none; }
+.sel-tono:focus { border-color: #4facfe; }
+.sel-del { background: transparent; border: none; color: #e74c3c; cursor: pointer; font-size: 14px;
+  padding: 2px 6px; }
+.sel-del:hover { background: #fee; border-radius: 3px; }
+.sel-vacio { padding: 24px; text-align: center; color: #6b7a99; font-size: 12px; font-style: italic; }
+
+label.lbl { display: block; font-size: 10px; font-weight: 700; color: #6b7a99;
+  text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; margin-top: 10px; }
+input[type=text] { width: 100%; padding: 9px 12px; border: 2px solid #dce3ed; border-radius: 6px;
+  font-size: 13px; outline: none; font-family: 'Lucida Sans', sans-serif; background: rgba(255,255,255,0.9); }
+input[type=text]:focus { border-color: #4facfe; box-shadow: 0 0 10px rgba(79,172,254,0.3); }
+
+.acciones { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.acciones .btn { width: 100%; padding: 11px; font-size: 13px; }
+
+.toast { position: fixed; top: 20px; right: 20px; background: #fff; border-left: 4px solid #003366;
+  padding: 12px 18px; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  font-size: 13px; font-weight: 600; z-index: 9999; display: none; }
+.toast.ok { border-left-color: #27ae60; color: #1e7e34; }
+.toast.err { border-left-color: #e74c3c; color: #c0392b; }
+
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: none;
+  align-items: center; justify-content: center; z-index: 9998; }
+.overlay.activo { display: flex; }
+.overlay-box { background: #fff; border-radius: 10px; padding: 30px 40px; text-align: center; max-width: 340px; }
+.overlay-box .spinner { width: 50px; height: 50px; border: 5px solid #dce3ed;
+  border-top-color: #4facfe; border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
+.overlay-box h3 { font-size: 16px; color: #003366; margin-bottom: 6px; }
+.overlay-box p { font-size: 13px; color: #6b7a99; }
+
+@media (max-width: 768px) {
+  .back-btn {
+    position: static;
+    display: block;
+    margin: 10px auto;
+    width: fit-content;
+  }
+  .hdr h1 {
+    margin-top: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<a href="alabanza.html" class="back-btn">← Regresar</a>
+
+<div class="hdr">
+  <h1>📋 Crear Lista de Cantos</h1>
+</div>
+
+<div class="main">
+
+  <div class="card">
+    <div class="card-titulo">
+      Cantos disponibles
+      <span class="contador" id="ctTotal">0</span>
+    </div>
+    <input type="text" id="buscador" placeholder="🔍 Buscar canto...">
+    <div class="lista" id="listaCantos">
+      <div class="estado-lista">
+        <div class="spinner-mini"></div>
+        <p style="margin-top:8px;">Cargando cantos de Airtable...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo">
+      Seleccionados
+      <span class="contador" id="ctSel">0</span>
+    </div>
+    <div id="listaSel">
+      <div class="sel-vacio">Selecciona cantos de la izquierda</div>
+    </div>
+
+    <label class="lbl">Nombre del PDF</label>
+    <input type="text" id="nombrePDF" placeholder="Ej: Domingo_15_Junio" value="">
+
+    <label style="display:flex;align-items:center;gap:8px;margin-top:12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2740;">
+      <input type="checkbox" id="chkCompactar" style="width:16px;height:16px;cursor:pointer;accent-color:#003366;">
+      🗜️ Compactar (varios cantos por hoja si caben)
+    </label>
+
+    <div class="acciones">
+      <button class="btn btn-verde" id="btnPDF" disabled>📄 Generar PDF</button>
+      <button class="btn btn-oro"   id="btnPrev" disabled>👁 Vista previa</button>
+      <button class="btn btn-rojo"  id="btnLimpiar" disabled>🗑 Limpiar selección</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-box">
+    <div class="spinner"></div>
+    <h3 id="overlayTitulo">Generando PDF...</h3>
+    <p id="overlayMsg">Renderizando cantos</p>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────
+var AT_TOKEN = 'patJxB4Jkw1GK19XJ.e9baed267c8647649bfcd7a3af57756a224282e5e8033009575ca961888c3628';
+var AT_BASE  = 'appyn3FuqAu63Ak0j';
+var AT_TABLE = 'Estructuras';
+
+var NM = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
+var NA = ['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
+
+var todosLosCantos = [];
+var seleccionados  = [];
+
+// ── HELPERS ─────────────────────────────────────────────
+function g(id){ return document.getElementById(id); }
+function esc(s){
+  if(s === null || s === undefined) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toast(msg, tipo){
+  var t = g('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (tipo || '');
+  t.style.display = 'block';
+  clearTimeout(t._t);
+  t._t = setTimeout(function(){ t.style.display = 'none'; }, 3000);
+}
+
+function setOverlay(activo, titulo, msg){
+  var o = g('overlay');
+  if(activo){
+    o.classList.add('activo');
+    if(titulo) g('overlayTitulo').textContent = titulo;
+    if(msg)    g('overlayMsg').textContent = msg;
+  } else {
+    o.classList.remove('activo');
+  }
+}
+
+function regresar(){
+  window.location.href = '/alabanza.html';
+}
+
+// ── CARGAR DESDE AIRTABLE ───────────────────────────────
+function cargarCantos(){
+  var todos = [];
+  function fetchPagina(offset){
+    var url = 'https://api.airtable.com/v0/' + AT_BASE + '/' + encodeURIComponent(AT_TABLE)
+            + '?pageSize=100&fields[]=Name&fields[]=Autor&fields[]=NotaBase&fields[]=BPM&fields[]=EstructuraJSON';
+    if(offset) url += '&offset=' + offset;
+    return fetch(url, { headers: { 'Authorization': 'Bearer ' + AT_TOKEN } })
+      .then(function(r){
+        if(!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function(data){
+        for(var i = 0; i < data.records.length; i++){
+          var f = data.records[i].fields;
+          if(!f.Name || !f.EstructuraJSON) continue;
+          var estructura = null;
+          try { estructura = JSON.parse(f.EstructuraJSON); }
+          catch(e){ continue; }
+          todos.push({
+            name: f.Name,
+            autor: f.Autor || '',
+            notaBase: f.NotaBase || '',
+            bpm: f.BPM || '',
+            estructura: estructura
+          });
+        }
+        if(data.offset) return fetchPagina(data.offset);
+      });
+  }
+  fetchPagina(null)
+    .then(function(){
+      todos.sort(function(a,b){ return a.name.localeCompare(b.name); });
+      todosLosCantos = todos;
+      g('ctTotal').textContent = todos.length;
+      renderListaCantos();
+    })
+    .catch(function(e){
+      g('listaCantos').innerHTML =
+        '<div class="estado-lista" style="color:#c0392b;">❌ Error al cargar.<br><small>' + esc(e.message) + '</small></div>';
+    });
+}
+
+// ── LISTA DISPONIBLES ───────────────────────────────────
+function renderListaCantos(){
+  var filtro = (g('buscador').value || '').toLowerCase().trim();
+  var lista = g('listaCantos');
+  var visibles = todosLosCantos.filter(function(c){
+    if(!filtro) return true;
+    return c.name.toLowerCase().indexOf(filtro) !== -1
+        || (c.autor || '').toLowerCase().indexOf(filtro) !== -1;
+  });
+
+  if(visibles.length === 0){
+    lista.innerHTML = '<div class="estado-lista">Sin resultados</div>';
+    return;
+  }
+
+  // Render con DOM puro (sin attributes onclick) para evitar problemas con comillas en nombres
+  lista.innerHTML = '';
+  for(var i = 0; i < visibles.length; i++){
+    var c = visibles[i];
+    var sel = estaSeleccionado(c.name);
+    var div = document.createElement('div');
+    div.className = 'item' + (sel ? ' sel' : '');
+    div.innerHTML =
+      '<input type="checkbox"' + (sel ? ' checked' : '') + '>'
+      + '<div style="flex:1;min-width:0;">'
+      + '<div class="item-nom">' + esc(c.name) + '</div>'
+      + '<div class="item-meta">' + esc(c.autor || 'Sin autor') + '</div>'
+      + '</div>'
+      + '<span class="item-nota">' + esc(c.notaBase || '?') + '</span>';
+    (function(nombre){
+      div.addEventListener('click', function(){ toggleSel(nombre); });
+      div.querySelector('input').addEventListener('click', function(e){ e.stopPropagation(); toggleSel(nombre); });
+    })(c.name);
+    lista.appendChild(div);
+  }
+}
+
+// ── SELECCIONAR / DESELECCIONAR ─────────────────────────
+function estaSeleccionado(name){
+  for(var i = 0; i < seleccionados.length; i++) if(seleccionados[i].name === name) return true;
+  return false;
+}
+
+function toggleSel(name){
+  var idx = -1;
+  for(var i = 0; i < seleccionados.length; i++) if(seleccionados[i].name === name){ idx = i; break; }
+  if(idx === -1){
+    var canto = null;
+    for(var i = 0; i < todosLosCantos.length; i++) if(todosLosCantos[i].name === name){ canto = todosLosCantos[i]; break; }
+    if(!canto) return;
+    seleccionados.push({
+      name: canto.name,
+      autor: canto.autor,
+      notaBase: canto.notaBase,
+      bpm: canto.bpm,
+      estructura: canto.estructura,
+      tonoFinal: canto.notaBase
+    });
+  } else {
+    seleccionados.splice(idx, 1);
+  }
+  renderListaCantos();
+  renderSeleccionados();
+}
+
+function quitarSel(name){
+  for(var i = 0; i < seleccionados.length; i++){
+    if(seleccionados[i].name === name){ seleccionados.splice(i, 1); break; }
+  }
+  renderListaCantos();
+  renderSeleccionados();
+}
+
+function limpiarSel(){
+  if(seleccionados.length === 0) return;
+  if(!confirm('Limpiar toda la selección?')) return;
+  seleccionados = [];
+  renderListaCantos();
+  renderSeleccionados();
+}
+
+function cambiarTono(name, nuevo){
+  for(var i = 0; i < seleccionados.length; i++){
+    if(seleccionados[i].name === name){ seleccionados[i].tonoFinal = nuevo; break; }
+  }
+}
+
+// ── LISTA SELECCIONADOS ─────────────────────────────────
+function renderSeleccionados(){
+  var cont = g('listaSel');
+  g('ctSel').textContent = seleccionados.length;
+
+  var hay = seleccionados.length > 0;
+  g('btnPDF').disabled = !hay;
+  g('btnPrev').disabled = !hay;
+  g('btnLimpiar').disabled = !hay;
+
+  if(!hay){
+    cont.innerHTML = '<div class="sel-vacio">Selecciona cantos de la izquierda</div>';
+    return;
+  }
+
+  var todosLosTonos = NM.concat(NA);
+  cont.innerHTML = '';
+
+  for(var i = 0; i < seleccionados.length; i++){
+    var s = seleccionados[i];
+    var div = document.createElement('div');
+    div.className = 'sel-item';
+
+    var opciones = '';
+    for(var j = 0; j < todosLosTonos.length; j++){
+      var t = todosLosTonos[j];
+      opciones += '<option value="' + esc(t) + '"' + (t === s.tonoFinal ? ' selected' : '') + '>' + esc(t) + '</option>';
+    }
+
+    div.innerHTML =
+        '<span class="sel-orden">' + (i + 1) + '.</span>'
+      + '<span class="sel-nom" title="' + esc(s.name) + '">' + esc(s.name) + '</span>'
+      + '<select class="sel-tono">' + opciones + '</select>'
+      + '<button class="sel-del" title="Quitar">✕</button>';
+
+    (function(nombre){
+      div.querySelector('.sel-tono').addEventListener('change', function(){ cambiarTono(nombre, this.value); });
+      div.querySelector('.sel-del').addEventListener('click', function(){ quitarSel(nombre); });
+    })(s.name);
+
+    cont.appendChild(div);
+  }
+}
+
+// ── TRANSPONER NOTA ─────────────────────────────────────
+function transponerNota(nota, tonoOriginal, tonoFinal){
+  if(!nota || !tonoOriginal || !tonoFinal || tonoOriginal === tonoFinal) return nota;
+  var altOrig = tonoOriginal.endsWith('m');
+  var altFin  = tonoFinal.endsWith('m');
+  var listOrig = altOrig ? NA : NM;
+  var listFin  = altFin  ? NA : NM;
+  var idxOrig  = listOrig.indexOf(tonoOriginal);
+  var idxFin   = listFin.indexOf(tonoFinal);
+  if(idxOrig === -1 || idxFin === -1) return nota;
+  var delta = idxFin - idxOrig;
+  var notaAlt = nota.endsWith('m');
+  var listNota = notaAlt ? NA : NM;
+  var idxNota = listNota.indexOf(nota);
+  if(idxNota === -1) return nota;
+  return listNota[(idxNota + delta + 12) % 12];
+}
+
+// ── CALCULAR LINEA ──────────────────────────────────────
+function calcLinea(segs){
+  var texto = '', posiciones = [];
+  for(var i = 0; i < segs.length; i++){
+    posiciones.push(texto.length);
+    texto += segs[i].texto || '';
+  }
+  return { posiciones: posiciones, texto: texto };
+}
+
+// ── RENDERIZAR UN CANTO (estilos inline) ────────────────
+function renderizarCantoHTML(canto, esUltimo){
+  var stBloque  = 'padding:20px 24px 24px;' + (esUltimo ? '' : 'page-break-after:always;');
+  var stTitulo2 = 'font-family:Arial,sans-serif;font-size:20px;text-align:center;margin:0 0 6px 0;font-weight:700;color:#1a2740;';
+  var stTitulo3 = 'white-space:pre;font-size:14px;text-align:center;color:#555;margin:0 0 14px 0;line-height:1.6;font-family:Arial,sans-serif;';
+  var stTitulo5 = 'font-family:Courier New,monospace;font-size:14px;font-weight:500;white-space:pre;text-align:left;margin:0 0 14px 0;display:block;color:#1a2740;';
+  var stAzul    = 'color:rgb(16,116,204);font-weight:500;display:block;white-space:pre;font-family:Courier New,monospace;';
+  var stNegro   = 'color:#000;font-weight:700;';
+
+  var html = '<div style="' + stBloque + '">';
+  html += '<h1 style="' + stTitulo2 + '">' + esc(canto.name) + '</h1>';
+
+  var info = '';
+  if(canto.autor)     info += esc(canto.autor) + '\n';
+  if(canto.tonoFinal) info += 'Nota "' + esc(canto.tonoFinal) + '"\n';
+  if(canto.bpm)       info += 'Bits: ' + esc(canto.bpm) + '\n';
+  if(info) html += '<p style="' + stTitulo3 + '">' + info + '</p>';
+
+  var secs = canto.estructura || [];
+  for(var i = 0; i < secs.length; i++){
+    var sec = secs[i];
+    var tm  = (sec.tipo === 'OTRO') ? (sec.tipoCustom || 'SECCION') : (sec.tipo || '');
+    var bloqueSec = '<p style="' + stTitulo5 + '"><span style="' + stNegro + '">' + esc(tm) + '</span>\n';
+
+    var lineas = sec.lineas || [];
+    for(var j = 0; j < lineas.length; j++){
+      var segs = lineas[j].segs || [];
+      var calc = calcLinea(segs);
+      var hasNota = false;
+      for(var k = 0; k < segs.length; k++) if(segs[k].nota){ hasNota = true; break; }
+
+      if(hasNota){
+        var notasHtml = '', cursor = 0;
+        for(var k = 0; k < segs.length; k++){
+          if(!segs[k].nota) continue;
+          while(cursor < calc.posiciones[k]){ notasHtml += ' '; cursor++; }
+          var notaTransp = transponerNota(segs[k].nota, canto.notaBase, canto.tonoFinal);
+          notasHtml += esc(notaTransp);
+          cursor += notaTransp.length;
+        }
+        bloqueSec += '<span style="' + stAzul + '">' + notasHtml + '</span>';
+      }
+      if(calc.texto.trim() || !hasNota){
+        bloqueSec += esc(calc.texto) + '\n';
+      }
+    }
+    bloqueSec += '</p>';
+    html += bloqueSec;
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function construirHTMLLista(){
+  var html = '<div style="background:#fff;font-family:Arial,sans-serif;color:#1a2740;width:794px;">';
+  for(var i = 0; i < seleccionados.length; i++){
+    html += renderizarCantoHTML(seleccionados[i], i === seleccionados.length - 1);
+  }
+  html += '</div>';
+  return html;
+}
+
+// ── VISTA PREVIA ────────────────────────────────────────
+function vistaPrevia(){
+  if(seleccionados.length === 0){
+    toast('No hay cantos seleccionados', 'err');
+    return;
+  }
+  var w = window.open('', '_blank');
+  if(!w){
+    toast('El navegador bloqueó la ventana. Permite popups.', 'err');
+    return;
+  }
+  // Usar DOM directamente para evitar problemas con strings que contengan tags
+  var doc = w.document;
+  doc.title = 'Vista Previa';
+  doc.body.style.margin = '0';
+  doc.body.style.padding = '20px';
+  doc.body.style.background = '#eee';
+  doc.body.innerHTML = construirHTMLLista();
+}
+
+// ── GENERAR PDF ─────────────────────────────────────────
+function generarPDFLista(){
+  if(seleccionados.length === 0){
+    toast('No hay cantos seleccionados', 'err');
+    return;
+  }
+
+  var nombre = (g('nombrePDF').value || '').trim();
+  if(!nombre){
+    nombre = 'Lista_Cantos_' + new Date().toISOString().slice(0,10);
+  }
+  nombre = nombre.replace(/[^a-zA-Z0-9_\-]/g, '_');
+
+  setOverlay(true, 'Generando PDF...', 'Preparando ' + seleccionados.length + ' canto(s)');
+
+  // Crear UN contenedor temporal por CADA canto, capturarlo y armar el PDF manualmente
+  // Esto da mejor control que html2pdf y evita problemas de layout
+  var contenedores = [];
+  for(var i = 0; i < seleccionados.length; i++){
+    var div = document.createElement('div');
+    div.style.cssText = 'position:absolute;left:0;top:0;width:794px;background:#fff;padding:0;';
+    div.innerHTML = renderizarCantoHTML(seleccionados[i], true); // siempre true: sin page-break aquí
+    document.body.appendChild(div);
+    contenedores.push(div);
+  }
+
+  function limpiar(){
+    for(var i = 0; i < contenedores.length; i++){
+      if(contenedores[i].parentNode) contenedores[i].parentNode.removeChild(contenedores[i]);
+    }
+  }
+
+  // Esperar a que el navegador haga el layout
+  setTimeout(function(){
+    // jsPDF se carga como window.jspdf.jsPDF (versión UMD 2.x)
+    if(!window.jspdf || !window.jspdf.jsPDF){
+      setOverlay(false);
+      toast('Error: jsPDF no se cargó. Revisa tu conexión a internet.', 'err');
+      limpiar();
+      return;
+    }
+    if(typeof html2canvas !== 'function'){
+      setOverlay(false);
+      toast('Error: html2canvas no se cargó.', 'err');
+      limpiar();
+      return;
+    }
+
+    var pdf = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+    var pageW = pdf.internal.pageSize.getWidth();
+    var pageH = pdf.internal.pageSize.getHeight();
+    var margen = 10;
+    var anchoUtil = pageW - margen * 2;
+    var altoUtil  = pageH - margen * 2;
+
+    // Modo compactar: agrupa cantos en la misma hoja si caben
+    var compactar = g('chkCompactar').checked;
+    var sepEspacio = 6;     // espacio (mm) entre cantos en la misma hoja
+    var sepLinea   = 0.4;   // grosor de la línea separadora
+
+    // Cursor vertical de dónde va el siguiente contenido
+    var cursorY = margen;
+
+    function capturarCanto(idx){
+      if(idx >= contenedores.length){
+        // Terminamos
+        pdf.save(nombre + '.pdf');
+        setOverlay(false);
+        toast('PDF generado: ' + nombre + '.pdf', 'ok');
+        limpiar();
+        return;
+      }
+      g('overlayMsg').textContent = 'Procesando canto ' + (idx+1) + ' de ' + contenedores.length;
+
+      html2canvas(contenedores[idx], {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff',
+        windowWidth: 794
+      }).then(function(canvas){
+        var imgData = canvas.toDataURL('image/jpeg', 0.95);
+        var altoImg = (canvas.height * anchoUtil) / canvas.width;
+        var cabeEnUnaPagina = altoImg <= altoUtil;
+
+        if(compactar && idx > 0 && cabeEnUnaPagina){
+          // Modo compactar: intentar meter en la misma hoja
+          var espacioRestante = (margen + altoUtil) - cursorY;
+          var altoNecesario = sepEspacio + altoImg;
+
+          if(altoNecesario <= espacioRestante){
+            // Cabe: dibujar separador y agregar el canto debajo
+            var yLinea = cursorY + sepEspacio / 2;
+            pdf.setDrawColor(180, 180, 180);
+            pdf.setLineWidth(sepLinea);
+            pdf.line(margen + 15, yLinea, pageW - margen - 15, yLinea);
+
+            cursorY += sepEspacio;
+            pdf.addImage(imgData, 'JPEG', margen, cursorY, anchoUtil, altoImg);
+            cursorY += altoImg;
+            capturarCanto(idx + 1);
+            return;
+          }
+          // No cabe: cae al flujo normal abajo (nueva página)
+        }
+
+        // Flujo normal: nueva página para este canto (excepto el primero)
+        if(idx > 0) pdf.addPage();
+        cursorY = margen;
+
+        if(cabeEnUnaPagina){
+          pdf.addImage(imgData, 'JPEG', margen, cursorY, anchoUtil, altoImg);
+          cursorY += altoImg;
+        } else {
+          // Canto más largo que una página: dividir en franjas
+          var ratio = anchoUtil / canvas.width;  // mm por px
+          var altoPorPaginaPx = altoUtil / ratio;
+          var yPx = 0;
+          var primeraPagina = true;
+
+          while(yPx < canvas.height){
+            if(!primeraPagina) pdf.addPage();
+            primeraPagina = false;
+
+            var subCanvas = document.createElement('canvas');
+            subCanvas.width = canvas.width;
+            var altoFranja = Math.min(altoPorPaginaPx, canvas.height - yPx);
+            subCanvas.height = altoFranja;
+            var ctx = subCanvas.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, subCanvas.width, subCanvas.height);
+            ctx.drawImage(canvas, 0, yPx, canvas.width, altoFranja, 0, 0, canvas.width, altoFranja);
+
+            var imgFranja = subCanvas.toDataURL('image/jpeg', 0.95);
+            var altoFranjaMM = altoFranja * ratio;
+            pdf.addImage(imgFranja, 'JPEG', margen, margen, anchoUtil, altoFranjaMM);
+
+            yPx += altoPorPaginaPx;
+          }
+          // Después de un canto que ocupa varias páginas, el cursor queda al fondo
+          // (no permitimos agrupar después de uno multipágina)
+          cursorY = margen + altoUtil;
+        }
+
+        // Siguiente canto
+        capturarCanto(idx + 1);
+      }).catch(function(e){
+        setOverlay(false);
+        toast('Error al capturar canto ' + (idx+1) + ': ' + e.message, 'err');
+        console.error(e);
+        limpiar();
+      });
+    }
+
+    capturarCanto(0);
+  }, 600);
+}
+
+// ── ENGANCHAR EVENTOS Y ARRANCAR ────────────────────────
+window.addEventListener('load', function(){
+  g('buscador').addEventListener('input', renderListaCantos);
+  g('btnPDF').addEventListener('click', generarPDFLista);
+  g('btnPrev').addEventListener('click', vistaPrevia);
+  g('btnLimpiar').addEventListener('click', limpiarSel);
+  cargarCantos();
+});
+</script>
+</body>
+</html>
