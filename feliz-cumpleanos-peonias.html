@@ -18,17 +18,16 @@
     --leaf:#5f7d5a;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
+  html,body{height:100%;overflow:hidden}
   body{
     background:radial-gradient(120% 90% at 50% 110%, var(--ink-2) 0%, var(--ink) 60%);
-    overflow:hidden;
     font-family:'Karla',sans-serif;
     color:var(--cream);
     display:flex;align-items:center;justify-content:center;
   }
 
   /* ---------- escena ---------- */
-  .scene{position:relative;width:100%;height:100vh;display:flex;align-items:center;justify-content:center}
+  .scene{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;display:flex;align-items:center;justify-content:center}
 
   .card{
     position:relative;z-index:5;text-align:center;padding:2rem;max-width:680px;
@@ -62,10 +61,14 @@
   .peony svg{display:block;overflow:visible}
   .p-left  {left:-40px;bottom:-30px;width:min(40vw,340px);animation:sway 7s ease-in-out infinite}
   .p-right {right:-50px;bottom:-20px;width:min(44vw,380px);animation:sway 8.5s ease-in-out infinite reverse}
-  .p-top   {right:6vw;top:-60px;width:min(26vw,220px);transform:rotate(160deg);animation:sway 9s ease-in-out infinite}
   @keyframes sway{0%,100%{rotate:0deg}50%{rotate:2.2deg}}
-  .p-top{animation-name:swayTop}
-  @keyframes swayTop{0%,100%{transform:rotate(160deg)}50%{transform:rotate(157.5deg)}}
+
+  /* móvil primero: flores grandes llenando la parte baja, texto más arriba */
+  @media (max-width:640px){
+    .card{transform:translateY(-12vh);padding:1.5rem}
+    .p-left  {left:-16vw;bottom:-12vw;width:66vw}
+    .p-right {right:-18vw;bottom:-8vw;width:72vw}
+  }
 
   .petal{transform-origin:50px 95px;transform:scale(.05) rotate(var(--r));opacity:0;
     animation:bloom 1.6s cubic-bezier(.18,.7,.3,1.05) forwards;animation-delay:var(--d)}
@@ -96,35 +99,7 @@
     top:50%;left:50%;transform:translate(-50%,-55%);animation:pulse 6s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
 
-  /* ---------- panel para crear enlace ---------- */
-  .share-toggle{
-    position:fixed;bottom:14px;right:14px;z-index:20;
-    background:rgba(253,246,238,.08);border:1px solid rgba(253,246,238,.25);
-    color:var(--cream);font-family:'Karla',sans-serif;font-size:.78rem;letter-spacing:.08em;
-    padding:.5rem .9rem;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px);
-    transition:background .2s;
-  }
-  .share-toggle:hover{background:rgba(253,246,238,.16)}
-  .share-panel{
-    position:fixed;bottom:60px;right:14px;z-index:20;width:min(320px,92vw);
-    background:#10201a;border:1px solid rgba(217,179,106,.35);border-radius:14px;
-    padding:1rem;display:none;flex-direction:column;gap:.6rem;box-shadow:0 12px 40px rgba(0,0,0,.5);
-  }
-  .share-panel.open{display:flex}
-  .share-panel label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-  .share-panel input,.share-panel textarea{
-    width:100%;background:rgba(253,246,238,.06);border:1px solid rgba(253,246,238,.2);
-    border-radius:8px;color:var(--cream);font-family:'Karla',sans-serif;font-size:.9rem;padding:.5rem .6rem;
-  }
-  .share-panel textarea{resize:vertical;min-height:56px}
-  .share-panel button{
-    background:var(--rose-deep);border:none;color:#fff;font-family:'Karla',sans-serif;
-    padding:.6rem;border-radius:8px;cursor:pointer;font-size:.88rem;letter-spacing:.05em;
-  }
-  .share-panel button:hover{background:var(--rose)}
-  .share-out{font-size:.74rem;word-break:break-all;color:#cfe0d4;background:rgba(0,0,0,.3);
-    border-radius:8px;padding:.5rem;display:none}
-  .share-out.show{display:block}
+
 
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation-duration:.01s !important;animation-delay:0s !important}
@@ -139,7 +114,6 @@
   <!-- Peonía: plantilla SVG reutilizada por JS -->
   <div class="peony p-left" data-peony data-scale="1"></div>
   <div class="peony p-right" data-peony data-scale="1.1"></div>
-  <div class="peony p-top" data-peony data-scale=".8"></div>
 
   <div class="card">
     <p class="eyebrow">Un día para celebrarte</p>
@@ -147,18 +121,6 @@
     <p class="mensaje" id="mensaje">Que este nuevo año florezca como las peonías: con abundancia, alegría y momentos que perfumen todos tus días.</p>
     <p class="firma" id="firma" hidden></p>
   </div>
-</div>
-
-<button class="share-toggle" id="toggle">✉ Crear enlace personalizado</button>
-<div class="share-panel" id="panel">
-  <label for="i-para">Para</label>
-  <input id="i-para" placeholder="Nombre de quien cumple años">
-  <label for="i-de">De (opcional)</label>
-  <input id="i-de" placeholder="Tu nombre">
-  <label for="i-msg">Mensaje (opcional)</label>
-  <textarea id="i-msg" placeholder="Deja vacío para usar el mensaje por defecto"></textarea>
-  <button id="gen">Generar y copiar enlace</button>
-  <div class="share-out" id="out"></div>
 </div>
 
 <script>
@@ -218,25 +180,6 @@
     f.hidden=false;
   }
   if(q.get('para')) document.title='¡Feliz cumpleaños, '+q.get('para')+'! 🌸';
-
-  // ----- generador de enlace -----
-  const panel=document.getElementById('panel');
-  document.getElementById('toggle').onclick=()=>panel.classList.toggle('open');
-  document.getElementById('gen').onclick=async()=>{
-    const u=new URL(location.href.split('?')[0]);
-    const para=document.getElementById('i-para').value.trim();
-    const de=document.getElementById('i-de').value.trim();
-    const msg=document.getElementById('i-msg').value.trim();
-    if(para) u.searchParams.set('para',para);
-    if(de)   u.searchParams.set('de',de);
-    if(msg)  u.searchParams.set('msg',msg);
-    const out=document.getElementById('out');
-    out.textContent=u.toString();
-    out.classList.add('show');
-    try{ await navigator.clipboard.writeText(u.toString());
-      out.textContent='✓ Copiado: '+u.toString();
-    }catch(e){}
-  };
 </script>
 </body>
 </html>
