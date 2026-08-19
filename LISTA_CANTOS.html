@@ -218,6 +218,29 @@ var AT_TABLE = 'Estructuras';
 var NM = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
 var NA = ['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
 
+// ── ACORDES: raíz + sufijo + bajo ────────────────────────
+// Parsea acordes completos: A, Am, A#m7, Gsus4, A/D, D/F#, Bbmaj7/D.
+// Transpone la raíz y el bajo; el sufijo se conserva tal cual.
+// OJO: esto está duplicado en ver_canto.html y AGREGAR_CANTO.html.
+var BEM = { 'Ab':'G#','Bb':'A#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#' };
+var RE_ACORDE = /^([A-G][#b]?)([^\/]*)(?:\/([A-G][#b]?))?$/;
+
+function notaMas(n, d){
+  var i = NM.indexOf(BEM[n] || n);
+  return i === -1 ? n : NM[(i + d + 12) % 12];
+}
+
+// 'A#m7/C#' +2 → 'Cm7/D#'. Si no se reconoce, lo devuelve igual.
+function transponerAcorde(ac, d){
+  if(!ac) return ac;
+  var m = RE_ACORDE.exec(ac.trim());
+  if(!m) return ac;
+  return notaMas(m[1], d) + (m[2] || '') + (m[3] ? '/' + notaMas(m[3], d) : '');
+}
+
+// Acorde completo de un segmento: el editor guarda el bajo aparte en `sufijo`.
+function acordeDe(seg){ return (seg.nota || '') + (seg.sufijo || ''); }
+
 var todosLosCantos = [];
 var seleccionados  = [];
 
@@ -429,19 +452,13 @@ function renderSeleccionados(){
 // ── TRANSPONER NOTA ─────────────────────────────────────
 function transponerNota(nota, tonoOriginal, tonoFinal){
   if(!nota || !tonoOriginal || !tonoFinal || tonoOriginal === tonoFinal) return nota;
-  var altOrig = tonoOriginal.endsWith('m');
-  var altFin  = tonoFinal.endsWith('m');
-  var listOrig = altOrig ? NA : NM;
-  var listFin  = altFin  ? NA : NM;
-  var idxOrig  = listOrig.indexOf(tonoOriginal);
-  var idxFin   = listFin.indexOf(tonoFinal);
+  var mOrig = RE_ACORDE.exec(tonoOriginal.trim());
+  var mFin  = RE_ACORDE.exec(tonoFinal.trim());
+  if(!mOrig || !mFin) return nota;
+  var idxOrig = NM.indexOf(BEM[mOrig[1]] || mOrig[1]);
+  var idxFin  = NM.indexOf(BEM[mFin[1]]  || mFin[1]);
   if(idxOrig === -1 || idxFin === -1) return nota;
-  var delta = idxFin - idxOrig;
-  var notaAlt = nota.endsWith('m');
-  var listNota = notaAlt ? NA : NM;
-  var idxNota = listNota.indexOf(nota);
-  if(idxNota === -1) return nota;
-  return listNota[(idxNota + delta + 12) % 12];
+  return transponerAcorde(nota, idxFin - idxOrig);
 }
 
 // ── CALCULAR LINEA ──────────────────────────────────────
@@ -490,7 +507,7 @@ function renderizarCantoHTML(canto, esUltimo){
         for(var k = 0; k < segs.length; k++){
           if(!segs[k].nota) continue;
           while(cursor < calc.posiciones[k]){ notasHtml += ' '; cursor++; }
-          var notaTransp = transponerNota(segs[k].nota, canto.notaBase, canto.tonoFinal);
+          var notaTransp = transponerNota(acordeDe(segs[k]), canto.notaBase, canto.tonoFinal);
           notasHtml += esc(notaTransp);
           cursor += notaTransp.length;
         }

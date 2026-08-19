@@ -98,6 +98,32 @@ var AT_TABLE = 'Estructuras';
 var NM = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
 var NA = ['Am','A#m','Bm','Cm','C#m','Dm','D#m','Em','Fm','F#m','Gm','G#m'];
 
+// ── ACORDES: raíz + sufijo + bajo ────────────────────────
+// Parsea acordes completos: A, Am, A#m7, Gsus4, A/D, D/F#, Bbmaj7/D.
+// Transpone la raíz y el bajo; el sufijo se conserva tal cual.
+// OJO: esto está duplicado en LISTA_CANTOS.html y AGREGAR_CANTO.html.
+var BEM = { 'Ab':'G#','Bb':'A#','Cb':'B','Db':'C#','Eb':'D#','Fb':'E','Gb':'F#' };
+var RE_ACORDE = /^([A-G][#b]?)([^\/]*)(?:\/([A-G][#b]?))?$/;
+
+function notaMas(n, d){
+  var i = NM.indexOf(BEM[n] || n);
+  return i === -1 ? n : NM[(i + d + 12) % 12];
+}
+
+// 'A#m7/C#' +2 → 'Cm7/D#'. Si no se reconoce, lo devuelve igual.
+function transponerAcorde(ac, d){
+  if(!ac) return ac;
+  var m = RE_ACORDE.exec(ac.trim());
+  if(!m) return ac;
+  return notaMas(m[1], d) + (m[2] || '') + (m[3] ? '/' + notaMas(m[3], d) : '');
+}
+
+// Acorde completo de un segmento: el editor guarda el bajo aparte en `sufijo`.
+function acordeDe(seg){ return (seg.nota || '') + (seg.sufijo || ''); }
+
+// Semitonos acumulados desde la NotaBase original.
+var transpActual = 0;
+
 // Estado global
 var cantoActual = null;   // campos de Airtable
 var secsActual  = [];     // array de secciones parseado
@@ -170,7 +196,7 @@ function calcLinea(segs){
   for(var i=0;i<texto.length;i++) arr.push(' ');
   for(var i=0;i<segs.length;i++){
     if(!segs[i].nota) continue;
-    var n=segs[i].nota, pos=posiciones[i];
+    var n=transponerAcorde(acordeDe(segs[i]), transpActual), pos=posiciones[i];
     for(var j=0;j<n.length;j++){
       if(pos+j<arr.length) arr[pos+j]=n[j]; else arr.push(n[j]);
     }
@@ -183,7 +209,7 @@ function calcLinea(segs){
 function renderizarCanto(){
   var nom   = cantoActual.Name    || 'SIN NOMBRE';
   var autor = cantoActual.Autor   || '';
-  var nb    = cantoActual.NotaBase|| '';
+  var nb    = transponerAcorde(cantoActual.NotaBase || '', transpActual);
   var bpm   = cantoActual.BPM     || '';
 
   document.title = nom;
@@ -227,8 +253,9 @@ function renderizarCanto(){
           if(!segs[k].nota) continue;
           // espacios hasta posición
           while(cursor < posiciones[k]){ notasHtml += ' '; cursor++; }
-          notasHtml += '<span class="nt">'+esc(segs[k].nota)+'</span>';
-          cursor += segs[k].nota.length;
+          var ac = transponerAcorde(acordeDe(segs[k]), transpActual);
+          notasHtml += '<span class="nt">'+esc(ac)+'</span>';
+          cursor += ac.length;
         }
         html += '<span class="color-azul">'+notasHtml+'\n</span>';
       }
@@ -249,22 +276,11 @@ function renderizarCanto(){
 
 // ── TRANSPOSICIÓN ────────────────────────────────────────
 function moverTono(delta){
-  var spans = document.querySelectorAll('.nt');
-  spans.forEach(function(el){
-    var v = (el.textContent||'').trim();
-    if(!v) return;
-    var alt  = v.endsWith('m');
-    var list = alt ? NA : NM;
-    var idx  = list.indexOf(v);
-    if(idx === -1) return;
-    el.textContent = list[(idx+delta+12)%12];
-  });
-  // Actualizar nota base en barra
-  var nb = g('tonoActual').textContent;
-  var alt = nb.endsWith('m');
-  var list = alt ? NA : NM;
-  var idx = list.indexOf(nb);
-  if(idx !== -1) g('tonoActual').textContent = list[(idx+delta+12)%12];
+  if(!cantoActual) return;
+  // Se re-renderiza en vez de editar cada <span>: así los acordes que cambian
+  // de ancho (A → A#, A/D → A#/D#) no descuadran la línea de notas.
+  transpActual = (transpActual + delta + 12) % 12;
+  renderizarCanto();
 }
 
 // ── PDF ──────────────────────────────────────────────────
