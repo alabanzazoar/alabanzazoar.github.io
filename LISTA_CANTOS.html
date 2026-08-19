@@ -185,6 +185,17 @@ input[type=text]:focus { border-color: #4facfe; box-shadow: 0 0 10px rgba(79,172
     <label class="lbl">Nombre del PDF</label>
     <input type="text" id="nombrePDF" placeholder="Ej: Domingo_15_Junio" value="">
 
+    <label class="lbl" style="margin-top:12px;">Tamaño del texto</label>
+    <select id="selTam" style="width:100%;padding:8px;border:1px solid #dce3ed;border-radius:4px;font-size:13px;">
+      <option value="14">Normal (14)</option>
+      <option value="18" selected>Grande (18)</option>
+      <option value="22">Muy grande (22)</option>
+      <option value="26">Máximo (26)</option>
+    </select>
+    <p style="font-size:11px;color:#777;margin-top:4px;line-height:1.4;">
+      Si un canto tiene líneas muy largas, ese canto baja solo lo necesario para no cortarse.
+    </p>
+
     <label style="display:flex;align-items:center;gap:8px;margin-top:12px;cursor:pointer;font-size:12px;font-weight:600;color:#1a2740;">
       <input type="checkbox" id="chkCompactar" style="width:16px;height:16px;cursor:pointer;accent-color:#003366;">
       🗜️ Compactar (varios cantos por hoja si caben)
@@ -471,12 +482,57 @@ function calcLinea(segs){
   return { posiciones: posiciones, texto: texto };
 }
 
+// ── TAMAÑO DEL TEXTO ────────────────────────────────────
+// El PDF rasteriza un contenedor de 794px y lo mapea siempre a 190mm de ancho,
+// así que el tamaño de fuente se traduce directo a tamaño en la hoja.
+// Pero las líneas son white-space:pre (no cortan): si una se pasa del ancho,
+// se recorta. Por eso cada canto baja solo lo necesario para caber.
+var PDF_ANCHO_PX = 794 - 48;   // 794 menos el padding lateral del bloque (24+24)
+var PDF_CHAR_EM  = 0.6;        // ancho de avance de Courier New, en em
+
+// Largo en caracteres de la línea más ancha del canto (letra, acordes o título
+// de sección), ya transpuesta: al transponer un acorde puede crecer (E → A#).
+function anchoMaximoCanto(canto){
+  var max = 0;
+  var secs = canto.estructura || [];
+  for(var i = 0; i < secs.length; i++){
+    var tm = (secs[i].tipo === 'OTRO') ? (secs[i].tipoCustom || 'SECCION') : (secs[i].tipo || '');
+    if(tm.length > max) max = tm.length;
+    var lineas = secs[i].lineas || [];
+    for(var j = 0; j < lineas.length; j++){
+      var segs = lineas[j].segs || [];
+      var calc = calcLinea(segs);
+      if(calc.texto.length > max) max = calc.texto.length;
+      var cursor = 0;
+      for(var k = 0; k < segs.length; k++){
+        if(!segs[k].nota) continue;
+        if(cursor < calc.posiciones[k]) cursor = calc.posiciones[k];
+        cursor += transponerNota(acordeDe(segs[k]), canto.notaBase, canto.tonoFinal).length;
+      }
+      if(cursor > max) max = cursor;
+    }
+  }
+  return max;
+}
+
+// Tamaño de fuente para este canto: el elegido, o menos si no cabe.
+function tamCanto(canto){
+  var techo = parseInt((g('selTam') || {}).value, 10) || 14;
+  var n = anchoMaximoCanto(canto);
+  if(!n) return techo;
+  var cabe = PDF_ANCHO_PX / (n * PDF_CHAR_EM);
+  // El piso de 8px cubre líneas de hasta ~155 caracteres; más largo que eso
+  // se recortaría, pero ningún canto real se acerca (el más largo aquí: 48).
+  return Math.max(8, Math.min(techo, Math.floor(cabe * 10) / 10));
+}
+
 // ── RENDERIZAR UN CANTO (estilos inline) ────────────────
 function renderizarCantoHTML(canto, esUltimo){
+  var fs = tamCanto(canto);
   var stBloque  = 'padding:20px 24px 24px;' + (esUltimo ? '' : 'page-break-after:always;');
-  var stTitulo2 = 'font-family:Arial,sans-serif;font-size:20px;text-align:center;margin:0 0 6px 0;font-weight:700;color:#1a2740;';
-  var stTitulo3 = 'white-space:pre;font-size:14px;text-align:center;color:#555;margin:0 0 14px 0;line-height:1.6;font-family:Arial,sans-serif;';
-  var stTitulo5 = 'font-family:Courier New,monospace;font-size:14px;font-weight:500;white-space:pre;text-align:left;margin:0 0 14px 0;display:block;color:#1a2740;';
+  var stTitulo2 = 'font-family:Arial,sans-serif;font-size:' + Math.round(fs * 1.45) + 'px;text-align:center;margin:0 0 6px 0;font-weight:700;color:#1a2740;';
+  var stTitulo3 = 'white-space:pre;font-size:' + Math.round(fs) + 'px;text-align:center;color:#555;margin:0 0 14px 0;line-height:1.6;font-family:Arial,sans-serif;';
+  var stTitulo5 = 'font-family:Courier New,monospace;font-size:' + fs + 'px;font-weight:500;white-space:pre;text-align:left;margin:0 0 14px 0;display:block;color:#1a2740;';
   var stAzul    = 'color:rgb(16,116,204);font-weight:500;display:block;white-space:pre;font-family:Courier New,monospace;';
   var stNegro   = 'color:#000;font-weight:700;';
 
